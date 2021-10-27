@@ -7,6 +7,7 @@ import {Recognition} from '../common/recognition/Recognition';
 import {Chart} from '../common/chart/Chart';
 
 import Wizard from '../common/wizard/Wizard';
+import { Spinner } from '../common/share/ShareComponents';
 
 import './Home.scss';
 
@@ -24,6 +25,11 @@ class Home extends Component {
     return <div className="home-wrapper">
       <h1>Home</h1>
       <ul className="application-list">
+        <li className="application-item" style={{backgroundColor: '#fff'}}>
+          <Spinner type="linkPanel"/>
+        </li>
+        { 
+        /*
         <li className="application-item">
            <Chart data={[
               {'value': 10, 'reverse': true, 'stroke': 30 },
@@ -41,6 +47,8 @@ class Home extends Component {
             ]}
           />
         </li>
+        */
+        }
         <li className="application-item">
           <Speech {...this.props} />
         </li>
