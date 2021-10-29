@@ -7,7 +7,6 @@ import {Recognition} from '../common/recognition/Recognition';
 import {Chart} from '../common/chart/Chart';
 
 import Wizard from '../common/wizard/Wizard';
-import { Spinner } from '../common/share/ShareComponents';
 
 import './Home.scss';
 
@@ -26,7 +25,9 @@ class Home extends Component {
       <h1>Home</h1>
       <ul className="application-list">
         <li className="application-item" style={{backgroundColor: '#fff'}}>
-          <Spinner type="linkPanel"/>
+          <div>
+            <a href="no.eika.smartspar.app:/oauth2redirect" className="link">Smartspar</a>
+          </div>
         </li>
         { 
         /*

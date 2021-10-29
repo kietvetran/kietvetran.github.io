@@ -4,6 +4,7 @@
 .home-wrapper {
 	position: relative;
 
+
 	.application-list {
 		list-style: none;
 		padding: 0;
@@ -36,7 +37,6 @@
 		}
 	}
 
-
 	.collcetion {
 		display: block;
 		clear: both;
@@ -52,6 +52,12 @@
 			margin: 0 0 1rem 0;
 			text-decoration: underline;
 		}
+	}
+
+
+	a.link {
+		margin: 0 0 1rem 0;
+		text-decoration: underline;
 	}
 
 
