@@ -28,6 +28,9 @@ class Home extends Component {
           <div>
             <a href="no.eika.smartspar.app:/oauth2redirect" className="link">Smartspar</a>
           </div>
+          <div>
+            <a href="https://eika.test.eika.no/spareapp-dmz-ws/rest/resource/oauth2redirect" className="link">Smartspar - https</a>
+          </div>
         </li>
         { 
         /*
