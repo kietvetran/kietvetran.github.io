@@ -37,3 +37,44 @@ export const getPagingList = ( config ) =>{
   }
   return list;
 }
+
+export const openSmartspart = (key='', param='', href='' )=> {
+    const iOS = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+    const android = navigator.userAgent.match('Android');
+
+    if ( iOS || android ) {
+        const isSafari = navigator.vendor && 
+            navigator.vendor.indexOf('Apple') > -1 &&
+            navigator.userAgent &&
+            navigator.userAgent.indexOf('CriOS') == -1 &&
+            navigator.userAgent.indexOf('FxiOS') == -1;
+
+        const url = `smartspar://home?${param || 'action=none'}`;
+        const appstore = iOS ? ( isSafari ?
+            'https://itunes.apple.com/app/id1450266656' : 'https://apps.apple.com/no/app/smartspar/id1450266656' 
+        ) : 'https://play.google.com/store/apps/details?id=no.eika.smartspar';
+
+        const state = { 'timer': 0, stop: false, count: isSafari ? 2 : 1};
+        const blur = () => {
+            if ( --state.count ) { return; }
+
+            clearTimeout( state.timer );
+            state.stop = true;
+        };
+        window.removeEventListener('blur', blur)
+        window.addEventListener('blur', blur);
+
+        state.timer = setTimeout( () => {
+            if (state.stop) { return; }
+            if ( isSafari ) {
+                window.location.replace(appstore);
+            } else {
+                window.location.href = appstore;
+            }
+        }, (isSafari ? 2000 : 500));
+
+        window.location.href = url;
+    } else if ( href ) {
+        window.location.href = href;
+    }
+}

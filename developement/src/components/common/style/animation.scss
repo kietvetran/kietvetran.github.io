@@ -52,3 +52,35 @@
   0%   { opacity: 1; max-height: 12.5rem;}
   100% { opacity: 0; max-height: 0;}
 }
+
+@-webkit-keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  1% { transform: translate(-1px, -2px) rotate(-1deg); }
+  2% { transform: translate(-3px, 0px) rotate(1deg); }
+  3% { transform: translate(3px, 2px) rotate(0deg); }
+  4% { transform: translate(1px, -1px) rotate(1deg); }
+  5% { transform: translate(-1px, 2px) rotate(-1deg); }
+  6% { transform: translate(-3px, 1px) rotate(0deg); }
+  7% { transform: translate(3px, 1px) rotate(-1deg); }
+  8% { transform: translate(-1px, -1px) rotate(1deg); }
+  9% { transform: translate(1px, 2px) rotate(0deg); }
+  10% { transform: translate(1px, -2px) rotate(-1deg); }
+  11% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  1% { transform: translate(-1px, -2px) rotate(-1deg); }
+  2% { transform: translate(-3px, 0px) rotate(1deg); }
+  3% { transform: translate(3px, 2px) rotate(0deg); }
+  4% { transform: translate(1px, -1px) rotate(1deg); }
+  5% { transform: translate(-1px, 2px) rotate(-1deg); }
+  6% { transform: translate(-3px, 1px) rotate(0deg); }
+  7% { transform: translate(3px, 1px) rotate(-1deg); }
+  8% { transform: translate(-1px, -1px) rotate(1deg); }
+  9% { transform: translate(1px, 2px) rotate(0deg); }
+  10% { transform: translate(1px, -2px) rotate(-1deg); }
+  11% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}

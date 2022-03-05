@@ -8,6 +8,8 @@ import { bindActionCreators } from 'redux';
 
 /* function */
 import {readCookie, createCookie, eraseCookie, addEvent, getURLquery, scrollBodyTop} from '../components/common/General';
+import {openSmartspart} from '../components/common/Function';
+
 
 /* action */
 import { appInit } from './../actions/appActions';
@@ -66,6 +68,10 @@ class App extends Component {
       return prev;
     }, {});
 
+    if ( query.action ) {
+      return <div className="action-test"/>
+    }
+
     return <Router history={browser}>
       <div className="app-wrapper flex">
         <header className="app-header flex-header">
@@ -102,6 +108,19 @@ class App extends Component {
         {dialog && <DialogBox ref="dialogbox" {...dialog} {...common} />}
       </div>
     </Router>
+  }
+
+  componentDidMount() {
+    const base = /(localhost|.test)/i.test(window.location.href) ? '' :  'https://eika.no/smartspar';
+    const query = getURLquery();
+
+    if ( query.action ) {
+        const param = ['action', 'portfolioBaseCode', 'isin', 'category'].map( (key) => {
+            return query[key] ? `${key}=${query[key]}` : '';
+        }).filter((v) => !!v).join('&');
+
+        openSmartspart('', param, base );
+    }
   }
 
   /****************************************************************************
