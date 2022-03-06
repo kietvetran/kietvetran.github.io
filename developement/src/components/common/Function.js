@@ -71,7 +71,8 @@ export const openSmartspart = (key='', param='', href='' )=> {
             } else {
                 window.location.href = appstore;
             }
-        }, (isSafari ? 2000 : 500));
+        // }, (isSafari ? 2000 : 500));
+        }, (iOS ? 5000 : 500));
 
         window.location.href = url;
     } else if ( href ) {
