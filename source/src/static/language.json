@@ -1,0 +1,170 @@
+{
+    "add-filter": {
+        "no": "Legg til filter",
+        "en": "Add filter" 
+    },
+    "add-filter-to-stop-place": {
+        "no": "Legg til filter på {?}",
+        "en": "Add filter to {}" 
+    },
+    "add-filter-input-placeholder": {
+        "no": "Filter tekst",
+        "en": "Filter text" 
+    },
+    "add-note": {
+        "no": "Legg til notat",
+        "en": "Add note to" 
+    },
+    "add-note-to-stop-place": {
+        "no": "Legg til notat på {?}",
+        "en": "Add note to {?}" 
+    },
+    "add-note-input-placeholder": {
+        "no": "Notat tekst",
+        "en": "Note text" 
+    },
+    "my-favorite-stops": {
+        "no": "My favorite stops",
+        "en": "Mine favorrite holdeplasser" 
+    },
+    "my-closest-stops": {
+        "no": "Nærmeste holdeplasser",
+        "en": "My closest stops" 
+    },
+    "my-location": {
+        "no": "Min lokasjon",
+        "en": "My location"
+    },
+    "filter": {
+        "no": "Filter",
+        "en": "Filter" 
+    },
+    "from-place": {
+        "no": "Fra sted",
+        "en": "From place" 
+    },
+    "to-place": {
+        "no": "Til sted",
+        "en": "To place" 
+    },
+    "travel-from": {
+        "no": "Reiser fra",
+        "en": "Travel from" 
+    },
+    "travel-to": {
+        "no": "Reiser til",
+        "en": "Travel to" 
+    },
+    "note": {
+        "no": "Notat",
+        "en": "Note" 
+    },
+    "no-note": {
+        "no": "Ingen notat",
+        "en": "Empty note" 
+    },
+    "none-favorite-places": {
+        "no": "Ingen favoritt stoppeplass er lagret. Klikk på stjerne ved side av stoppeplassen for å legge inn som favoritt.",
+        "en": "None favorite stop place is been saved. Click on the star to add the stop as a favorite." 
+    },
+    "find-journey": {
+        "no": "Finn reise",
+        "en": "Find the journey" 
+    },
+    "overview": {
+        "no": "Oversikt",
+        "en": "Overview" 
+    },
+    "search": {
+        "no": "Søk",
+        "en": "Search" 
+    },
+    "setting": {
+        "no": "Innstillinger",
+        "en": "Setting" 
+    },
+    "save": {
+        "no": "Lagre",
+        "en": "Save" 
+    },
+    "add": {
+        "no": "Legg til",
+        "en": "Add" 
+    },
+    "delete": {
+        "no": "Slett",
+        "en": "Delete" 
+    },
+    "home": {
+        "no": "Hjem",
+        "en": "Home" 
+    },
+    "bus": {
+        "no": "Buss",
+        "en": "bus" 
+    },
+    "metro": {
+        "no": "T-bane",
+        "en": "Metro" 
+    },
+    "rail": {
+        "no": "Tog",
+        "en": "Train" 
+    },
+    "tram": {
+        "no": "Trikk",
+        "en": "Tram" 
+    },
+    "foot": {
+        "no": "Gå",
+        "en": "Walk" 
+    },
+    "walk": {
+        "no": "Gå",
+        "en": "Walk" 
+    },
+    "travel": {
+        "no": "Reise",
+        "en": "Travel" 
+    },
+    "emtpy": {
+        "no": "Tomt",
+        "en": "Empty" 
+    },
+    "travel-time": {
+        "no": "Reise tid",
+        "en": "Travel time" 
+    },
+    "total-travel": {
+        "no": "Totalt reise",
+        "en": "Total travel" 
+    },
+    "start-travel": {
+        "no": "Start reise",
+        "en": "Start travel" 
+    },
+    "setting-to-stop-place": {
+        "no": "Innstillinger på {?}",
+        "en": "Setting top {?}." 
+    },
+    "stop-places": {
+        "no": "Stoppeplasser",
+        "en": "Stop places" 
+    },
+    "search-stop-places": {
+        "no": "Søk stoppeplasser",
+        "en": "Search stop places" 
+    },
+    "use-star-to-add-to-favorite-stop-place": {
+        "no": "Klikk på stjerne ved side av stoppeplassen for å legge inn som favoritt.",
+        "en": "Click on the star to add the stop as a favorite." 
+    },
+    "english": {
+        "no": "Engelsk",
+        "en": "English"        
+    },
+    "norwegian": {
+        "no": "Norsk",
+        "en": "Norwegian",        
+    }
+}
