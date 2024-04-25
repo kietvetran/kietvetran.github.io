@@ -12,7 +12,7 @@ export default function Application() {
       <header className="app-header">
         <div className="app-cnt layout-wrapper">
           <a href={window.location.href} className="link -no-underline">
-            <h1>kietvetran@</h1>
+            <h1>@kietvetran</h1>
           </a>
           <nav
             id="main-nav"

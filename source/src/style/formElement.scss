@@ -1,4 +1,22 @@
 /******************************************************************************
+  input-wrapper
+******************************************************************************/
+.input-wrapper {
+    position: relative;
+    padding: 0 0 var(--space-medium) 0;
+}
+
+label.input-label, legend.input-label {
+    display: block;
+    padding: 0 0 var(--space-smallest) 0;
+}
+
+.input-error {
+    padding: var(--space-smallest) 0 0 0;
+    color: var(--color-error);
+}
+
+/******************************************************************************
   button
 ******************************************************************************/
 .button {
@@ -17,16 +35,16 @@
     min-width: 64px;
     white-space: nowrap;
     background: #eee none no-repeat left center / auto 100%;
-}
 
-.button.-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-}
+    &.-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
 
-.button.-small {
-    padding: 4px var(--space-small);
-    font-size: var(--font-size-small);
+    &.-small {
+        padding: 4px var(--space-small);
+        font-size: var(--font-size-small);
+    }
 }
 
 /******************************************************************************
@@ -39,15 +57,15 @@
     border: 2px solid var(--border-color);
     border-radius: var(--border-round);
     background: transparent none no-repeat center center / auto 90%;
-}
 
-.icon-btn.-small {
-    width: var(--icon-btn-size-small);
-    height: var(--icon-btn-size-small);
-}
+    &.-small {
+        width: var(--icon-btn-size-small);
+        height: var(--icon-btn-size-small);
+    }
 
-.icon-btn.-no-border {
-    border: 0 none;
+    &.-no-border {
+        border: 0 none;
+    }
 }
 
 /*
@@ -100,22 +118,20 @@
     border-radius: var(--border-round);
     background: var(--color-white) none repeat 0 0;
     display: block;
-    borde: 2px solid var(--border-color);
+    border: 2px solid var(--border-color);
     width: 100%;
-    padding: var(--space-small);
-}
+    padding: var(--space-extra-small);
 
-.textarea:hover, .textarea:focus, .textarea:active, 
-.textfield:hover, .textfield:focus, .textfield:active {
-    border-color: var(--color-focus);
-    box-shadow: 0 0 0 2px var(--color-focus);
-    outline: none;
-}
+    &:hover, &:focus, &:active {
+        border-color: var(--color-focus);
+        box-shadow: 0 0 0 2px var(--color-focus);
+        outline: none;
+    }
 
-.textarea.-invalid, .textfield.-invalid {
-    border-color: var(--color-error);
+    &.-invalid {
+        border-color: var(--color-error);
+    }
 }
-
 
 /******************************************************************************
   textarea 

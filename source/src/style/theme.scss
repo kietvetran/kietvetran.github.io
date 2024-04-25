@@ -17,6 +17,9 @@
   --screen-table: 980px;
   --screen-mobile: 768px;
 
+  --space-smallest-min: 2px;
+  --space-smallest: 4px;
+  --space-smallest-max: 6px;
   --space-extra-small-min: 8px;
   --space-extra-small: 10px;
   --space-extra-small-max: 12px;
@@ -36,7 +39,7 @@
   --icon-btn-size-small: 30px;
   --icon-btn-size: 40px;
 
-  --border-round: 4px;
+  --border-round: 6px;
   --border-color: #333333;
 
   --card-round: 6px;
@@ -49,7 +52,9 @@
 
   --color-primary:   #343a40;
   --color-secondary: #e9bd6c;
-  --color-focus:     #8F00FF;
+  // --color-focus:     #8F00FF;
+  --color-focus:     #0099cc;
+
   --color-white:     #FFFFFF;
   --color-blue-light:#0099cc;
   --color-blue:      #0d6efd;
