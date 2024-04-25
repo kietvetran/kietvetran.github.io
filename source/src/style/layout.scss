@@ -1,0 +1,171 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
+}
+
+html, body {
+    overflow-x: hidden;
+    background: var(--bg-color) none no-repeat center center;
+}
+
+body {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
+span.ellipsis, a.ellipsis {
+    display: inline-block;
+}
+
+img, video {
+  display: inline-block;
+  overflow: hidden;
+  border: 0 none;
+  max-width: 100%;
+}
+
+section, main, header, footer, article, nav, picture, figure, canvas, svg {
+    display: block;
+}
+
+.layout-wrapper {
+    max-width: var(--screen-desktop);
+    margin: 0 auto; 
+    padding: var(--space-extra-small);
+
+  &.-no-padding-top    { padding-top:    0; }
+  &.-no-padding-bottom { padding-bottom: 0; }
+  &.-no-padding-left   { padding-left:   0; }
+  &.-no-padding-right  { padding-right:  0; }
+
+}
+
+.fill {
+  height: 100%;
+  width: 100%;
+}
+
+.flex {
+  display: flex !important;
+  height: 100% !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  -webkit-box-orient: vertical !important;
+  flex-direction: column !important;
+
+  &.-hide, &.hide {
+    display: none !important;
+  }
+
+  > * {
+    -webkit-flex-shrink: 1 !important;
+    -ms-flex-negative: 1 !important;
+    flex-shrink: 1 !important; 
+
+    .flex-footer {
+      background: #f2f2f2 none repeat 0 0 !important;
+    }
+  }
+
+  > .flex-header {
+    font-size: 100% !important;
+    font: inherit !important;
+    vertical-align: baseline !important;
+    margin: 0 !important;
+    padding: 0 !important; 
+  }
+
+  > .flex-body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    position: relative !important;
+    height: 100%;
+
+    -webkit-box-flex: 1 !important;
+    -webkit-flex: 1 1 0% !important;
+    -ms-flex: 1 1 0% !important;
+    flex: 1 1 0% !important;
+
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+
+    -webkit-box-orient: vertical !important;
+
+    &.-overflow {
+      overflow: hidden !important;
+    }
+
+    .flex-body {
+    }    
+  }
+
+  > .flex-footer {
+  }
+}
+
+p, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+p, h1, h2 {
+    padding-bottom: var(--space-medium);
+}
+
+.paragraph              { padding: 0 0 var(--space-medium) 0; }
+.paragraph.-only-top    { padding: var(--space-medium) 0 0 0; }
+.paragraph.-include-top { padding-top: var(--space-medium);   }
+
+
+button, a {
+    position: relative;
+    top: 0;    
+}
+
+button:focus, a:focus {
+    outline: var(--border-color) dotted 1px;
+    outline-offset: 2px;    
+}
+
+button:active, a:active {
+    top: 2px;
+}
+
+a.link {
+    color: var(--font-color);
+    text-decoration: underline;
+    &.-no-underline {
+        text-decoration: none;
+    }
+}
+
+iframe {
+    width: 100%;
+    height: 100px;
+    min-height: 300px;
+    display: block;
+    border: 0 none;
+}
+
+

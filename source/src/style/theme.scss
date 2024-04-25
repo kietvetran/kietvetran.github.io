@@ -1,140 +1,90 @@
-/**
- * Licensed under the MIT License. See LICENSE file in the project root for license information.
- * Copyright (c) 2022 Codesbiome, guasam
- *
- * @author  : guasam
- * @project : ERWT Boilerplate
- * @package : Application Theme Colors Stylesheet
-*/
-
-/*
- *=========================================================================
- * ERWT Dark Theme
- *=========================================================================
- *
- * Here we define the Dark Theme (stylesheet) for application.
- */
-
 :root {
-  // Application
-  --app-accent-color: #32639f;
-  --app-font-size: 16px;
-  --app-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --app-bgcolor: #202020;
-  --app-border-color: #3b3f44;
+  --bg-color: #fff;
+  --header-height: 120px;
+  --footer-height: 80px;
 
-  // Scrollbar
-  --scroll-width: 10px;
-  --scroll-track-bgcolor: #2f2f2f52;
-  --scroll-thumb-bgcolor: rgba(59, 59, 59, 0.747);
-  --scroll-thumb-hover-bgcolor: #555;
+  --font-color: #333;
+  --font-family: Arial;
 
-  // Selection
-  --selection-bgcolor: var(--app-accent-color);
-  --selection-color: #fff;
+  --font-size-smallest: 14px; 
+  --font-size-small: 18px;  
+  --font-size-regular: 22px;
+  --font-size-medium: 28px;
+  --font-size-large: 34px;
+  --font-size-largest: 40px;
 
-  // Button
-  --button-color: #fff;
-  --button-border: 1px solid #222424;
-  --button-bgcolor: hsl(0, 0%, 22%);
-  --button-hover-bgcolor: hsl(0, 0%, 24%);
-  --button-active-bgcolor: hsl(0deg 0% 20%);
-  --button-shadow-color: #00000078;
+  --screen-desktop: 1400px;
+  --screen-table: 980px;
+  --screen-mobile: 768px;
 
-  // Titlebar
-  --titlebar-bgcolor: hsl(0deg 0% 10%);
-  --titlebar-color: hsl(0, 0%, 85%);
-  --titlebar-title-color: hsl(0, 0%, 85%);
-  --titlebar-menu-border-color: #2d2c2c;
-  --titlebar-menu-title-hover-bgcolor: hsl(0deg 0% 12%);
-  --titlebar-menu-title-active-bgcolor: hsl(0deg 0% 14%);
-  --titlebar-menu-title-active-border-color: var(--titlebar-menu-border-color);
-  --titlebar-menu-separator-bgcolor: var(--titlebar-menu-border-color);
-  --titlebar-popup-bgcolor: hsl(0deg 0% 14%);
-  --titlebar-popup-border: 1px solid var(--titlebar-menu-border-color);
-  --titlebar-popup-shadow: 4px 10px 10px rgba(0, 0, 0, 0.2);
-  --titlebar-popup-item-name-color: hsl(0, 0%, 75%);
-  --titlebar-popup-item-shortcut-color: hsla(0, 0%, 55%, 0.8);
-  --titlebar-popup-item-hover-color: hsl(0, 0%, 85%);
-  --titlebar-popup-item-hover-bgcolor: hsl(0deg 0% 18%);
-  --titlebar-popup-item-hover-shortcut-color: var(--app-accent-color);
-  --titlebar-popup-item-name-shadow-color: #151515;
+  --space-extra-small-min: 8px;
+  --space-extra-small: 10px;
+  --space-extra-small-max: 12px;
+  --space-small-min: 14px;
+  --space-small: 16px;
+  --space-small-max: 18px;
+  --space-medium-min: 20px;
+  --space-medium: 24px;
+  --space-medium-max: 26px;
+  --space-large-min: 28px;
+  --space-large: 30px;
+  --space-large-max: 32px;
+  --space-extra-large-min: 34px;
+  --space-extra-large: 36px;
+  --space-extra-large-max: 38px;
 
-  // ERWT
-  --erwt-bgcolor: #262626;
-  --erwt-heading-color: #dddddd;
+  --icon-btn-size-small: 30px;
+  --icon-btn-size: 40px;
+
+  --border-round: 4px;
+  --border-color: #333333;
+
+  --card-round: 6px;
+  --card-color: #eee;
+
+  --carousel-space: 12px;
+  --carousel-space-negative: -12px;
+  --carousel-bullet-size: 12px;
+  --carousel-bullet-position: -6px;
+
+  --color-primary:   #343a40;
+  --color-secondary: #e9bd6c;
+  --color-focus:     #8F00FF;
+  --color-white:     #FFFFFF;
+  --color-blue-light:#0099cc;
+  --color-blue:      #0d6efd;
+  --color-indigo:    #6610f2;
+  --color-purple:    #6f42c1;
+  --color-pink:      #d63384;
+  --color-red:       #dc3545;
+  --color-orange:    #fd7e14;
+  --color-yellow:    #ffc107;
+  --color-yellow-dark: #d9b660;
+  --color-green:     #198754;
+  --color-teal:      #20c997;
+  --color-cyan:      #0dcaf0;
+  --color-grey:      #6c757d;
+  --color-grey-dark: #343a40;
+  --color-success:   #198754;
+  --color-info:      #0dcaf0;
+  --color-warning:   #ffc107;
+  --color-danger:    #dc3545;
+  --color-error:     #a92424;
+  --color-light:     #f8f9fa;
+  --color-dark:      #343a40;
+  --color-darkest:   #1E1E25;
+  --color-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
 }
 
-/*
- *=========================================================================
- * ERWT Light Theme
- *=========================================================================
- *
- * Light theme for ERWT application.
- */
-
-body:not(.dark-mode) {
-  // Application
-  --app-accent-color: #2f77ca;
-  --app-bgcolor: #f1f0f0;
-
-  // Selection
-  --selection-bgcolor: var(--app-accent-color);
-  --selection-color: #fff;
-
-  // Scrollbar
-  --scroll-track-bgcolor: #2f2f2f1f;
-  --scroll-thumb-bgcolor: rgb(59 59 59 / 30%);
-  --scroll-thumb-hover-bgcolor: var(--app-accent-color);
-
-  // Button
-  --button-border: 1px solid #eaeaea;
-  --button-bgcolor: #fff;
-  --button-color: #424242;
-  --button-shadow-color: white;
-  --button-hover-bgcolor: hsl(0, 0%, 98%);
-  --button-active-bgcolor: hsl(0, 0%, 96%);
-
-  // Titlebar
-  --titlebar-bgcolor: #dcddde;
-  --titlebar-color: #1f1f1f;
-  --titlebar-title-color: var(--titlebar-color);
-  --titlebar-menu-title-hover-bgcolor: #e6e6e6;
-  --titlebar-popup-item-hover-bgcolor: hsl(210deg 16% 92%);
-  --titlebar-popup-bgcolor: hsl(0deg 0% 99%);
-  --titlebar-menu-title-active-bgcolor: hsl(0deg 0% 99%);
-  --titlebar-menu-title-active-border-color: #d3d6d8;
-  --titlebar-popup-border: 1px solid #d3d6d8;
-  --titlebar-menu-separator-bgcolor: #d3d6d8;
-  --titlebar-popup-item-hover-bgcolor: #d6dade;
-  --titlebar-popup-item-name-color: #0e0e0e;
-  --titlebar-popup-item-name-shadow-color: rgba(255, 255, 255, 0.8);
-  --titlebar-popup-item-hover-color: #000000;
-  --titlebar-popup-item-hover-shortcut-color: var(--app-accent-color);
-  --titlebar-popup-item-hover-bgcolor: #e6e6e6;
-
-  // ERWT
-  --erwt-bgcolor: #f8f8f8;
-  --erwt-heading-color: #282828;
-
-  // Overrides
-  .main-teaser {
-    background: #fff;
-    color: #747474;
-
-    &:after {
-      box-shadow: none;
+@media screen and (max-width: 768px) {
+    :root {
+      --header-height: 60px;
+      --footer-height: 60px;
+      --font-size-smallest: 12px; 
+      --font-size-small: 16px;  
+      --font-size-regular: 20px;
+      --font-size-medium: 26px;
+      --font-size-large: 30px;
+      --font-size-largest: 36px;      
     }
-  }
-
-  .versions .item {
-    color: #656565;
-    background: #fff;
-    box-shadow: 0 2px 4px #00000005;
-
-    & > span {
-      color: #999999;
-    }
-  }
 }

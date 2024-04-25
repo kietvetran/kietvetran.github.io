@@ -11,7 +11,7 @@ module.exports = [
   inDev() && new ReactRefreshWebpackPlugin(),
   new HtmlWebpackPlugin({
     template: 'src/index.html',
-    favicon: 'assets/images/logo.png',
+    favicon: 'assets/logo/mynorjourney-512x512.png',
     inject: true,
   }),
   new MiniCssExtractPlugin({

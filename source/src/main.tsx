@@ -1,10 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import Application from "./components/Application";
+import Application from "./container/Application/Application";
 
-// Application to Render
-const app = <Application />;
-
-// Render application in DOM
-createRoot(document.getElementById("app")).render(app);
+const app = document.getElementById("app");
+if (app) {
+  createRoot(app).render(<Application />);
+}
