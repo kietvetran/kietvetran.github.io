@@ -19,7 +19,7 @@ const schema = yup
   .object()
   .shape({
     name: yup.string().required("Name is required"),
-    age: yu
+    age: yup
       .string()
       .required("Age is required")
       .matches(/^[0-9]+$/, "Must be only digits")
@@ -28,7 +28,7 @@ const schema = yup
     pin: yup
       .string()
       .required("Pin is required")
-      .when(["age"], ([age], schema) => { // ['age', 'name'], ([age, name], schema) => {}
+      .when(["age"], ([age], schema) => { // ['age', 'name'], ([age, name], schema) => 
         if (parseInt(age, 10) > 18) {
           return schema.matches(/^[0-9]+$/, "Must be only digits");
         }
