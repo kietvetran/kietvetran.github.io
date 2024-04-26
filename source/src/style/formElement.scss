@@ -120,12 +120,11 @@ label.input-label, legend.input-label {
     display: block;
     border: 2px solid var(--border-color);
     width: 100%;
-    padding: var(--space-extra-small);
+    padding: var(--space-extra-small-min) var(--space-extra-small);
 
     &:hover, &:focus, &:active {
-        border-color: var(--color-focus);
-        box-shadow: 0 0 0 2px var(--color-focus);
-        outline: none;
+        outline: var(--border-color) dotted 1px;
+        outline-offset: 2px;    
     }
 
     &.-invalid {

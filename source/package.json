@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.32.0",
+    "classnames": "^2.5.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.26.0",
@@ -48,9 +49,11 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.8",
     "@tanstack/eslint-plugin-query": "^5.28.11",
+    "@types/classnames": "^2.3.1",
     "@types/node": "^18.11.5",
     "@types/react": "^18.0.23",
     "@types/react-dom": "^18.0.7",

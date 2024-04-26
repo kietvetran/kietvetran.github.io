@@ -138,18 +138,18 @@ p, h1, h2 {
 .paragraph.-include-top { padding-top: var(--space-medium);   }
 
 
-button, a {
+button, a, input[type="submit"], input[type="reset"] {
     position: relative;
     top: 0;    
-}
 
-button:focus, a:focus {
-    outline: var(--border-color) dotted 1px;
-    outline-offset: 2px;    
-}
+    &:focus {
+        outline: var(--border-color) dotted 2px;
+        outline-offset: 2px;    
+    }
 
-button:active, a:active {
-    top: 2px;
+    &:active {
+        top: 2px;
+    }
 }
 
 a.link {
