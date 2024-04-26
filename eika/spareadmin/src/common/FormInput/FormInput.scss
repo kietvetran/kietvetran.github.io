@@ -1,0 +1,177 @@
+@use "sass:math";
+
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
+.form-input-wrapper {
+    position: relative;
+    z-index: 1;
+    &, .form-input-row, .input-holder {
+        position: relative;
+    }
+
+    &.-one-line {
+        &, .form-content-column {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+        }
+
+        .input-wrapper {
+            padding-right: $space-small;
+        }
+
+        .input-wrapper.-checkbox {
+            padding-top: $space-small;
+        }
+
+        > div.submit-btn-holder{
+            padding: 0;
+        }
+    }
+ 
+    .form-input-row-wrapper {
+        display: table;
+        width: 100%;
+
+        > div {
+            display: table-cell;
+            padding-left: 2%;
+            
+            &:first-child {
+                padding-right: 2%;
+                padding-left: 0;
+            }
+        }
+
+        &.-length-2 > div {
+            width: 48%;
+        }
+
+        &.-length-3 > div {
+            width: 31%;
+        }
+    }
+
+    .form-input-row {
+        padding: 0 0 $space-medium 0;
+    }
+
+    .submit-btn-holder {
+        button, input, a {
+            margin: 0 $space-medium 0 0 ;
+        }
+    }
+
+    .input-wrapper.-select,
+    .input-wrapper.-search,
+    .input-wrapper.-text,
+    .input-wrapper.-tel,
+    .input-wrapper.-textarea {
+        label {
+            padding-bottom: $space-smallest;
+            display: block;
+            @include ariaVisible();
+        }
+
+        .input-holder {
+            position: relative;
+            border-radius: $border-round;
+            background-color: $color-white;
+            select, input, textarea {
+                background-color: transparent;  
+                position: relative;
+                z-index: 2;
+
+                &:not(:placeholder-shown),
+                &.has-error, &.has-value, &:focus, &:active {
+                    + .input-item-label {
+                        top: -13px;
+                        z-index: 2;
+                        font-size: $font-size-small - 1;
+                        color: #999;
+
+                        &:before {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            textarea {
+                margin-bottom: -6px;
+            }
+
+            select {
+                min-width: 0;
+            }
+
+            select + .input-item-label {
+                top: -13px;
+                z-index: 2;
+                font-size: $font-size-small - 1;
+                font-style: normal;
+                color: #999;
+                &:before {
+                    opacity: 1;
+                }
+            }
+
+            .input-item-label {
+                position: absolute;
+                left: $space-small;
+                top: 9px;        
+                padding: 2px $space-small;
+                border-radius: $border-round;
+                background-color: $color-white;
+                font-size: $font-size-regular;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    height: 51%;
+                    border-radius: $border-round $border-round 0 0;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: $color-sea-green-dark $color-sea-green-dark transparent $color-sea-green-dark;
+                    opacity: 0;
+                    display: none;
+                }
+
+                &, &:before {
+                    @include transition( all, .2s, ease-in-out);
+                }
+            }
+        }
+    }
+
+    .input-wrapper.-invalid .input-holder input {
+        border-color: $color-error;
+
+        &[type="radio"], &[type="checkbox"] {
+            + label:before {
+                border-color: $color-error;
+            }
+        }
+    }
+
+    .input-wrapper-error-message {
+        position: relative;
+        padding: $space-small 0;
+        > span {
+            background-color: $color-error-light;
+            color: $color-error;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+    }
+    
+    input[type="submit"], input[type="button"] {
+        + input[type="submit"], + input[type="button"] {
+            margin-left: $space-small;
+        }
+    }
+}

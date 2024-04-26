@@ -1,0 +1,17 @@
+# OSX
+#
+.DS_Store
+.idea
+
+# node.js
+#
+node_modules/
+npm-debug.log
+
+public
+
+# test
+test-results.xml
+eslint.xml
+
+surefire-reports

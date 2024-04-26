@@ -1,0 +1,118 @@
+@import "../../styles/variables";
+
+.tab-menu-wrapper {
+    position: relative;
+    // text-align: center;
+    padding: $space-small 0 0 0;
+
+    &, &:before {
+	    background-color: $color-white;    	
+    }
+
+    &:before {
+    	content: '';
+    	position: absolute;
+    	left: -100%;
+    	right: -100%;
+    	top: -500px;
+    	bottom: 0;
+    	z-index: 0;
+    }
+
+	a {
+		position: relative;
+		display: inline-block;
+		padding: 2px $space-small-max;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #ccc #ccc transparent #ccc;
+		border-radius: $border-round $border-round 0 0;
+		margin-right: -1px;	
+	    background-color: $color-white;
+	
+		&:focus, &:active {
+			outline: none;
+		}
+
+		&:active {
+			top: 2px;
+		}
+
+		&.-active {
+			background-color: $color-app-bg;
+			&, h2 {
+				color: $color-font;
+				font-weight: 600;
+			}
+		}
+
+		&, h2 {
+			font-size: $font-size-small;			
+			color: #666;
+			font-weight: 500;
+		}
+		
+		h2 {
+			padding: 0;
+		}
+	}
+}
+
+.tab-menu-wrapper + .tab-content-wrapper {
+	padding: $space-medium;
+	background-color: $color-white;	
+
+	padding: $space-medium-max 0;
+	background-color: $color-app-bg;
+}
+
+/*
+@import "../../styles/variables";
+
+.tab-menu-wrapper {
+    position: relative;
+    // text-align: center;
+
+	a {
+		display: inline-block;
+		padding: 2px $space-small-max;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #ccc #ccc transparent #ccc;
+		border-radius: $border-round $border-round 0 0;
+		margin-right: -1px;	
+		background: #f0f0f0 none no-repeat center center;
+
+		&:focus, &:active {
+			outline: none;
+		}
+
+		&.-active{
+			background-color: $color-white;
+			border-color: $color-white;
+			&, h2 {
+				color: $color-font;
+				font-weight: 600;
+			}
+		}
+
+		&, h2 {
+			font-size: $font-size-small;			
+			color: #666;
+			font-weight: 500;
+		}
+		
+		h2 {
+			padding: 0;
+		}
+	}
+}
+
+.tab-menu-wrapper + .tab-content-wrapper {
+	padding: $space-medium;
+	background-color: $color-white;	
+
+	padding: $space-medium 0;
+	background-color: transparent;
+}
+*/

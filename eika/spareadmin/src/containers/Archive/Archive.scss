@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.archive-wrapper {
+    position: relative;
+
+    legend {
+        @include ariaVisible();
+    }
+
+    .archive-content {
+        padding: 0 0 $space-medium 0;
+    }
+
+    input#person-id {
+        min-width: 300px;
+    }
+
+    .form-input-wrapper { 
+        margin-bottom: $space-medium-max;
+    }
+}
+
+.archive-wrapper.-search { 
+    .item.-document-name {
+        max-width: 300px;
+    }
+}
+
+.archive-wrapper.-upload {
+    .form-input-wrapper { 
+        max-width: 600px;
+    }
+}
+
+.archive-wrapper.-manual {    
+    .form-input-wrapper { 
+        max-width: 600px;
+    }
+
+    .form-input-row.-add-new-signing-order-id {
+        margin-top: $space-small * -1;
+        margin-bottom: $space-small;
+        text-align: right;
+    }
+
+    textarea {
+        min-height: 300px;
+    }
+}

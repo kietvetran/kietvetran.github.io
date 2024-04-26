@@ -1,0 +1,117 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.fund-wrapper {
+    position: relative;
+
+    legend {
+        @include ariaVisible();
+    }
+
+    .fund-content {
+        padding: 0 0 $space-medium 0;
+    }
+
+    .form-input-wrapper { 
+        margin-top: $space-small * -1;
+        margin-bottom: $space-large;
+        &:before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            right: -100%;
+            top: $space-large * -1;
+            bottom: 0;
+            background-color: $color-white;            
+        }
+    }
+
+    .tab-menu-wrapper {
+        display: none;
+    }
+}
+
+
+.fund-wrapper.-overview {
+    input#fund-filter {
+        min-width: 400px;
+    }
+    .form-input-row.-fund-show-description {
+        padding-left: $space-large;
+    }
+
+    .result-list {
+        .item.-fund-allowed-trade-types {
+            max-width: 140px;
+        }
+
+        .item.-fund-other-cost .item-text,
+        .item.-fund-sustainability-score .item-text,
+        .item.-fund-cost .item-text,
+        .item.-fund-development .item-text,
+        .item.-fund-minium-amount .item-text,
+        .item.-fund-sustainability-score,
+        .item .item-value {
+            white-space: nowrap;
+        }
+
+        .item.-fund-sustainability-score .item-label,
+        .item.-fund-cost .item-label,
+        .item.-fund-development .item-label,
+        .item.-fund-minium-amount .item-label {
+            display: inline-block;
+            min-width: 72px;
+        }
+
+       .item.-fund-sustainability-score .item-label {
+            min-width: 50px;
+        }
+        .item.-fund-development .item-label {
+            min-width: 80px;
+        }
+        .item.-fund-cost .item-label {
+            min-width: 90px;
+        }
+
+        .item.-fund-other-cost .item-label {
+            min-width: 90px;
+        }
+
+        .item.-fund-name {
+            max-width: 220px;
+            .block.type-text:first-child {
+                font-weight: 600;
+            }
+        }
+
+        .item.-fund-description {
+            max-width: 220px;
+        }
+
+        .fund-description-list {
+            margin-top: $space-small * -1;
+            &:before {
+                opacity: .6;
+                content: 'Fond beskrivelse: ';
+                display: block;
+                margin-left: $space-large * -1,
+            }
+            > div {
+                padding: 0 0 $space-smallest 0;
+            }
+        }
+
+
+        .type-kickback-adjusted-on-going-charge {
+            white-space: nowrap;
+            .item-label {
+                max-width: 120px;
+                margin-bottom: -6px;
+                @include ellipsis();
+            }
+            .item-value {
+
+            }
+        }
+    }
+}

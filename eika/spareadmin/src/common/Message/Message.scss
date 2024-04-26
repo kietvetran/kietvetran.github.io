@@ -1,0 +1,47 @@
+/* @import "~@eika/core-style"; */
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.message-wrapper {
+    position: relative;
+    text-align: left;
+	padding: $space-medium;
+	border-radius: $border-round;
+    max-width: 600px	;
+    background-color: $color-white none no-repeat 0 0;
+    border: 1px solid transparent;
+
+	&.-icon {
+		padding-left: $space-large + $space-medium;
+	    &:before {
+			content: '';
+			position: absolute;
+			left: $space-small;
+			top: $space-small;
+			height: $space-large;
+			width: $space-large; 
+			background: transparent url('../../static/icon/info/info.svg') no-repeat center center / auto 75%;
+	    }		
+	}
+
+	&.-has-title.-icon:before {
+		top: $space-medium - 4;
+	}
+
+	&.-info {
+		background-color: #e6f3f5;
+	}
+
+	&.-attention {
+		background-color: $color-attention;		
+	}
+
+	&.-error {
+        background-color: $color-error-light;
+        color: $color-error;
+	}
+
+	&.-success {
+        background-color: $color-success-bg;
+	}
+}

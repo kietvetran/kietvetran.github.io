@@ -1,0 +1,158 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.issue-wrapper {
+    position: relative;
+
+    .result-holder {
+        .item.-status {
+            max-width: 120px;
+        }
+    }
+
+    legend {
+        @include ariaVisible();
+    }
+
+    .result-detail-info {
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+
+        > div {
+            width: 48%;
+            margin: 0 0 0 2%;
+
+            &:first-child {
+                margin: 0 2% 0 0;
+            }
+        }
+    }
+
+    .result-detail-wrapper {
+        position: relative;
+        min-height: 60px;
+        border-radius: $border-round;
+        background-color: $color-white;
+    }
+
+    .result-detail-log-wrapper {
+        margin-top: $space-medium;
+        padding: $space-medium;
+        background-color: $color-app-bg;
+        border-radius: $border-round;
+
+        .result-holder {
+            padding: 0;
+
+            td, th {
+                &:last-child {
+                    text-align: left;
+                    padding-right: $space-smallest;
+                }
+
+                &:first-child {
+                    max-width: 90px;
+                    padding-left: $space-smallest;
+                }
+            }
+        }
+    }
+
+    .result-detail-aml-wrapper,
+    .result-detail-image-wrapper {
+        border-radius: $border-round;
+        background-color: #f0f0f0;
+        padding: $space-small;
+    }
+
+    .result-detail-aml-wrapper .message-wrapper,
+    .result-detail-log-wrapper .message-wrapper {
+        padding: $space-smallest;
+    }
+
+    .result-detail-log-wrapper div.message-wrapper {
+        margin-top: $space-medium * -1;
+        margin-bottom: $space-medium * -2;
+    }
+
+
+    .result-detail-aml-wrapper {
+        padding: $space-small;
+        margin-bottom: $space-medium;
+        justify-content: flex-start;
+
+        .sub-title {
+            padding-top: 7px;
+        }
+
+        .aml-item {
+            float: left;
+            white-space: nowrap;
+            padding: $space-smallest $space-small;
+            background-color: #fff;
+            margin-right: 4px;
+            margin-top: 2px;
+            border-radius: $border-round;
+            border: 1px solid $color-white;
+
+            span {
+                display: inline-block;
+            }
+
+            span:first-child {
+                padding-right: $space-small;
+            }
+
+            &.-ok {
+                background-color: $color-success;
+            }
+        }
+    }
+
+    .result-detail-image-wrapper {
+        max-height: 700px;
+        text-align: center;
+        img {
+            display: inline-block;
+            margin: 0 auto;
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    .tab-menu-wrapper .menu-item .menu-item-description {
+        white-space: nowrap;
+        font-size: $font-size-smallest - 2;
+        margin-top: -10px;
+        position: absolute;
+        top: 5px;
+        right: 2px;
+    }
+
+    .detail-message-holder .message-wrapper {
+        padding: 2px $space-small;
+        margin-bottom: 2px;
+    }
+}
+
+.result-detail-certificate-wrapper object {
+    height: 640px;
+    min-width: 500px;
+}
+
+.issue-wrapper .issue-header-wrapper {
+    border-radius: $border-round;
+    padding: $space-medium 0 $space-small 0;
+
+    .input-wrapper {
+        padding-right: $space-small;
+    }
+
+    div.submit-btn-holder{
+        padding: 0;
+    }
+
+}
+
+

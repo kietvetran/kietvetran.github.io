@@ -1,0 +1,7 @@
+.eika [data-react-component^='spareadmin-intraweb.app'] {
+  @import "~@eika-infrastruktur/style-web-lib/src/scss/themes/blue-theme";
+  @import "~@eika-infrastruktur/style-web-lib/src/scss/partials/variables";
+  /*
+   * Namespaced css for app, alle apps må ha namespace som begynner på "spareadmin-intraweb.app"
+   */
+}

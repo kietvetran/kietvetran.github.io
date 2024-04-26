@@ -1,0 +1,110 @@
+import BankList from './BankList';
+import { MultipleObject, StringObject } from '../../domain/types';
+
+const Constant: MultipleObject = {
+    validationRequired: 'VALIDATION_REQUIRED',
+    validationEmail: 'VALIDATION_EMAIL',
+    validationMobile: 'VALIDATION_MOBILE',
+    validationPersonId: 'VALIDATION_PERSON_ID',
+    validationOrganizationNumber: 'VALIDATION_ORGANIZATION_NUMBER',
+    validationPersonIdOrOrganizationNumber: 'VALIDATION_PERSON_ID_OR_ORGANIZATION_NUMBER',
+    validationCodeNumber: 'VALIDATION_CODE_NUMBER',
+    validationPassword: 'VALIDATION_PASSWORD',
+    validationBankRegNumber: 'VALIDATION_BANK_REG_NUMBER',
+
+    validationRequiredText: 'Påkrevet.',
+    validationEmailText: 'Ugyldig epost.',
+    validationMobileText: 'Ugyldig mobilnummer',
+    validationPersonIdText: 'Ugyldig fødselsnummer',
+    validationOrganizationNumberText: 'Ugyldig organisasjonsnummer',
+    validationPersonIdOrOrganizationNumberText: 'Ugyldig fødsels- eller organisasjonsnummer',
+    validationCodeNumberText: 'Ugyldig kode.',
+    validationPasswordText: 'Ugyldig passord.',
+    validationBankRegNumberText: 'Ugyldig bank reg nummer.',
+
+    typeCheckbox: 'checkbox',
+    typeRadio: 'radio',
+    typeText: 'text',
+    typeTel: 'tel',
+    typePassword: 'password',
+    typeEmail: 'email',
+    typeSelect: 'select',
+    typeHidden: 'hidden',
+    typeTextarea: 'textarea',
+    typeFilefield: 'filefield',
+    typeLink: 'link',
+    typeElement: 'element',
+
+    typeFieldButtonPasswordReveal: 'FIELD_BUTTON_PASSWORD_REVEAL',
+
+    avtaleOTPwrongCode: 'WRONG_OTP_CODE',
+    avtaleOTPwrongPassword: 'WRONG_PASSWORD',
+    avtaleOTPinvalid: 'NO_BANKID_OR_OTP_VERIFICATION_FAILED',
+    avtaleOTPnoOrder: 'NO_BANKID_ORDERED',
+
+    notificationStatusInitialized: 'INITIALIZED',
+    notificationStatusAccepted: 'ACCEPTED', 
+    notificationStatusFinalized: 'FINALIZED',
+    notificationStatusNotAccepted: 'NOT_ACCEPTED',
+    notificationStatusDone: 'DONE',
+    notificationStatusFailed: 'FAILED',
+
+    issueTabMenuStatusConfig: {
+        lead: ['OPPRETTET', 'SENDT_INN_AV_FORSTE_VERGE'],
+        new: ['SIGNERT_AV_ALLE_VERGER', 'PABEGYNT_AV_RADGIVER', 'AHV_SCORE_FOR_HOY'],
+        approved: ['GODKJENT', 'GODKJENT_AV_RAADGIVER', 'MASKINELT_GODKJENT', 'FORSOEKT_OPPRETTING_AV_SPAREMAAL'],
+        rejected: ['AVVIST', 'AVVIST_AV_ANDRE_VERGE'],
+        failed: ['OPPRETTET_SPAREMAAL_FEILET'],
+    },
+
+    dictionary: BankList.reduce( (p: StringObject, d: MultipleObject) => { 
+        p[d.bank] = d.name;
+        return p;
+    }, {
+        'OPPRETTET': 'Opprettet',
+        'SENDT_INN_AV_FORSTE_VERGE': 'Sendt inn av første verge',
+        'SIGNERT_AV_ALLE_VERGER': 'Signert av alle verger',
+        'PABEGYNT_AV_RADGIVER': 'Påbegynt av rådgiver',
+        'GODKJENT': 'Godkjent',
+        'GODKJENT_AV_RAADGIVER': 'Godkjent av rådgiver',
+        'MASKINELT_GODKJENT': 'Maskinelt godkjent',
+        'AHV_SCORE_FOR_HOY': 'For høy AHV risiko',
+        'AVVIST': 'Avvist',
+        'AVVIST_AV_ANDRE_VERGE': 'Avvist av andre verge',
+        'FORSOEKT_OPPRETTING_AV_SPAREMAAL': 'I prosess med å opprette sparemål i Tradex',
+        'OPPRETTET_SPAREMAAL_FEILET': 'Godkjent sparemål feilet ved overføring til Tradex',
+        'BEGGE_VERGER': 'Begge verger',
+        'ACTIVE': 'Aktiv',
+        'SL_ACTIVE': 'SL aktiv',
+
+        'EPK_MOVE': 'EPK_MOVE',
+        'EPK_PAYMENT_DEMAND': 'EPK_PAYMENT_DEMAND', 
+        'PKB_MOVE': 'PKB_MOVE', 
+        'PKB_EMBED': 'PKB_EMBED ', 
+        'PKB_PAYMENT_DEMAND': 'PKB_PAYMENT_DEMAND',
+        'INITIALIZED': 'INITIALIZED', 
+        'ACCEPTED': 'ACCEPTED', 
+        'FINALIZED': 'FINALIZED', 
+        'NOT_ACCEPTED': 'NOT_ACCEPTED', 
+        'DONE': 'DONE', 
+        'FAILED': 'FAILED',
+        /*
+        'EPK_MOVE': 'EPK flytt',
+        'EPK_PAYMENT_DEMAND': 'EPK betalingskrav', 
+        'PKB_MOVE': 'PKB flytt', 
+        'PKB_EMBED': 'PKB ', 
+        'PKB_PAYMENT_DEMAND': 'PKB betalingskrav',
+        'INITIALIZED': 'Initialisert', 
+        'ACCEPTED': 'Godkjent', 
+        'FINALIZED': 'Finalisert', 
+        'NOT_ACCEPTED': 'Ikke godkjent', 
+        'DONE': 'Ferdig', 
+        'FAILED': 'Feilet',
+        */
+        'IKKE_VURDERT': 'Ikke vurdert',
+        'OK': 'Ok',
+        'MA_BEHANDLES_MANUELT': 'Må behandles manuelt', 
+        'FROZEN': 'Fryst',
+    }),
+};
+export default Constant;

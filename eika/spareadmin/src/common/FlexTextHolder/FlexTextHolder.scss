@@ -1,0 +1,150 @@
+@use "sass:math";
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+
+.flex-text-wrapper {
+	font-weight: normal;
+	position: relative;
+
+	&.-table {
+		display: table;
+		.flex-text-holder{
+			display: table-row;
+			> span {
+				display: table-cell;
+				vertical-align: top;
+
+				&, &.text {
+					text-align: left;
+				}
+			}
+		}
+
+		.flex-text-holder > span.text:first-child {
+			padding-right: $space-medium;
+			font-weight: 600;
+		}
+	}
+
+	&.-normal .flex-text-holder {
+		display: flex;
+		flex-direction: row;
+	    align-items: stretch;
+	    text-align: left;
+	    margin-bottom: 0;
+
+		&.-length-1 {
+			> span.text:first-child {
+		        padding-right: 0;
+			}
+		}
+
+		&.-length-3 {
+			> span.text {
+				white-space: nowrap;
+			}
+			> span.text:first-child {
+				width: auto;
+		        &, .inner-text, .text:first-child {
+			        padding-right: 0;
+		        }
+
+				+ span.text {
+					width: 100%;
+					padding-left: $space-small;
+					padding-right: $space-small;
+					white-space: normal;
+				}
+			}
+			> span.text:last-child {
+				width: auto;
+			}
+		}
+
+		&.-length-2 {
+			flex-wrap: wrap;
+			> span.text:first-child {
+				flex: 100;
+			}
+			> span.text:last-child {
+				text-align: left;
+			}
+		}
+
+		.inner-text {
+			padding-right: $space-smallest;
+			> span.text {
+				display: block;
+				white-space: nowrap;
+				&, &:first-child, &:last-child {
+					text-align: left;
+				}
+
+				&:last-child {
+					white-space: normal;
+				}
+			}
+		}
+	}
+
+	span.text {
+		text-align: left;
+		/*white-space: nowrap;*/
+		word-break: normal;
+		flex: auto;
+
+		&:last-child {
+			text-align: right;
+		}
+
+		&:first-child {
+			text-align: left;
+	        white-space: normal;
+	        padding-left: 0;
+	        padding-right: $space-small;
+		}
+
+		&.-max-width {
+			width: 100%;
+		}
+
+		&.-font-normal:first-child,
+		&.-font-normal {
+			font-weight: normal;
+		}
+
+		&.-font-bold {
+			font-weight: 700;
+		}
+		
+		&.-font-semibold {
+			font-weight: 600;
+		}
+		
+		&.-font-seagreen-space-medium-hexa {
+			color: #4D7477;
+		}
+
+		&.-nowrap {
+			white-space: nowrap;
+		}
+
+		&.-white-space {
+			&:before {
+				content: '_';
+				visibility: hidden;
+			}
+		}
+	}
+
+	span.right-adjustment {
+		&, span.text {
+			text-align: right;
+		}
+	}
+
+	span.block {
+		display: block;
+	}
+}

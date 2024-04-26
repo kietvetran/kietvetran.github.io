@@ -1,0 +1,5 @@
+{
+  "extends": "./node_modules/@eika-infrastruktur/eslint-config-typescript-dev/tsconfig.json",
+  "include": ["src"],
+  "exclude": ["**/node_modules",  "**/.*/", "**/__tests__", "**/static/icon"]
+}

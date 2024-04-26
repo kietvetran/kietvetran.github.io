@@ -1,0 +1,152 @@
+/* @import "~@eika/core-style"; */
+@import "../styles/layout";
+@import "../styles/typography";
+@import "../styles/form";
+@import "../styles/infoCard";
+@import "../styles/btn";
+@import "../styles/utils";
+@import "../styles/variables";
+@import "../styles/animation";
+
+.js-test-app {
+    height: 100%;
+}
+
+.app-wrapper {
+    position: relative;
+    background: $color-app-bg none no-repeat 0 0;
+
+    &.-not-ekf .epk-wrapper {
+        * {
+            display: none;
+        }
+
+        &:after {
+            content: 'Du har ingen tilgang til denne sida.';
+            display: block;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: $space-medium;
+            background: $color-white none no-repeat center center;
+            border-radius: $border-round;
+        }
+    }
+
+    .bank-image {
+        width: auto;
+        height: $app-header-height - 40;
+    }
+
+    .app-header {
+        border-bottom: 1px solid #ccc;
+        background: $color-white none no-repeat 0 0;
+        // background-color: #EFF9FD;
+
+        white-space: nowrap;
+        overflow-y: scroll;
+        height: $app-header-height;
+
+        .layout-outer {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        nav {
+            display: table;
+            width: 100%;
+
+            > div {
+                display: table-cell;
+                vertical-align: middle;
+
+                &.middle-side {
+                    width: 100%;
+                    padding: 0 $space-medium;
+                    padding-left: $space-large; 
+                    // text-align: center;
+                }
+
+                &.right-side {
+                    white-space: nowrap;
+                    text-align: right;
+                }
+            }
+        }
+
+        h1 {
+            line-height: $app-header-height;
+            padding: 0;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        h1 + span {
+            color: $color-primary;
+            padding-left: 4px;
+        }
+
+        &:after {
+            content: '';
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: $app-header-height - 2px;
+            width: 20px;
+            background-color: $color-white;
+        }
+    }
+
+    .app-body.flex-body {
+        overflow-y: scroll!important;
+        background: $color-app-bg none no-repeat 0 0;
+        padding: 0 0 $space-medium 0;
+    }
+
+    .user-profile {
+        white-space: nowrap;
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            margin: 0 $space-smallest -10px $space-medium;
+            background: transparent url('../static/icon/profile/framed-profile.svg') no-repeat center center / auto 100%;
+            opacity: .8;
+        }   
+    }
+
+    .nav-menu {
+        white-space: nowrap;
+        > li.menu-item {
+            display: inline-block;
+            padding: 0 $space-medium;
+
+            a > span {
+                position: relative;
+                z-index: 1;
+            }
+
+
+            a.link:before {
+                height: auto;
+                top: -20px; 
+                bottom: -20px;
+                background-color: transparent;
+                border-bottom: 4px solid transparent;
+            }
+
+            &.-active a {
+                font-weight: 600;
+                &:before {
+                    border-bottom-color: $color-primary;
+                }
+            }
+        }
+    }
+
+    .logged-out-message {
+        margin: $space-medium auto 0 auto;
+        background-color: $color-white;
+        max-width: 300px;
+    }
+}

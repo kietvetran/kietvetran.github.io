@@ -1,0 +1,171 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.epk-wrapper {
+    position: relative;
+
+    .epk-person-info-wrapper h3, 
+    .epk-person-epk-data-wrapper h3 {
+        margin: 0;
+        font-size: $font-size-medium;
+    }
+
+    legend {
+        @include ariaVisible();
+    }
+
+    .result-detail-info {
+    }
+
+    .epk-content {
+        padding: 0 0 $space-medium 0;
+    }
+
+    .note-detail-action-wrapper {
+        padding-left: $space-medium;
+        border-radius: $border-round;
+        max-width: 450px;
+    }
+
+    a.link.-need-finalize:after {
+        content: ' !';
+        color: red;
+        font-size: $font-size-regular;
+        font-weight: 700;
+    }
+}
+
+.epk-wrapper.-notification {
+    .item.-kidAktiv-value .item-label,
+    .item.-registeredDatetime .item-label,
+    .item.-notificationFromTilbyder-name .item-label {
+        display: inline-block;
+    }
+
+    .item.-registeredDatetime .item-label {
+        width: 74px;
+    }
+
+    .item.-notificationFromTilbyder-name .item-label {
+        width: 30px;
+    }
+
+    .item.-kidAktiv-value .item-label {
+        width: 54px;
+    }
+
+    .item.-kidAktiv-value .type-text.-optional-text .item-label {
+        display: none;
+    }
+
+    .form-input-wrapper {
+        padding: 0 0 $space-large 0;
+    }
+
+    .form-content-wrapper {
+        position: relative;
+        display: table;
+        width: 100%;
+        max-width: 1024px;
+
+        > div {
+            display: table-cell;
+            width: 26%;
+            vertical-align: top;
+            padding-right: 2%;
+            padding-top: $space-medium;
+    
+            &:first-child {
+                width: auto;
+                padding: 0 5% 0 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .form-input-row-wrapper.-to-date,
+    .form-input-row-wrapper.-from-date {
+        &:before {
+            content: 'Fra dato:';
+            white-space: nowrap;
+            padding-right: 4px;
+            display: inline-block;
+            min-width: 70px;
+        }
+
+
+        label, .input-item-label {
+            @include ariaVisible();
+        }
+    }
+    .form-input-row-wrapper.-to-date:before {
+        content: 'Til dato: ';
+    }
+
+    .form-content-column.-third,
+    .form-content-column.-second {
+        position: relative;
+        border-radius: $border-round;
+        padding-top: $space-small-max;
+
+        &:before {
+            content: '';
+            background-color: #fafafa;
+            position: absolute;
+            left: 0;
+            right: $space-medium;
+            top: 0;
+            bottom: 0;
+            border-radius: $border-round;
+        }
+
+        .form-input-row {
+            padding-left: $space-medium * 2.5;
+            padding-right: $space-small;
+            padding-bottom: 0;
+
+            label {
+                font-size: $font-size-small;
+            }
+
+            &:first-child {
+                padding-left: $space-medium;
+                label {
+                    font-size: $font-size-regular;
+                }
+            }
+        }
+    }
+
+
+    .result-header .flex-text-holder.-length-3 > span {
+        white-space: nowrap;
+        &:first-child + span {
+            text-align: right;
+        }
+    }
+}
+
+.epk-wrapper.-person {
+    .item.-activeBalanceDate,
+    .item.-balance,
+    .item.-activeBalance {
+        .item-label {
+            width: 50px;
+            display: inline-block;
+        }
+    }
+
+    .epk-person-info-wrapper {
+        padding: $space-medium 0 $space-large 0;
+        .message-wrapper {
+            background-color: $color-white;
+            width: 100%;
+        }
+    }
+}
+
+

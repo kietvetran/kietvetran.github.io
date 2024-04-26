@@ -1,0 +1,719 @@
+@import "./mixin";
+@import "./variables";
+
+/******************************************************************************
+  button
+******************************************************************************/
+.action-btn, .primary-btn, .secondary-btn, .default-btn {
+    display: inline-block;
+    border-radius: $border-round-button;
+    cursor: pointer;
+    margin: 0;
+    padding: ($space-smallest + 5) ($space-medium + $space-small-max);  
+    box-shadow: none;
+    border: 0 none;
+    color: $color-border;
+    text-decoration: none;
+    font-weight: 600;
+ 
+    /*font-size: 20px;*/
+    min-width: 64px;
+    white-space: nowrap;
+
+    &, &.-active-bounce {
+        @include buttonActive();
+    }
+
+    &.-hide {
+        display: none;
+    }
+
+    &.-block {
+        display: block;
+    }
+
+    &.-inline {
+        display: inline;
+    }
+
+    &:hover, &:focus {
+        @include focusOutline();
+    }
+
+    &.-shy {
+        @include opacity(.7);
+    }
+
+    &.-small {
+        padding: $space-smallest $space-small-max;
+    }
+
+    &.-flat, &.-as-link {
+        border-color: transparent;
+        background-color: transparent;
+        color: $color-link;
+        position: relative;
+        padding: 0;
+        text-align: left;
+        min-width: 0;
+
+        &:after {
+            content: '';            
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            height: 1px;
+            background-color: $color-sea-green-pastel;
+        }
+
+        &.-sea-green-pastel {
+            color: $color-sea-green-pastel;
+        }
+
+        &.-dark, &.-black {
+            color: $color-font;            
+        }
+
+        &:hover, &:focus {
+            box-shadow: none;
+        }
+
+        &.-no-padding {
+            padding: 0;
+        }
+
+        &.-no-underline:after {
+            display: none;
+        }
+
+        &.-plain {
+            text-decoration: none;
+            cursor: default;
+        }
+
+        &.-cross-right, &.-edit-right, &.-link-external-right {
+            padding-left: 0;
+        }
+    }
+
+    &.-warning-left, &.-lightbulb-left, &.-reload-left,
+    &.-link-external-left, &.-link-external-right, 
+    &.-email-left, &.-mobile-left,
+    &.-child-left, &.-boat-left, &.-saving-pig-left, &.-question-left,
+    &.-signature-left, &.-chart-bar-left, &.-chart-line-left, &.-palm-tree-left,
+    &.-info-left, &.-document-left, &.-trash-left, &.-stop-left,
+    &.-fullscreen-left, &.-normalscreen-left, &.-presentation-left,
+    &.-house-left, &.-hut-left, &.-car-left, &.-diamond-left, &.-study-left, &.-wallet-left,
+    &.-plus-left, &.-storage-left, &.-checked-left, &.-edit-left,
+    &.-arrow-right, &.-arrow-left, &.-cross-left, &.-cross-right, &.-edit-right {
+        padding-left: 46px;
+        padding-right: $space-medium + $space-smallest;
+
+        &.-as-link {
+            padding-left: 26px;
+            padding-right: 0;
+            &:before {
+                left: 0;
+            }
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 17px;
+            margin-top: -10px;
+            background: transparent no-repeat center center / auto 75%;
+        }
+    }
+
+    &.-link-external-right, &.-edit-right, &.-cross-right, &.-arrow-right {
+        padding-right: 46px;
+        padding-left: $space-medium + $space-smallest;
+
+        &.-as-link {
+            padding-left: 0;
+            padding-right: 26px;
+            &:before {
+                left: auto;
+                right: 0;
+            }
+        }
+
+        &:before {
+            left: auto;
+            right: 17px;
+        }
+    }
+
+    &.-saving-pig-left:before {
+        background-size: auto 110%;
+        background-image: url('../static/icon/saving-pig/saving-pig.svg');
+    }
+
+    &.-blue-light.-saving-pig-left:before,
+    &.-as-link.-saving-pig-left:before {
+        background-image: url('../static/icon/saving-pig/saving-pig-blue-light.svg');
+    }
+
+    &.-boat-left:before {
+        background-size: auto 100%;
+        background-image: url('../static/icon/boat/boat.svg');
+    }
+
+    &.-child-left:before {
+        background-size: auto 100%;
+        background-image: url('../static/icon/child/child.svg');
+    }
+
+    &.-chart-line-left.-icon-white:before {
+        background-image: url('../static/icon/chart-line/chart-line-white.svg');
+    }
+
+    &.-blue-light.-chart-line-left:before,
+    &.-as-link.-chart-line-left:before {
+        background-image: url('../static/icon/chart-line/chart-line-blue-light.svg');
+    }
+
+    &.-chart-line-left:before {
+        background-image: url('../static/icon/chart-line/chart-line.svg');
+    }
+
+    &.-chart-bar-left:before {
+        background-image: url('../static/icon/chart-bar/chart-bar.svg');
+    }
+
+    &.-blue-light.-chart-bar-left:before,
+    &.-as-link.-chart-bar-left:before {
+        background-image: url('../static/icon/chart-bar/chart-bar-blue-light.svg');
+    }
+
+    &.-palm-tree-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/palm-tree/palm-tree.svg');
+    }
+
+    &.-blue-light.-palm-tree-left:before,
+    &.-as-link.-palm-tree-left:before {
+        background-image: url('../static/icon/palm-tree/palm-tree-blue-light.svg');
+    }
+
+    &.-cross-left:before {
+        background-size: auto 66%;
+        background-image: url('../static/icon/cross/cross.svg');
+    }
+
+    &.-blue-light.-cross-left:before,
+    &.-as-link.-cross-left:before {
+        background-image: url('../static/icon/cross/cross-blue-light.svg');
+    }
+
+    &.-arrow-left:before {
+        background-size: auto 65%;
+        background-image: url('../static/icon/arrow/arrow-left.svg');
+    }
+
+    &.-blue-light.-arrow-left:before,
+    &.-as-link.-arrow-left:before {
+        background-image: url('../static/icon/arrow/arrow-left-blue-light.svg');
+    }
+
+    &.-dark.-arrow-left:before {
+        background-image: url('../static/icon/arrow/arrow-left-white.svg');
+    }
+
+    &.-question-left:before {
+        background-size: auto 110%;
+        background-image: url('../static/icon/question/question.svg');
+    }
+
+    &.-blue-light.-question-left:before,
+    &.-as-link.-question-left:before {
+        background-image: url('../static/icon/question/question-blue-light.svg');
+    }
+
+    &.-dark.-question-left:before {
+        background-image: url('../static/icon/question/question-white.svg');
+    }
+
+    &.-mobile-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/mobile/mobile.svg');
+    }
+
+    &.-dark.-mobile-left:before {
+        background-image: url('../static/icon/mobile/mobile-white.svg');
+    }    
+    &.-blue-light.-mobile-left:before,
+    &.-as-link.-mobile-left:before,
+    &.-dark.-blue-light.-mobile-left:before {
+        background-image: url('../static/icon/mobile/mobile-blue-light.svg');
+    }    
+
+    &.-warning-left:before {
+        background-size: auto 120%;
+        background-image: url('../static/icon/warning/warning.svg');
+    }
+    &.-dark.-warning-left:before {
+        background-image: url('../static/icon/warning/warning-white.svg');
+    }    
+
+    &.-blue-light.-warning-left:before,
+    &.-as-link.-warning-left:before {
+        background-image: url('../static/icon/warning/warning-blue-light.svg');
+    }    
+
+    &.-reload-left:before {
+        background-size: auto 100%;
+        background-image: url('../static/icon/reload/reload-sea-green-dark.svg');
+    }
+
+    &.-dark.-reload-left:before {
+        background-image: url('../static/icon/reload/reload-white.svg');
+    }
+
+    &.-blue-light.-reload-left:before,
+    &.-as-link.-reload-left:before {
+        background-image: url('../static/icon/reload/reload-blue-light.svg');
+    }
+
+    &.-lightbulb-left:before {
+        background-size: auto 120%;
+        background-image: url('../static/icon/lightbulb/lightbulb.svg');
+    }
+    &.-dark.-lightbulb-left:before {
+        background-image: url('../static/icon/lightbulb/lightbulb-white.svg');
+    }    
+
+    &.-blue-light.-lightbulb-left:before,
+    &.-as-link.-lightbulb-left:before {
+        background-image: url('../static/icon/lightbulb/lightbulb-blue-light.svg');
+    }    
+
+    &.-email-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/email/email.svg');
+    }
+    &.-dark.-email-left:before {
+        background-image: url('../static/icon/email/email-white.svg');
+    }    
+    &.-blue-light.-email-left:before,
+    &.-as-link.-email-left:before,
+    &.-dark.-blue-light.-email-left:before {
+        background-image: url('../static/icon/email/email-blue-light.svg');
+    }    
+
+    &.-link-external-right:before,
+    &.-link-external-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/link/link-external.svg');
+    }
+
+    &.-dark.-link-external-right:before,
+    &.-dark.-link-external-left:before {
+        background-image: url('../static/icon/link/link-external-white.svg');
+    }    
+
+    &.-blue-light.-link-external-right:before,
+    &.-as-link.-link-external-right:before,
+    &.-blue-light.-link-external-left:before,
+    &.-as-link.-link-external-left:before,
+    &.-dark.-blue-light.-link-external-right:before,
+    &.-dark.-blue-light.-link-external-left:before {
+        background-image: url('../static/icon/link/link-external-blue-light.svg');
+    }    
+
+    &.-edit-left:before {
+        background-size: auto 80%;
+        background-image: url('../static/icon/pen/pen.svg');
+    }
+
+    &.-blue-light.-edit-left:before,
+    &.-as-link.-edit-left:before {
+        background-image: url('../static/icon/pen/pen-blue-light.svg');
+    }
+
+    &.-storage-left:before {
+        background-image: url('../static/icon/layer/layer.svg');
+    }
+
+    &.-blue-light.-storage-left:before,
+    &.-as-link.-storage-left:before {
+        background-image: url('../static/icon/layer/layer-blue-light.svg');
+    }
+
+    &.-arrow-right:before {
+        background-size: auto 65%;
+        background-image: url('../static/icon/arrow/arrow-right.svg');
+    }
+
+    &.-dark.-arrow-right:before {
+        background-image: url('../static/icon/arrow/arrow-right-white.svg');
+    }
+
+    &.-blue-light.-arrow-right:before,
+    &.-as-link.-arrow-right:before {
+        background-image: url('../static/icon/arrow/arrow-right-blue-light.svg');
+    }
+
+    &.-cross-right:before {
+        background-size: auto 55%;
+        background-image: url('../static/icon/cross/cross.svg');
+    }
+
+    &.-blue-light.-cross-right:before,
+    &.-as-link.-cross-right:before {
+        background-image: url('../static/icon/cross/cross-blue-light.svg');
+    }
+
+    &.-dark.-cross-right:before {
+        background-image: url('../static/icon/cross/cross-white.svg');
+    }
+
+    &.-edit-right:before {
+        background-size: auto 80%;
+        background-image: url('../static/icon/pen/pen.svg');
+    }
+
+    &.-blue-light.-edit-right:before,
+    &.-as-link.-edit-right:before {
+        background-image: url('../static/icon/pen/pen-blue-light.svg');
+    }
+
+    &.-dark.-edit-right:before {
+        background-image: url('../static/icon/pen/pen-white.svg');
+    }
+
+    &.-checked-left:before {
+        background-image: url('../static/icon/checked/checked.svg');
+    }
+    &.-dark.-checked-left:before {
+        background-size: auto 150%;        
+        background-image: url('../static/icon/checked/checked-white.svg');
+    }
+
+    &.-blue-light.-checked-left:before,
+    &.-as-link.-checked-left:before {
+        background-image: url('../static/icon/checked/checked-blue-light.svg');
+    }
+
+    &.-dark.-plus-left:before {
+        background-image: url('../static/icon/plus/plus-white.svg');
+    }
+
+    &.-plus-left:before {
+        background-image: url('../static/icon/plus/plus.svg');
+    }
+
+    // &.-white.-plus-left:before,
+    &.-purple.-plus-left:before {
+        background-image: url('../static/icon/plus/plus-white.svg');
+    }
+    
+    &.-blue-light.-plus-left:before,
+    &.-as-link.-plus-left:before {
+        background-image: url('../static/icon/plus/plus-blue-light.svg');
+    }
+
+    &.-house-left:before {
+        background-image: url('../static/icon/house/house.svg');
+    }
+
+    &.-blue-light.-house-left:before,
+    &.-as-link.-house-left:before {
+        background-image: url('../static/icon/house/house-blue-light.svg');
+    }
+
+    &.-hut-left:before {
+        background-image: url('../static/icon/hut/hut.svg');
+    }
+
+    &.-blue-light.-hut-left:before,
+    &.-as-link.-hut-left:before {
+        background-image: url('../static/icon/hut/hut-blue-light.svg');
+    }
+
+    &.-car-left:before {
+        background-size: auto 85%;
+        background-image: url('../static/icon/car/car.svg');
+    }
+
+    &.-blue-light.-car-left:before,
+    &.-as-link.-car-left:before {
+        background-image: url('../static/icon/car/car-blue-light.svg');
+    }
+
+    &.-diamond-left:before {
+        background-image: url('../static/icon/diamond/diamond.svg');
+    }
+
+    &.-study-left:before {
+        background-image: url('../static/icon/table-lamp/table-lamp.svg');
+    }
+
+    &.-wallet-left:before {
+        background-image: url('../static/icon/wallet/wallet.svg');
+    }
+
+    &.-fullscreen-left:before, 
+    &.-normalscreen-left:before {
+        margin-top: -9px;
+        background-image: url('../static/icon/full-screen/full-screen.svg');
+    }
+
+    &.-as-link.-fullscreen-left:before, 
+    &.-as-link.-normalscreen-left:before {
+        background-image: url('../static/icon/full-screen/full-screen-blue-light.svg');
+    }
+
+    &.-presentation-left:before {
+        margin-top: -9px;
+        background-size: auto 100%;
+        background-image: url('../static/icon/presentation/presentation.svg');
+    }
+
+    &.-blue-light.-presentation-left:before,
+    &.-as-link.-presentation-left:before {
+        background-image: url('../static/icon/presentation/presentation-blue-light.svg');
+    }
+
+    &.-trash-left:before {
+        background-image: url('../static/icon/trash/trash.svg');
+    }
+
+    &.-blue-light.-trash-left:before,
+    &.-as-link.-trash-left:before {
+        background-image: url('../static/icon/trash/trash-blue-light.svg');
+    }
+
+    &.-info-left:before {
+        background-image: url('../static/icon/info/info.svg');
+    }
+
+
+    &.-info-left.-pastel-icon:before,
+    &.-blue-light.-info-left:before,
+    &.-as-link.-info-left:before {
+        background-image: url('../static/icon/info/info-blue-light.svg');
+    }
+
+    &.-document-left:before {
+        background-image: url('../static/icon/document/document.svg');
+    }
+    &.-dark.-document-left:before {
+        background-image: url('../static/icon/document/document-white.svg');
+    }
+
+    &.-document-left.-dark:before,
+    &.-document-left.-icon-white:before {
+        background-image: url('../static/icon/layer/layer-white.svg');
+    }
+
+    &.-blue-light.-document-left:before,
+    &.-as-link.-document-left:before {
+        background-image: url('../static/icon/document/document-blue-light.svg');
+    }
+
+    &.-stop-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/hand/hand.svg');
+    }
+
+    &.-blue-light.-stop-left:before,
+    &.-as-link.-stop-left:before {
+        background-image: url('../static/icon/hand/hand-blue-light.svg');
+    }
+
+
+    &.-signature-left:before {
+        background-size: auto 90%;
+        background-image: url('../static/icon/signature/signature.svg');
+    }
+
+    &.-blue-border {
+        border-color: #00383D;
+    }
+
+    &.-glowing {
+        @include animation( glowing, 3s, ease, .4s );
+        @include animation-repeat();
+    }
+
+    &.-shadow {
+        @include boxLevelShadow();
+    }
+
+    &.-only-icon {
+        padding: 0;
+        background-color: transparent;
+        border: 0 none;
+        margin: 0;
+
+        &, &:before {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            min-height: 30px;
+        }
+
+        &:before {
+            left: 0;
+            top: 0;
+            margin: 0;
+        }
+
+        &.-cross-left:before {
+            background-size: auto 40%;
+            background-position: center center;
+        }
+    }
+}
+
+.action-btn {
+    color: $color-white;
+    background: $color-action none repeat 0 0;
+    border: 1px solid $color-action;
+}
+
+.primary-btn {
+    border: 1px solid $color-primary;
+    background: $color-primary none repeat 0 0;
+    color: $color-font-green;
+
+   &.-dark {
+        border: 1px solid $color-sea-green-dark;
+        &, &:active, &:hover, &:focus {
+            background: $color-sea-green-dark none repeat 0 0;
+            color: $color-white;            
+        }
+    }
+
+    &.-light {
+        border: 1px solid $color-primary-light;
+        background: $color-primary-light none repeat 0 0;
+    }
+
+    &:hover, &:focus {
+        background-color: $color-active;
+    }
+}
+
+.secondary-btn {
+    border: 1px solid $color-secondary;
+    background: $color-secondary none repeat 0 0;
+    color: $color-white;
+
+    &:hover, &:focus {
+        color: $color-white;
+    }
+}
+
+.default-btn {
+    border: 2px solid $color-sea-green-dark;
+    background: $color-secondary-light none no-repeat 0 0;
+    color: $color-font-green;
+
+    &.-small {
+        font-size: 90%;
+    }
+
+    &.-normal-round {
+        border-radius: 4px;
+    }
+
+    &.-blue {
+        color: $color-link;
+        border-color: $color-link;
+        &.-fill {
+            background-color: $color-link;
+            color: $color-white;
+        }
+
+        &:hover, &:focus {
+            @include focusOutline();
+        }
+    }
+
+    &.-white {           
+        background-color: $color-white;
+
+        &.-active {
+            font-weight: 700;
+            border-color: $color-font-green;
+            box-shadow: 0 0 0 1px $color-font-green;
+            
+            &:hover, &:focus {
+                @include focusOutline();
+            }
+        }
+    }
+
+    &.-grey {           
+        border-color: #F0EEED;
+        background-color: #F0EEED;        
+        color: $color-font-green;
+    }
+
+    &.-orange {           
+        border-color: #F7C288;
+        background-color: #F7C288;        
+        color: $color-font-green;
+    }
+    
+    &.-purple {
+        color: $color-white;
+        border-color: #9E5F8D;
+        background-color: #9E5F8D;
+    }
+
+    &.-error, &.-red {           
+        border-color: $color-danger;
+        background-color: $color-danger;        
+        color: $color-font;
+
+        &.-light {
+            border-color: #FDDEE6;
+            background-color: #FDDEE6;        
+        }
+    }
+
+    &.-warning {           
+        border-color: $color-warning;
+        background-color: $color-warning;        
+        color: $color-font;
+    }
+}
+
+.toggle-btn {
+    position: relative;
+    display: inline-block;
+    padding-right: $space-medium-max;
+
+    &.-active:before {
+        transform: rotate(180deg);
+        transform-origin: 50% 50%;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 20px;
+        height: 30px;
+        margin: -15px 0 0 0;
+        @include transition( all, .2s, ease-in-out);
+        background: transparent none no-repeat center center / auto 25%;
+        background-image: url('../static/icon/arrow/arrow-down.svg');
+    }
+}
+
+@media screen and (max-width: $screen-sm-max) {
+    .action-btn, .primary-btn, .secondary-btn, .default {
+        padding-left: $space-small;
+        padding-right: $space-small;
+    }
+}

@@ -1,0 +1,140 @@
+/* @import "~@eika/core-style"; */
+@import "../../styles/variables";
+
+
+.result-wrapper {
+    position: relative;
+
+    &.-is-error .result-holder {
+        background-color: transparent;
+    }
+    
+    .result-header {
+        padding: 0 0 4px 0;
+    }
+
+    .result-holder {
+        background-color: $color-white;
+        padding: 0;
+        border-radius: $border-round; 
+        
+        > div > .message-wrapper.-error {
+            margin: 0 auto;            
+        }
+    }
+
+    .result-empty-list {
+        padding: $space-medium;
+    }
+
+    table.result-list {
+        td, th {
+            border-bottom: 1px solid $color-border-light;
+            vertical-align: top;
+            &.item.-selection {
+                width: 30px;
+            }
+
+            &:first-child {
+                padding-left: $space-medium;
+            }
+            &:last-child {
+                padding-right: $space-medium;
+            }
+        }
+
+        th {
+            border-bottom: 2px solid $color-border;
+            &, a {
+                font-size: $font-size-small;
+                font-weight: 700;
+            }
+
+            &.item.-selection,
+            &.item.-detail {
+                color: transparent;
+            }            
+
+            &.item.-selection {
+                vertical-align: bottom;
+            }
+        }
+
+        tr.-caption > td,
+        tr.-next-mode-caption > td,
+        tr:hover > td {
+            background-color: #EFF9FD;
+        }
+
+        tr.-next-mode-colspan > td,
+        tr.-next-mode-caption > td {
+            border-bottom-color: transparent;
+        }
+
+
+        .item.-align-right {
+            text-align: right;
+        }
+
+
+        .item-label {
+            padding-right: $space-smallest;
+            opacity: .6;            
+        }
+
+        .item .type-date .item-text,
+        .item .type-amount .item-text {
+            white-space: nowrap;
+        }
+
+        input[type="checkbox"] + label > span.widget:before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            right: -20px;
+            top: -20px;
+            bottom: -20px;
+        }
+    }
+
+    .sort-item {
+        position: relative;
+        display: inline-block;
+        padding-left: $space-small-max;
+        white-space: nowrap;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            border-style: solid;
+            border-width: 7px 5px;           
+        }
+
+        &:before {
+            top: -4px;            
+            border-color: transparent transparent #ccc transparent;
+        }
+
+        &:after {
+            top: 50%;
+            border-color: #ccc transparent transparent transparent;
+        }
+
+        &.-sorted-decrease:before {
+            border-bottom-color: $color-primary;            
+        }
+
+        &.-sorted-increase:after {
+            border-top-color: $color-primary;            
+        }
+    }
+
+    .result-detail-info {
+        background-color: $color-white;
+        border: 1px solid $color-border;
+        padding: $space-medium;
+        border-radius: $border-round;
+    }
+}
+

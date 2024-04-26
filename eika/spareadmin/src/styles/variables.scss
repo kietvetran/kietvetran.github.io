@@ -1,0 +1,140 @@
+$app-header-height:     60px;
+$app-menu-small-width:  60px;
+$app-menu-large-width:  260px;
+
+$base-font-size:        14px;
+$base-font-size-sm:     12px;
+$base-font-family:      "Open Sans", sans-serif;
+$eika-font-family:      "Eika-Medium", "Open Sans", sans-serif;
+$font-size-smallest:    12px;
+$font-size-small:       14px;
+$font-size-regular:     16px;
+$font-size-medium:      18px;
+$font-size-large:       22px;
+$font-size-largest:     16px;
+
+/*******************************************************************/
+$h1-size:               28px;
+$h2-size:             	22px;
+$h3-size:               16px;
+$h4-size:              	16px;
+$h5-size:              	14px;
+
+$h1-size-sm:            28px;
+$h2-size-sm:           	24px;
+$h3-size-sm:            20px;
+$h4-size-sm:            16px;
+$h5-size-sm:            14px;
+   
+/*******************************************************************/
+$screen-sm-min:         320px;
+$screen-sm-max:         480px;
+$screen-md-min:         768px;
+$screen-md-max:         980px;
+$screen-lg-min:         1024px;
+$screen-lg-max:         1280px;
+$screen-xl-min:         1592px;
+$screen-xl-max:         1920px;
+
+$border-round:          4px;
+$border-round-small:    6px;
+$border-round-medium:   12px;
+$border-round-button:   4px;
+
+$space-smallest:        5px;
+$space-small-min:       5px;
+$space-small:           10px;
+$space-small-max:       15px;
+$space-medium:          20px;
+$space-medium-max:      30px;
+$space-large:           40px;
+$space-large-max:       50px;
+
+/*******************************************************************/
+$color-sea-green-pastel: #97C5CA;
+$color-sea-green-medium: #4D7477;
+$color-sea-green-dark:   #00383D;
+$color-sea-green-light:  #e6f3f5;
+$color-sea-green-lighter: #F0F8F9;
+
+
+$color-not-eika-fund:          #1f9dc9;
+$color-not-eika-fund-light:    #e9f7fc;
+$color-skagen:          #1f9dc9;
+$color-skagen-light:    #e9f7fc;
+$color-eika:            #84BD00;
+$color-eika-light:      #BCDB73;
+
+$color-brand:           #84BD00;
+$color-primary:         #50BA2B; /*#84BD00;*/   /*76a300*/
+$color-primary-light:   #BCDB73;
+$color-secondary:       #00383D;  /*#32374b;*/
+$color-secondary-light: #61C3E6;  /*#32374b;*/
+$color-warning:         #ffc800;
+/*$color-error:           #a92424;*/
+$color-error:           #b83653;
+$color-error-light:     #fddee6;
+
+
+$color-font:            #00383D; /*#252525*/
+$color-font-green:      #00383D;
+$color-font-title:      #00383D;
+
+$color-border-dark:     #333333;
+$color-border:          #999999;
+$color-border-light:    rgba(177, 162, 151, 0.45);
+$color-border-green:    #00383D;
+
+$color-focus:           $color-sea-green-dark; /*#0874BF; #0874BF;*/
+$color-active:          #76a300; /*#0874BF;*/
+$color-action:          #318500;
+$color-link:            $color-sea-green-pastel;
+$color-spinner:         #84BD00;
+$color-pink:            #dda0dd;
+
+$color-required:        #e60000;
+$color-disabled:        #eaeaea;
+$color-checkbox:        #00383D;
+$color-radio:           #00383D;
+
+$color-white:           #ffffff;
+$color-red:             #B83653;
+$color-red-pastel:      #FDDEE6;
+$color-green:           #76a300;
+$color-blue:            #0874BF;
+$color-dark:            #333333;
+$color-grey:            #999;
+$color-grey-light:      #ccc;
+$color-grey-medium:     #ECE5E0;
+
+$color-app-bg:          #F1F0EF;
+
+$color-info:            #97C5CA; /*#61C3E6;*/
+$color-info-border:     #97C5CA; /*#61C3E6;*/
+$color-info-bg:         #E6F3F5; /*#C0E7F5;*/
+$color-info-bg-light:   #E6F3F5;
+
+$color-success:         #DCF1D5; /*#84BD00;*/
+$color-success-border:  #99D2A6; /*#84BD00;*/
+$color-success-bg:      #DCF1D5; /*#D2E7A1;*/
+
+$color-warning:         #FEF4DC; /*#F7C288;*/
+$color-warning-border:  #F7C288; /*#F7C288;*/
+$color-warning-bg:      #FEF4DC; /*#FCE9B5;*/
+
+$color-danger:          #FBACC0;
+$color-danger-border:   #E2B3B5;
+$color-danger-bg:       #FDDEE6;
+
+$color-font-negative:   #B83653;
+
+$color-reserved:        #CF2C35;
+$color-peach:           #FFE5C7;
+$color-peach-pastel:    #FFE5C7;
+
+$color-risk-high:       #B83653;
+$color-attention-light: #F0DBEA;
+$color-attention:       #CFA5C3;
+
+$white: #FFFFFF;
+

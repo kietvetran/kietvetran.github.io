@@ -1,0 +1,117 @@
+:root { /* Pga ny style-web-lib, må ha :root for å overstyre font størrelse; */
+    h1, .h1, {
+        font-size: $h1-size;
+        line-height: $h1-size * 1.6;
+
+        + .lead {
+            margin-top: $h1-size * -.3;
+        }
+    }
+
+    h2, .h2, {
+        font-size: $h2-size;
+        line-height: $h2-size * 1.6;
+
+        + .lead {
+            margin-top: $h2-size * -.3;
+        }
+    }
+
+    h3, .h3, {
+        font-size: $h3-size;
+        line-height: $h3-size * 1.6;
+
+        + .lead {
+            margin-top: $h3-size * -.3;
+        }
+    }
+
+    h4, .h4, {
+        font-size: $h4-size;
+        line-height: $h4-size * 1.6;
+
+        + .lead {
+            margin-top: $h4-size * -.3;
+        }
+    }
+
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+        font-weight: 600;
+        margin: 0;
+        padding-bottom: $space-small;
+        font-family: $base-font-family;
+
+        &.-no-space {
+            padding: 0;
+        }
+    }
+
+    .lead-text {
+        font-size: 130%;
+    }
+
+    body, .body-text, .body-header {
+        font-weight: normal;
+        position: relative;
+    }
+
+    body, .body-text, .body-header, textarea, input, h1, h2, h3, h4, h5, p, button, a {
+        font-family: sans-serif;
+        font-family: $base-font-family;
+    }
+
+    body, .body-text, textarea, input, button, label, legend, select, option {
+        color: $color-font;
+    }
+
+    h1, .h1, h2, .h2, h3, .h3, h4, .h4, label, fieldset > legend {
+        color: $color-font-title;
+    }
+
+    body, .body-text, textarea, input, button, label, legend, select, option, a {
+        font-size: $base-font-size;
+        line-height: $base-font-size * 1.6;
+        font-weight: normal;
+    }
+}
+
+@media screen and (max-width: $screen-sm-max) { 
+    h1, .h1, {
+        font-size: $h1-size-sm;
+        line-height: $h1-size-sm * 1.6;
+    }
+
+    h2, .h2, {
+        font-size: $h2-size-sm;
+        line-height: $h2-size-sm * 1.6;
+    }
+
+    h3, .h3, {
+        font-size: $h3-size-sm;
+        line-height: $h3-size-sm * 1.6;
+    }
+
+    h4, .h4, {
+        font-size: $h4-size-sm;
+        line-height: $h4-size-sm * 1.6;
+    }
+
+    h1, h2, .h1, .h2 {
+        margin-bottom: 15px;
+    }
+
+    h3, h4, .h3, .h4 {
+        margin-bottom: 10px;
+    }  
+
+    body, .body-text, textarea, input, button, label, legend, select, option, .action-btn, .primary-btn, .secondary-btn, .default-btn {
+        font-size: $base-font-size-sm;
+        line-height: $base-font-size-sm * 1.6;
+    }
+
+    .input-radio, .input-checkbox {
+        + label {
+            line-height: $base-font-size * 1.6;
+        }
+    }
+}
