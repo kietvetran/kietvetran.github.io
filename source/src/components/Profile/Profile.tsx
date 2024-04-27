@@ -1,7 +1,136 @@
 /******************************************************************************
  == FOMR METHODS ==
 ******************************************************************************/
+import { yupResolver } from "@hookform/resolvers/yup";
+import React from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 
+import { validatePersonalId } from "../../util/Validations";
+import InputField from "../Form/InputField";
+
+type Values = {
+  name: string;
+  age: string;
+};
+
+const schema = yup
+  .object()
+  .shape({
+    name: yup.string().required("Name is required"),
+    age: yup
+      .string()
+      .required("Age is required")
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(2, "Need 2 degits")
+      .max(2, "Need 2 degits"),
+    pin: yup
+      .string()
+      .required("Pin is required")
+      .when(["age"], ([age], schema) => {
+        // ['age', 'name'], ([age, name], schema) =>
+        if (parseInt(age, 10) > 18) {
+          return schema.matches(/^[0-9]+$/, "Must be only digits");
+        }
+        return schema.matches(/^[a-z]+$/, "Must a-z character");
+      }),
+    // is and than do not work well
+    // email: yup.string()
+    //     .when(['name', 'age'], {
+    //         is: (name, age) => {
+    //             return name && age;
+    //         },
+    //         then: yup.string().required('Must enter email address')
+    //    }).email( 'Invalid email addresse'),
+    email: yup
+      .string()
+      .when(["name", "age"], ([name, age], schema) => {
+        if (name && age) {
+          return schema.required("Email is required");
+        }
+        return schema;
+      })
+      .email("Invalid email addresse"),
+    fnr: yup
+      .string()
+      .test("person-id", "Invalid fnr", (value) => validatePersonalId(value)),
+  })
+  .required();
+
+export default function Profile() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onBlur",
+  });
+
+  const onSubmit = (values: Values) => {
+    console.log(values);
+  };
+
+  return (
+    <div className="profile-wrapper">
+      <form
+        noValidate
+        className="form-wrapper"
+        onSubmit={handleSubmit((values: Values) => {
+          onSubmit(values);
+        })}
+      >
+        <InputField
+          {...register("name")}
+          id="name"
+          name="name"
+          label="Name"
+          type="text"
+          error={errors.name?.message}
+        />
+        <InputField
+          {...register("age")}
+          id="age"
+          name="age"
+          label="Age"
+          type="tel"
+          error={errors.age?.message}
+        />
+        <InputField
+          {...register("pin")}
+          id="pin"
+          name="pin"
+          label="Pin"
+          type="text"
+          error={errors.pin?.message}
+        />
+        <InputField
+          {...register("email")}
+          id="email"
+          name="email"
+          label="Email"
+          type="email"
+          error={errors.email?.message}
+        />
+        <InputField
+          {...register("fnr")}
+          id="fnr"
+          name="fnr"
+          label="F-number"
+          type="tel"
+          error={errors.fnr?.message}
+        />
+
+        <input type="submit" className="button -primary" />
+      </form>
+    </div>
+  );
+}
+
+/******************************************************************************
+ == FOMR METHODS -- FULL ==
+******************************************************************************/
+/*
 import { yupResolver } from "@hookform/resolvers/yup";
 import classNames from "classnames";
 import React from "react";
@@ -34,7 +163,21 @@ const schema = yup
         }
         return schema.matches(/^[a-z]+$/, "Must a-z character");
       }),
-    email: yup.string().email("Invalid email addresse"),
+    // is and than do not work well
+    // email: yup.string()
+    //     .when(['name', 'age'], {
+    //         is: (name, age) => {
+    //             return name && age;
+    //         },
+    //         then: yup.string().required('Must enter email address')
+    //    }).email( 'Invalid email addresse'),
+    email: yup.string()
+      .when(['name', 'age'], ([name, age], schema) => {
+        if ( name && age ) {
+          return schema.required('Email is required');
+        }
+        return schema;
+      }).email( 'Invalid email addresse'),
     fnr: yup
       .string()
       .test("person-id", "Invalid fnr", (value) => validatePersonalId(value)),
