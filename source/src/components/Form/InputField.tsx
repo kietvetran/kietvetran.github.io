@@ -5,11 +5,12 @@ type Props = {
     id: string;
     name: string;
     label: string | JSX.Element;
+    register: any;
     error?: string;
 } & React.PropsWithRef<JSX.IntrinsicElements['input']>;
 
 export default function InputField(props: Props) {
-    const { id, label, error, ...rest } = props;
+    const { id, label, error, register, ...rest } = props;
     return (
         <div className="input-wrapper">
             <label htmlFor={id} className="input-label">
@@ -22,6 +23,7 @@ export default function InputField(props: Props) {
                     })}
                     id={id}
                     {...rest}
+                    {...register(rest.name)}
                 />
             </div>
             {!!error && <div className="input-error">{error}</div>}

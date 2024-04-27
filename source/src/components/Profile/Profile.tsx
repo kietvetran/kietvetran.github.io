@@ -77,11 +77,11 @@ export default function Profile() {
                 onSubmit={handleSubmit((values: Values) => {
                     onSubmit(values);
                 })}>
-                <InputField {...register('name')} id="name" name="name" label="Name" type="text" error={errors.name?.message} />
-                <InputField {...register('age')} id="age" name="age" label="Age" type="tel" error={errors.age?.message} />
-                <InputField {...register('pin')} id="pin" name="pin" label="Pin" type="text" error={errors.pin?.message} />
-                <InputField {...register('email')} id="email" name="email" label="Email" type="email" error={errors.email?.message} />
-                <InputField {...register('fnr')} id="fnr" name="fnr" label="F-number" type="tel" error={errors.fnr?.message} />
+                <InputField register={register} id="name" name="name" label="Name" type="text" error={errors.name?.message} />
+                <InputField register={register} id="age" name="age" label="Age" type="tel" error={errors.age?.message} />
+                <InputField register={register} id="pin" name="pin" label="Pin" type="text" error={errors.pin?.message} />
+                <InputField register={register} id="email" name="email" label="Email" type="email" error={errors.email?.message} />
+                <InputField register={register} placeholder="11 digits" id="fnr" name="fnr" label="F-number" type="tel" error={errors.fnr?.message} />
 
                 <input type="submit" className="button -primary" />
             </form>

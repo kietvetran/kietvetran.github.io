@@ -1,3 +1,74 @@
-.speech-wrapper {
+@import '../../style/mixin.scss';
+
+.big-two-wrapper {
     position: relative;
+}
+
+/******************************************************************************
+******************************************************************************/
+.big-two-login-wrapper {
+  position: relative;
+  padding: var(--space-medium) 0;
+  text-align: center;
+
+  h1, h2 {
+    padding: 0 0 var(--space-smallest-max) 0;
+    margin: 0;
+  }
+
+  label {
+    @include ariaVisible();
+  }
+
+  .pin-board {
+    position: relative;
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      &, &:hover, &:focus, &:active {
+        border: 0 none;
+        background: transparent none no-repeat center center;
+        box-shadow: none;
+        outline: none;
+        color: transparent;
+      }
+    }
+  }
+
+  .pin-card {
+    position: relative;
+    display: inline-block;
+    border-radius: var(--card-round);
+    border: 2px solid var(--color-primary-lightest);
+    min-height: 60px;
+    min-width: 40px;
+    margin: var(--space-smallest);
+
+
+    &.-focus {
+      border-color: var(--color-primary);
+    }
+
+    &.-active:before {
+      background-color: var(--color-primary);
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid var(--color-primary-light);
+      border-radius: 100%;
+      background: transparent none no-repeat center center;
+    }
+  }
 }
