@@ -1,4 +1,4 @@
-import { MultipleObject } from "../domain/Types";
+import { MultipleObject } from '../domain/Types';
 
 const Constant: MultipleObject = {};
 

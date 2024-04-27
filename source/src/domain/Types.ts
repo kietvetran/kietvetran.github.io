@@ -1,19 +1,19 @@
 export type StringObject = {
-  [k: string]: string;
+    [k: string]: string;
 };
 
 export type NumberObject = {
-  [k: string]: number;
+    [k: string]: number;
 };
 
 export type MultipleObject = {
-  [k: string]: any;
+    [k: string]: any;
 };
 
 export interface RequiredId extends HarValue<string> {
-  value: string;
+    value: string;
 }
 
 export interface HarValue<T> {
-  value: T;
+    value: T;
 }
