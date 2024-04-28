@@ -15,9 +15,14 @@ export default function BigTwoGame( props: Props ) {
     game: props.game ?? { player: ['kiet']},
   });
 
+  const setPlayer = (player: string[] ): void => {
+    console.log('== PLAYER ==');
+    console.log(player);
+  };
+
   return (
     <div className="big-tow-game-wrapper">
-      <BigTwoInputPlayer callback={() => {}} player={state.game.player} />
+      <BigTwoInputPlayer callback={setPlayer} player={state.game.player} />
     </div>
   );
 }

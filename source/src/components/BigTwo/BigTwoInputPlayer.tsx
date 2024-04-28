@@ -3,16 +3,10 @@ import React from 'react';
 import { useForm, DefaultValues } from 'react-hook-form';
 import * as yup from 'yup';
 import InputField from '../Form/InputField';
-
-export type Values = {
-  name0: string;
-  name1: string;
-  name2: string;
-  name3: string;
-}
+import { StringObject } from '../../domain/Types';
 
 type Props = {
-  callback: (d: string[] ) => void;
+  callback: (p: string[] ) => void;
   player?: string[];
 }
 
@@ -27,21 +21,25 @@ const schema = yup
   .required();
 
 export default function BigTwoInputPlayer( props: Props ) {
+  const length = 4;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver<StringObject>(schema),
     mode: 'onBlur',
-    defaultValues: (props.player ?? []).reduce( (p: Values, v: string, i: number): Values => {
-      p[`name${i}` as keyof Values ] = v ?? '';
+    defaultValues: (props.player ?? []).reduce( (p: StringObject, v: string, i: number): StringObject => {
+      p[`name${i}` as keyof StringObject ] = v ?? '';
       return p;          
-    }, ({name0: '', name1: '', name2: '', name3: ''} as Values)),
+    }, ({} as StringObject)),
   });
 
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const onSubmit = (values: StringObject) => {
+    const player = Array.from({length}).map( (_x, i: number): string=> {
+      return values[`name${i}`] ?? '';
+    });
+    props.callback( player );
   };
 
   return (
@@ -49,11 +47,11 @@ export default function BigTwoInputPlayer( props: Props ) {
       <form
           noValidate
           className="form-wrapper"
-          onSubmit={handleSubmit((values: Values) => {
+          onSubmit={handleSubmit((values: StringObject) => {
               onSubmit(values);
           })}>
 
-          { Array.from({length: 4}).map( (_x, i: number) => {
+          { Array.from({length}).map( (_x, i: number) => {
             const key = `name${i}`;
             const error = errors[key as keyof typeof errors]?.message;
             return <InputField  key={key} register={register} placeholder={`Player ${i+1}`} id={key} name={key} label="Name" type="text" error={error} />
