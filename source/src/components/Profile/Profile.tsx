@@ -1,11 +1,17 @@
 /******************************************************************************
  == FOMR METHODS ==
 const schema : yup.Schema<UserForm>
-
+-----
+interface Sample {
+  allowed: 'foo' | 'bar';
+};
+const shape = yup.object().shape<Sample>({
+  allowed: yup.string().required(),
+});
+----
 type YupShape<T> = {
   [K in keyof T]: T[K] extends string ? string : T[K];
 }
-
 const shape = yup.object().shape<YupShape<Sample>>(...);
 ******************************************************************************/
 import { yupResolver } from '@hookform/resolvers/yup';
