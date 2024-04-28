@@ -1,5 +1,6 @@
 /******************************************************************************
  == FOMR METHODS ==
+const schema : yup.Schema<UserForm>
 ******************************************************************************/
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
@@ -62,7 +63,7 @@ export default function Profile() {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
-        mode: 'onBlur',
+        mode: 'onBlur', // 'all', 'onTouched'
     });
 
     const onSubmit = (values: Values) => {
