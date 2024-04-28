@@ -7,6 +7,7 @@ type Props = {
     label: string | JSX.Element;
     register: any;
     error?: string;
+    children?: JSX.Element;
 } & React.PropsWithRef<JSX.IntrinsicElements['input']>;
 
 export default function InputField(props: Props) {
@@ -27,6 +28,8 @@ export default function InputField(props: Props) {
                 />
             </div>
             {!!error && <div className="input-error">{error}</div>}
+
+            { props.children }
         </div>
     );
 }

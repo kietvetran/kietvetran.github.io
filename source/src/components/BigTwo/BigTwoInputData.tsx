@@ -3,63 +3,59 @@ import React from 'react';
 import { useForm, DefaultValues } from 'react-hook-form';
 import * as yup from 'yup';
 import InputField from '../Form/InputField';
-
-export type Values = {
-  name0: string;
-  name1: string;
-  name2: string;
-  name3: string;
-}
+import { StringObject, MultipleObject } from '../../domain/Types';
 
 type Props = {
-  callback: (d: string[] ) => void;
-  player?: string[];
+  callback: (p: string[] ) => void;
+  row: string | number;
+  data?: string[];
 }
 
-const schema = yup
-  .object()
-  .shape({
-      name0: yup.string().required('Required'),
-      name1: yup.string().required('Required'),
-      name2: yup.string().required('Required'),
-      name3: yup.string().required('Required'),
-  })
-  .required();
-
-export default function BigTwoInputPlayer( props: Props ) {
+export default function BigTwoInputData( props: Props ) {
+  const length = 4;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver<StringObject>(
+      yup.object().shape(
+        Array.from({length}).reduce( (p: MultipleObject, _x, i: number) => {
+          p[`data${props.row}${i}`] = yup.string().matches(/^[0-9]+$/, 'Must be only digits');
+          return p;
+        }, ({} as MultipleObject) )
+      ).required()
+    ),
     mode: 'onBlur',
-    defaultValues: (props.player ?? []).reduce( (p: Values, v: string, i: number): Values => {
-      p[`name${i}` as keyof Values ] = v ?? '';
+    defaultValues: (props.data ?? []).reduce( (p: StringObject, v: string, i: number): StringObject => {
+      p[`data${props.row}${i}` as keyof StringObject ] = v ?? '';
       return p;          
-    }, ({name0: '', name1: '', name2: '', name3: ''} as Values)),
+    }, ({} as StringObject)),
   });
 
-  const onSubmit = (values: Values) => {
-    console.log(values);
+  const onSubmit = (values: StringObject) => {
+    const data = Array.from({length}).map( (_x, i: number): string=> {
+      return values[`data${props.row}${i}`] ?? '';
+    });
+    props.callback( data );
   };
 
   return (
-    <div className="big-two-input-player-wrapper game-row">
+    <div className="big-two-input-data-wrapper game-row">
       <form
           noValidate
           className="form-wrapper"
-          onSubmit={handleSubmit((values: Values) => {
+          onSubmit={handleSubmit((values: StringObject) => {
               onSubmit(values);
           })}>
 
-          { Array.from({length: 4}).map( (_x, i: number) => {
-            const key = `name${i}`;
+          { Array.from({length}).map( (_x, i: number) => {
+            const key = `data${props.row}${i}`;
             const error = errors[key as keyof typeof errors]?.message;
-            return <InputField  key={key} register={register} placeholder={`Player ${i+1}`} id={key} name={key} label="Name" type="text" error={error} />
+            return <InputField  key={key} register={register} id={key} name={key} label="Card" type="text" error={error} />
           })}
           <div className="input-wrapper">
-            <input type="submit" className="button -primary" />
+            <input type="submit" className="button -primary" value="S" />
           </div>
       </form>
     </div>

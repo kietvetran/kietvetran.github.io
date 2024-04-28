@@ -1,6 +1,6 @@
 export type BigTwoGame = {
   player?: string[];
-  data?: number[][];
+  data?: string[][];
   done?: boolean;
   date?: Date;
 };

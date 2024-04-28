@@ -72,3 +72,51 @@
     }
   }
 }
+
+.game-row {
+  position: relative;
+
+  * {
+    font-size: var(--font-size-smaller);
+  }
+
+
+  .input-error, label {
+    @include ariaVisible();
+  }
+
+  input.textfield {
+    border-radius: 0;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    border: 0 none;
+    padding: var(--space-smallest-max);
+  }
+
+  input[type="submit"].button.-primary {
+    padding: var(--space-smallest);
+    border-radius: 2px;
+    min-width: 0;
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .input-wrapper {
+    width: 25%;
+    padding: 0 var(--space-smallest) var(--space-smallest) var(--space-smallest);
+    padding: 0;
+    border: 1px solid #999;
+    margin-bottom: -1px;
+
+    &:last-child {
+      width: auto;
+      display: none;
+    }
+  }
+}

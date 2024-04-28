@@ -3,22 +3,12 @@ import React from 'react';
 import { useForm, DefaultValues } from 'react-hook-form';
 import * as yup from 'yup';
 import InputField from '../Form/InputField';
-import { StringObject } from '../../domain/Types';
+import { StringObject, MultipleObject } from '../../domain/Types';
 
 type Props = {
   callback: (p: string[] ) => void;
   player?: string[];
 }
-
-const schema = yup
-  .object()
-  .shape({
-      name0: yup.string().required('Required'),
-      name1: yup.string().required('Required'),
-      name2: yup.string().required('Required'),
-      name3: yup.string().required('Required'),
-  })
-  .required();
 
 export default function BigTwoInputPlayer( props: Props ) {
   const length = 4;
@@ -27,7 +17,14 @@ export default function BigTwoInputPlayer( props: Props ) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver<StringObject>(schema),
+    resolver: yupResolver<StringObject>(
+      yup.object().shape(
+        Array.from({length}).reduce( (p: MultipleObject, _x, i: number) => {
+          p[`name${i}`] = yup.string().required('Required');
+          return p;
+        }, ({} as MultipleObject) )
+      ).required()
+    ),
     mode: 'onBlur',
     defaultValues: (props.player ?? []).reduce( (p: StringObject, v: string, i: number): StringObject => {
       p[`name${i}` as keyof StringObject ] = v ?? '';
@@ -57,7 +54,7 @@ export default function BigTwoInputPlayer( props: Props ) {
             return <InputField  key={key} register={register} placeholder={`Player ${i+1}`} id={key} name={key} label="Name" type="text" error={error} />
           })}
           <div className="input-wrapper">
-            <input type="submit" className="button -primary" />
+            <input type="submit" className="button -primary" value="S" />
           </div>
       </form>
     </div>
