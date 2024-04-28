@@ -63,7 +63,7 @@ export default function Profile() {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
-        mode: 'onBlur', // 'all', 'onTouched'
+        mode: 'onBlur', // 'all', 'onTouched', 'onChange'
     });
 
     const onSubmit = (values: Values) => {
