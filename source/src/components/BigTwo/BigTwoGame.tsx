@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import BigTwoRowInputParticipant from './BigTwoRowInputParticipant';
+import BigTwoInputPlayer from './BigTwoInputPlayer';
 import { BigTwoGame } from '../../domain/BigTwo';
 
 type Props = {
@@ -12,12 +12,12 @@ type State = {
 
 export default function BigTwoGame( props: Props ) {
   const [state, setState] = useState<State>({
-    game: props.game ?? {},
+    game: props.game ?? { player: ['kiet']},
   });
 
   return (
     <div className="big-tow-game-wrapper">
-      <BigTwoRowInputParticipant callback={() => {}} user={state.game.user} />
+      <BigTwoInputPlayer callback={() => {}} player={state.game.player} />
     </div>
   );
 }

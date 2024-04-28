@@ -1,5 +1,5 @@
 export type BigTwoGame = {
-  user?: string[];
+  player?: string[];
   data?: number[][];
   done?: boolean;
   date?: Date;

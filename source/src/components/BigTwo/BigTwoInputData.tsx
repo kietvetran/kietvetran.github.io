@@ -13,7 +13,7 @@ export type Values = {
 
 type Props = {
   callback: (d: string[] ) => void;
-  user?: string[];
+  player?: string[];
 }
 
 const schema = yup
@@ -26,7 +26,7 @@ const schema = yup
   })
   .required();
 
-export default function BigTwoRowInputParticipant( props: Props ) {
+export default function BigTwoInputPlayer( props: Props ) {
   const {
     register,
     handleSubmit,
@@ -34,7 +34,7 @@ export default function BigTwoRowInputParticipant( props: Props ) {
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'onBlur',
-    defaultValues: (props.user ?? []).reduce( (p: Values, v: string, i: number): Values => {
+    defaultValues: (props.player ?? []).reduce( (p: Values, v: string, i: number): Values => {
       p[`name${i}` as keyof Values ] = v ?? '';
       return p;          
     }, ({name0: '', name1: '', name2: '', name3: ''} as Values)),
@@ -45,7 +45,7 @@ export default function BigTwoRowInputParticipant( props: Props ) {
   };
 
   return (
-    <div className="big-two-input-participant-wrapper game-row">
+    <div className="big-two-input-player-wrapper game-row">
       <form
           noValidate
           className="form-wrapper"
@@ -56,7 +56,7 @@ export default function BigTwoRowInputParticipant( props: Props ) {
           { Array.from({length: 4}).map( (_x, i: number) => {
             const key = `name${i}`;
             const error = errors[key as keyof typeof errors]?.message;
-            return <InputField  key={key} register={register} placeholder="Participant" id={key} name={key} label="Name" type="text" error={error} />
+            return <InputField  key={key} register={register} placeholder={`Player ${i+1}`} id={key} name={key} label="Name" type="text" error={error} />
           })}
           <div className="input-wrapper">
             <input type="submit" className="button -primary" />
