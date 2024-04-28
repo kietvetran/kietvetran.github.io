@@ -17,3 +17,8 @@ export interface RequiredId extends HarValue<string> {
 export interface HarValue<T> {
     value: T;
 }
+
+const Record: Record<string, number> = {
+  a: 1,
+  b: 2,
+};
