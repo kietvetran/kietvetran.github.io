@@ -1,6 +1,12 @@
 /******************************************************************************
  == FOMR METHODS ==
 const schema : yup.Schema<UserForm>
+
+type YupShape<T> = {
+  [K in keyof T]: T[K] extends string ? string : T[K];
+}
+
+const shape = yup.object().shape<YupShape<Sample>>(...);
 ******************************************************************************/
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
