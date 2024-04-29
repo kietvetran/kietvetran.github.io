@@ -1,8 +1,8 @@
-import React from 'react';
 import { QueryClientProvider } from '@tanstack/react-query';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { queryClient } from '../../query/queryClient';
 
+import { queryClient } from '../../query/queryClient';
 import Home from '../Home/Home';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Test from '../Test/Test';

@@ -1,5 +1,7 @@
 /******************************************************************************
  == FOMR METHODS ==
+ https://yup-docs.vercel.app/docs/Api/yup
+ 
 const schema : yup.Schema<UserForm>
 -----
 interface Sample {

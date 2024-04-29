@@ -24,12 +24,11 @@ export default function InputField(props: Props) {
                     })}
                     id={id}
                     {...register(rest.name)}
-
                     {...rest}
                 />
             </div>
             {!!error && <div className="input-error">{error}</div>}
-            { props.children }
+            {props.children}
         </div>
     );
 }
