@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="no-nb">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="x-apple-disable-message-reformatting">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">    
+    <title>Kvittering</title>
+</head>
+
+<body align="center" style="margin:0;padding:0;height:100%;background:#ffffff;" bgcolor="#ffffff">
+<table width="100%" role="presentation" cellspacing="0" cellpadding="0"  bgcolor="#ffffff" style="border: 1px solid transparent; border-collapse: collapse; border-spacing: 0; table-layout: fixed;">
+    <tbody>
+    {{#preHeader}}
+    <tr>
+        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 0 10px 0 10px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 12px; line-height: 20px; color: #7F736C;">
+            <div style="padding: 0; text-align: left; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 12px; line-height: 20px; color: #7F736C;"
+            >{{preHeader}}</div>
+        </td>
+    </tr>
+    {{/preHeader}}
+    <tr>
+        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 20px 0 20px 0; text-align: center; vertical-align: top; background-color: #ffffff; border: 1px solid transparent">
+            <center>
+                <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFF" width="auto" style="border: 15px solid #fff; border-collapse: collapse; border-spacing: 0; table-layout: fixed; max-width: 500px; min-width: 320px;">
+                    <tbody>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 20px 5px 0 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 20px; line-height: 27px; color: #222; border-bottom: 1px solid #DFDAD5">
+                            <a href="https://{{bankHomePage}}" target="_blank" style="text-decoration: underline; color: #222; padding: 0; border: 0 none; border-radius: 25px; font-size: 14px; line-height: 19px;"
+                            ><img alt="logo" src="{{bankLogoUrl}}" height="40" style="max-height: 40px; height: 40px;" /></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 5px 24px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 700; font-style: normal; font-size: 24px; line-height: 30px; color: #222; border-bottom: 1px solid #DFDAD5">
+                            <b style="font-size: 22px; line-height: 28px; text-align: left; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 600; font-style: normal; color: #222;"
+                            >{{header}}</b>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 24px; line-height: 30px; color: #222;">
+                            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFF" width="100%" style="border: 0 none; border-collapse: collapse; border-spacing: 0; table-layout: fixed; width: 100%;">
+                                <tbody> 
+                                    {{#nySparebelopTekst}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Beløp:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{nySparebelopTekst}}</td>
+                                        </tr>
+                                    {{/nySparebelopTekst}} 
+                                    {{#lumpSumFormatted}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Beløp:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{lumpSumFormatted}}</td>
+                                        </tr>
+                                    {{/lumpSumFormatted}}
+                                    {{#lumpSumText}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Beløp:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{lumpSumText}}</td>
+                                        </tr>
+                                    {{/lumpSumText}}
+                                    {{#amountText}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Beløp:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{amountText}}</td>
+                                        </tr>
+                                    {{/amountText}}
+                                    {{#automaticIncreaseText}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Øk beløpet:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{automaticIncreaseText}}</td>
+                                        </tr>
+                                    {{/automaticIncreaseText}} 
+                                    {{#fundName}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Fond:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{fundName}}</td>
+                                        </tr>
+                                    {{/fundName}}
+                                    {{#fromFundName}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Fra fond:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{fromFundName}}</td>
+                                        </tr>
+                                    {{/fromFundName}}
+                                    {{#toFundName}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Til fond:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{toFundName}}</td>
+                                        </tr>
+                                    {{/toFundName}}
+                                    {{#accountNumber}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >
+                                                {{#accountNumberLabel}}{{accountNumberLabel}}{{/accountNumberLabel}}
+                                                {{^accountNumberLabel}}Konto:{{/accountNumberLabel}}
+                                            </td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{accountNumber}}</td>
+                                        </tr>
+                                    {{/accountNumber}}
+                                    {{#placement}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >
+                                                {{#placementLabel}}{{placementLabel}}{{/placementLabel}}
+                                                {{^placementLabel}}Til konto:{{/placementLabel}}
+                                            </td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >{{placement}}</td>
+                                        </tr>
+                                    {{/placement}}
+                                    {{#withdrawalDate}}
+                                        <tr>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 2px 12px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5"
+                                            >Trekkdato:</td>
+                                            <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 12px 5px 12px 2px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; border-bottom: 1px solid #DFDAD5; width: 70%;"
+                                            >Den {{withdrawalDate}}. hver måned</td>
+                                        </tr>
+                                    {{/withdrawalDate}}
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    {{#notification}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 0 24px 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 22px; color: #222;"
+                        >{{notification}}</td>
+                    </tr>
+                    {{/notification}}
+                    {{#avtaleUrl}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 24px 5px 48px 5px; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: 600; font-size: 16px; line-height: 24px; color: #ffffff;  border-bottom: 1px solid #DFDAD5"
+                        >
+                            <a href={{avtaleUrl}} style="background-color: #00383D; border: none; border-radius: 50px; color:#000000; display: inline-block; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 16px; line-height: 24px; text-align: center; text-decoration: none; padding: 12px 30px; color: #ffffff;"
+                            >Les avtalen</a>                        
+                       </td>
+                    </tr>
+                    {{/avtaleUrl}}
+                    {{#linkToProductSheet}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 24px 5px 24px 5px; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: 600; font-size: 16px; line-height: 24px; color: #ffffff;"
+                        >
+                            <a href={{linkToProductSheet}} style="background-color: #00383D; border: none; border-radius: 50px; color:#000000; display: inline-block; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 16px; line-height: 24px; text-align: center; text-decoration: none; padding: 12px 30px; color: #ffffff;"
+                            >Om fondet</a>                        
+                       </td>
+                    </tr>
+                    {{/linkToProductSheet}}
+                    {{#externalFund}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 0 24px 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 22px; color: #222;"
+                        >
+                            <div style="padding: 16px; text-align: left; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; background-color: #E6F3F5; border-radius: 6px;"
+                            >
+                                Fond forvaltet av eksterne fondsforvaltere, vil bli belastet med et plattformhonorar.
+                                <div style="padding: 16px 0 0 0; text-align: left; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; background-color: transparent; border-radius: 0;"
+                                >
+                                    <a class="button_text" target="_blank" href="https://{{bankHomePage}}/spare/plattformhonorar" style="font-size: 16px; font-weight: 600; line-height: 22px; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; text-decoration: none; color: #222; display: inline-block; border-bottom: 2px solid #97C5CA;"
+                                    >Om plattformhonorar</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/externalFund}}
+                    {{#extraInformation}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 0 48px 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 24px; line-height: 30px; color: #222; border-bottom: 1px solid #DFDAD5">
+                                <div style="padding: 16px; text-align: left; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 24px; color: #222; background-color: #F0DBEA; border-radius: 6px;"
+                                >{{extraInformation}}</div>                               
+                        </td>
+                    </tr>
+                    {{/extraInformation}}
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 5px 0 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 600; font-style: normal; font-size: 22px; line-height: 28px; color: #222;"
+                        >Gi oss tilbakemelding</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 8px 5px 20px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: nomal; font-style: normal; font-size: 22px; line-height: 30px; color: #222;">
+                            {{#experience}}
+                            <div style="padding: 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 22px; color: #222;">
+                                {{experience}}
+                            </div>
+                            {{/experience}}
+                            {{^experience}}
+                            <div style="padding: 0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 22px; color: #222;">
+                                Hvordan var brukeropplevelsen?
+                            </div>
+                            {{/experience}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 0 5px 48px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 24px; line-height: 30px; color: #222; border-bottom: 1px solid #DFDAD5">
+                            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFF" width="100%" style="padding: 0; border: 0 none; border-collapse: collapse; border-spacing: 0; table-layout: fixed; width: 100%;">
+                                <tbody> 
+                                    <tr>
+                                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 0; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 700; font-style: normal; font-size: 24px; line-height: 30px; color: #222; width: 33.33%"
+                                        >
+                                            <a href="mailto:feedback.kapitalforvaltning@eika.no?subject=%3A)%20{{feedback}}&amp;body=Tusen%20takk%20for%20tilbakemeldingen!%20%0A%0ASkriv%20gjerne%20noen%20linjer%20her%20om%20din%20opplevelse%20n%C3%A5r%20du%20skulle%20{{feedbackAction}}%20og%20send%20e-posten.%20Det%20er%20ikke%20sikkert%20at%20du%20f%C3%A5r%20svar%20p%C3%A5%20denne%20e-posten.%20Din%20mening%20er%20viktig%20for%20oss%20og%20hjelper%20oss%20med%20%C3%A5%20forbedre%20v%C3%A5re%20tjenester.">
+                                                <img src="https://imgur.com/yGKWQ2f.png">
+                                            </a>
+                                        </td>
+                                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 0; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 700; font-style: normal; font-size: 24px; line-height: 30px; color: #222; width: 33.33%"
+                                        >
+                                            <a href="mailto:feedback.kapitalforvaltning@eika.no?subject=%3A%2F%20{{feedback}}&amp;body=Tusen%20takk%20for%20tilbakemeldingen!%20%0A%0ASkriv%20gjerne%20noen%20linjer%20her%20om%20din%20opplevelse%20n%C3%A5r%20du%20skulle%20{{feedbackAction}}%20og%20send%20e-posten.%20Det%20er%20ikke%20sikkert%20at%20du%20f%C3%A5r%20svar%20p%C3%A5%20denne%20e-posten.%20Din%20mening%20er%20viktig%20for%20oss%20og%20hjelper%20oss%20med%20%C3%A5%20forbedre%20v%C3%A5re%20tjenester.">
+                                                <img src="https://imgur.com/sp8vPEE.png">
+                                            </a>
+                                        </td>
+                                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 0; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 700; font-style: normal; font-size: 24px; line-height: 30px; color: #222; width: 33.33%"
+                                        >
+                                            <a href="mailto:feedback.kapitalforvaltning@eika.no?subject=%3A(%20{{feedback}}&amp;body=Tusen%20takk%20for%20tilbakemeldingen!%20%0A%0ASkriv%20gjerne%20noen%20linjer%20her%20om%20din%20opplevelse%20n%C3%A5r%20du%20skulle%20{{feedbackAction}}%20og%20send%20e-posten.%20Det%20er%20ikke%20sikkert%20at%20du%20f%C3%A5r%20svar%20p%C3%A5%20denne%20e-posten.%20Din%20mening%20er%20viktig%20for%20oss%20og%20hjelper%20oss%20med%20%C3%A5%20forbedre%20v%C3%A5re%20tjenester.">
+                                                <img src="https://imgur.com/apyHtAf.png">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 24px 5px 0 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 600; font-style: normal; font-size: 22px; line-height: 28px; color: #222;"
+                        >Smartspar appen</td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 8px 5px 24px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 24px; line-height: 30px; color: #222;"
+                        >
+                            <table border="0" cellpadding="0" cellspacing="0" bgcolor="#FFF" width="100%" style="border: 0 none; border-collapse: collapse; border-spacing: 0; table-layout: fixed; width: 100%;">
+                                <tbody> 
+                                    <tr>
+                                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding:0; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 16px; line-height: 22px; color: #222;"
+                                        >Med Smartspar får du oversikt over både fondene dine, sparekonti og pensjonen din.</td>
+                                        <td bgcolor="#FFFFFF" align="right" valign="top" style="padding:0 15px 0 0; text-align: right; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 300; font-style: normal; font-size: 22px; line-height: 16px; color: #222; width: 70px"
+                                        ><img src="https://imgur.com/gIpBFaX.png" width="70" height="70" style="max-width: 70px; max-height: 70px;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="left" valign="top" style="padding: 0 5px 48px 5px; text-align: left; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: 600; font-style: normal; font-size: 16px; line-height: 22px; color: #318500;  border-bottom: 1px solid #DFDAD5"
+                        >
+                            <a class="button_text" target="_blank" href="https://www.eika.no/smartspar" style="color: #318500; font-size: 16px; font-weight: 600; line-height: 22px; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; text-decoration: none; color: #222; display: inline-block; border-bottom: 2px solid #97C5CA;"
+                            >Last ned Smartspar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#FFFFFF" align="center" valign="top" style="padding: 24px 5px 20px 5px; text-align: center; vertical-align: top; background-color: #ffffff; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 12px; line-height: 20px; color: #7F736C;"
+                        >
+                            <div style="padding: 0; text-align: center; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; font-weight: normal; font-style: normal; font-size: 12px; line-height: 20px; color: #7F736C;  width: 100%; margin: 0 auto;"
+                            >
+                                Du mottar denne e-posten fordi du {{done}} hos {{bankName}}. Lurer du på noe? Kontakt oss gjerne på e-post: <a href="mailto:{{bankEmail}}" style="font-size: 12px; line-height: 20px; color: #7F736C; font-weight: normal; font-style: normal; font-family: 'Open Sans', 'Roboto', sans-serif, Arial; text-decoration: none;">{{bankEmail}}</a>
+                            </div>                               
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </center>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
+
+
+
