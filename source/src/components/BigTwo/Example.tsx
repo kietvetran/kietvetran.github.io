@@ -1,3 +1,4 @@
+/*
 import * as Yup from "yup";
 
 // const testSchema = Yup.object().shape({
@@ -99,3 +100,4 @@ schema
   .catch((error) => {
     console.log({ error });
   });
+*/

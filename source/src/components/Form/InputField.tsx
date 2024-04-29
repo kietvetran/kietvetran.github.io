@@ -23,12 +23,12 @@ export default function InputField(props: Props) {
                         '-invalid': !!error,
                     })}
                     id={id}
-                    {...rest}
                     {...register(rest.name)}
+
+                    {...rest}
                 />
             </div>
             {!!error && <div className="input-error">{error}</div>}
-
             { props.children }
         </div>
     );

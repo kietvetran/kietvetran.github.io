@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import BigTwoInputPlayer from './BigTwoInputPlayer';
 import BigTwoInputData from './BigTwoInputData';
 import { BigTwoGame } from '../../domain/BigTwo';
 
@@ -23,9 +22,9 @@ export default function BigTwoGame( props: Props ) {
 
   return (
     <div className="big-tow-game-wrapper">
-      <BigTwoInputPlayer callback={setPlayer} player={state.game.player} />
+      <BigTwoInputData callback={setPlayer} data={state.game.player} row={0} />
       { (state.game.data ?? []).map( (data: string[], i: number) => {
-        return <BigTwoInputData key={`data-${i}`} callback={() => {}} row={i} data={data} />
+        return <BigTwoInputData key={`data-${i}`} callback={() => {}} row={i+1} data={data} />
       }) }
     </div>
   );

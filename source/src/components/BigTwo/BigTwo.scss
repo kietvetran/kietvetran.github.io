@@ -73,13 +73,24 @@
   }
 }
 
-.game-row {
+/******************************************************************************
+******************************************************************************/
+.game-row-l {
   position: relative;
+
+  &.-player {
+    input {
+      font-weight: 700;
+    }
+  }
+
+  &.-data {
+
+  }
 
   * {
     font-size: var(--font-size-smaller);
   }
-
 
   .input-error, label {
     @include ariaVisible();
@@ -120,3 +131,4 @@
     }
   }
 }
+
