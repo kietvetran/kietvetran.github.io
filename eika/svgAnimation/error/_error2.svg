@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" >
+<rect x="0" y="0" width="100" height="100" stroke-width="1" stroke="#e60000" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<!--
+<circle cx="5" cy="98" r="2" fill="#e60000"/>
+	<animateTransform attributeName="transform" attributeType="XML" type="scale" from="0" to="1" begin="0" dur=".6s" fill="freeze"/>
+	<animateTransform attributeName="transform" type="scale" values="1; .8; 1; .8; 1;" begin=".6s" dur="5s" repeatCount="indefinite"/> 
+
+	     <animateTransform
+	      attributeType="xml" 
+	      attributeName="transform"
+	      type="translate"
+	      dur="5s"
+	      values="0,0; 0,-50; 0,0; 0,50; 0,0"
+	      repeatCount="indefinite"/>
+	  	<animateTransform 
+		     attributeType="xml" 
+		     attributeName="transform" 
+		     type="scale"
+		     dur='5s'
+		     values=".7;1;.7;1;.7"
+		     repeatCount="indefinite"/>
+
+
+<g is>
+    <animateTransform attributeType="xml" attributeName="transform" type="translate" dur="5s" values="40,40;"/>
+    <animateTransform attributeType="xml" attributeName="transform" type="translate" dur=".1s" values="1,1;"/>
+    <animateTransform attributeType="xml"  attributeName="transform" type="translate" dur="5s" values="0,0; 10,10; 0,0; 10,10; 0,0" repeatCount="indefinite"/>
+    <path d="M50,21 50,62" stroke-width="8" stroke="#e60000"  stroke-linecap="round" fill="none"/>
+	<circle cx="50" cy="79" r="6" stroke-width="0" fill="#e60000"/>
+
+
+<g >
+	<circle cx="50" cy="50" r="45" stroke-width="8" stroke="#e60000" fill="none">
+     <animateTransform
+      attributeType="xml" 
+      attributeName="transform"
+      type="translate"
+      dur="5s"
+      values="0,0; 0,-50; 0,0; 0,50;0,0"
+      repeatCount="indefinite"/>
+   <animateTransform 
+     attributeType="xml" 
+     attributeName="transform" 
+     type="scale"
+     dur='5s'
+     values="1;1.2;1;1.2;1"
+     repeatCount="indefinite"/>
+	</circle>
+</g>
+
+ <circle r="25" cx="50" cy="50" fill="gray">
+	<animateTransform attributeName="transform" type="translate" dur="4s" values="0,0;-50,-50;0,0;50,50;0,0" repeatCount="indefinite"></animateTransform>
+	<animateTransform attributeName="transform" additive="sum" type="scale" dur="4s" values="1; 2; 1; 0; 1" repeatCount="indefinite"></animateTransform>
+</circle>
+
+-->
+<g>
+	<animateTransform attributeName="transform" type="translate" dur="2s" values="0,0; 10,10; 0,0;" repeatCount="2"/>
+	<animateTransform attributeName="transform" additive="sum" type="scale" dur="2s" values="1; .8; 1;" repeatCount="2"/>
+	<circle r="45" cx="50" cy="50" stroke-width="6" stroke="#e60000"  stroke-linecap="round" fill="none" />
+    <path d="M50,21 50,62" stroke-width="8" stroke="#e60000"  stroke-linecap="round" fill="none"/>
+	<circle cx="50" cy="79" r="6" stroke-width="0" fill="#e60000"/>
+</g>
+</svg>

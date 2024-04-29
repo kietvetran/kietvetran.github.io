@@ -1,0 +1,128 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+<title>Click material design</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
+
+<style>
+.target {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  border: 1px solid #333;
+  position: relative;
+  margin: 100px;
+  background: blue none repeat 0 0;
+  color:  #fff;
+  overflow: hidden;
+}
+
+.ripple{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0;
+  padding-top: 0;
+  border-radius: 100%;
+  background-color: rgba(255,255,255,0.5);
+  opacity: 1;
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);  
+  transition: width .5s ease-out, padding-top .5s ease-out, opacity .5s ease-out;
+}
+
+.ripple.-active {
+  width: 120%;
+  padding-top: 120%;  
+  opacity: .2;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head> 
+<body>
+<span class="target"></span>
+
+<script>
+$('.target  ').on('click', function( e ) {
+
+  var target = e.target, offset = getOffset(target);
+  var position = [e.pageX-offset[0], e.pageY-offset[1]];
+  var item = document.createElement('span');
+  item.setAttribute('class','ripple');
+  item.setAttribute('style','left:'+position[0]+'px; top:'+position[1]+'px;');
+  target.appendChild(item);
+  setTimeout( function() {
+    item.setAttribute( 'class', item.getAttribute('class') + ' -active');
+    var duration = getStyle( item, 'transition-duration');
+    var time = parseFloat( duration );
+    setTimeout( function() {
+      target.removeChild( item );    
+    }, (time*1000) );
+  }, 50 );
+});
+
+function getOffset( dom ) {
+  var size = [0,0];
+  do {
+    size[0] += dom.offsetLeft || 0;
+    size[1] += dom.offsetTop  || 0;
+    dom = dom.offsetParent;
+  } while( dom );
+  return size;
+};
+
+function getStyle( dom, property ){
+  var value = "";
+  if(document.defaultView && document.defaultView.getComputedStyle){
+    value = document.defaultView.getComputedStyle(dom, "").getPropertyValue(property);
+  }
+  else if(dom.currentStyle){
+    property = property.replace(/\-(\w)/g, function (strMatch, p1){
+      return p1.toUpperCase();
+    });
+    value = dom.currentStyle[property];
+  }
+  return value;
+}
+
+/*
+$(document).on('click', '.ripple', function(e) {
+  var $rippleElement = $('<span class="ripple-effect" />'),
+    $buttonElement = $(this),
+    btnOffset = $buttonElement.offset(),
+    xPos = e.pageX - btnOffset.left,
+    yPos = e.pageY - btnOffset.top,
+    size = parseInt(Math.min($buttonElement.height(), $buttonElement.width()) * 0.5),
+    animateSize = parseInt(Math.max($buttonElement.width(), $buttonElement.height()) * Math.PI);
+
+  $rippleElement
+    .css({
+      top: yPos,
+      left: xPos,
+      width: size,
+      height: size,
+
+      backgroundColor: $buttonElement.data("ripple-color")
+    })
+    .appendTo($buttonElement)
+    .animate({
+      width: animateSize,
+      height: animateSize,
+      opacity: 0
+    }, 7000, function() {
+      $(this).remove();
+    });
+});
+*/
+</script>
+
+</body>
+</html>

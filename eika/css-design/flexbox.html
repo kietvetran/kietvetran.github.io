@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html class="no-js" lang="en-US">
+<head>
+<title>Flexbox</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui, user-scalable=no" />
+
+<style>
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  border: 1px solid red;
+}
+
+.flexbox {
+  display: flex;
+  border: 1px solid blue;
+  flex-direction: column;
+}
+.flexhead {
+  flex-shrink: 1;
+}
+.flexmain {
+  flex: 1 1 0%!important
+}
+.flexfoot {
+  flex-shrink: 1;
+}
+
+</style>
+
+</head> 
+<body>
+
+<div class="flexbox">
+  <div class="flexhead">
+    <h1>Header</h1>
+  </div>
+  <div class="flexmain">
+    <h1>Main</h1>
+  </div>
+  <div class="flexfoot">
+    <h1>Footer</h1>
+  </div>
+</div>
+
+</body>
+</html>

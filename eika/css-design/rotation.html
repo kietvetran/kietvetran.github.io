@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <title>Test</title>
+<style>
+#wrapper {
+	width: 900px;
+	height: 600px;
+	border: 1px solid blue;
+	overflow: scroll;
+}
+
+img {
+	display: block;
+	width: 100%;
+	border: 1px solid red;
+}
+
+</style>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<script >
+var a = 1, b = 0; 
+function startup() {
+	$('#zoom').on('click', function() {
+		//a = a === 1 ? 2 : 1;
+		if ( ++a > 5 ) { a = 1; }
+		rotate(a,b);
+	});
+	$('#rotate').on('click', function() {
+		b = (b + 90) % 360;
+		rotate(a,b);
+	});
+
+	//rotate(1,90);
+	//var point = getRotationPoint(883,331,0,0,90);
+	//var point = getRotationPoint(0,0,883,331,90);
+	//$('#output').html('P: '+ point.join(', '));
+}
+
+function getRotationPoint(cx, cy, x, y, angle) {
+    var radians = (Math.PI / 180) * angle,
+        cos = Math.cos(radians),
+        sin = Math.sin(radians),
+        nx = (cos * (x - cx)) + (sin * (y - cy)) + cx,
+        ny = (cos * (y - cy)) - (sin * (x - cx)) + cy;
+    return [nx, ny];
+}
+
+function rotate( zoom, rotasjon ) {
+	var bilde = $('#bilde').attr('style',''); 
+	var scale = zoom, transform = 'transform: scale('+scale+') rotate('+rotasjon+'deg);';
+	var width = bilde.prop('clientWidth'), height = bilde.prop('clientHeight'); 
+	var space = (width - height) / 2;
+	var left  = scale > 1 ? ((width * (scale-1)) / 2)  : 0;  
+	var top   = scale > 1 ? ((height * (scale-1)) / 2) : 0;  
+
+	if ( scale === 1 ) {
+		if ( rotasjon === 90 || rotasjon === 270 ) {
+			transform += 'margin: ' + space +'px 0 0 '+ (space * -1) +'px;';
+		}
+	} else if ( scale > 1 ) {
+		if ( rotasjon === 90 || rotasjon === 270 ) {
+			transform += 'margin: ' +(left+space)+'px 0 0 '+ (top-space) +'px;';		
+		} else {
+			transform += 'margin: ' + top +'px 0 0 '+ left +'px;';
+		}	
+	}
+
+	var out = 'W: '+ width + ' H: '+height+ ' L:' +left + ' T:' +top+' S: '+transform;
+	console.log( out );
+	$('#output').html( out );
+	bilde.attr('style', transform);
+}
+
+
+/*
+function rotate( zoom, rotasjon ) {
+	var bilde  = $('#bilde').attr('style',''); 
+	var scale = zoom, transform = 'transform: scale('+scale+')';
+	var width = bilde.prop('clientWidth'), height = bilde.prop('clientHeight');
+	var percent = zoom / 10, difference = 1 - percent, left = 0, top = 0;
+
+
+	if ( rotasjon === 0 && scale === 1 ) {
+		transform += ';';			
+	} else if ( rotasjon === 0 && scale > 1 ) {
+		transform += '; transform-origin: 0 0;';
+	} else if ( rotasjon === 90 && scale === 1 ) {
+		transform += ' rotate(90deg); transform-origin: '+(height/2)+'px '+(height/2)+'px;';
+	} else if ( rotasjon === 90 && scale > 1) {
+		transform += ' rotate(90deg); transform-origin: '+((height/scale)*(difference))+'px '+(height*difference)+'px;';		
+	} else if ( rotasjon === 180 && scale === 1 ) {
+		transform += ' rotate(180deg);';
+	} else if ( rotasjon === 180 && scale > 1 ) {
+		transform += ' rotate(180deg); transform-origin: '+(width-(width/3))+'px '+(height-(height/3))+'px;';
+	} else if ( rotasjon === 270 && scale === 1 ) {
+		transform += ' rotate(-90deg); transform-origin: '+(width/scale)+'px '+(width/scale)+'px;';
+	} else if ( rotasjon === 270 && scale > 1 ) {
+		transform += ' rotate(-90deg); transform-origin: '+(width*difference)+'px '+((width/scale)*(difference))+'px;';		
+	}
+
+	var out = 'W: '+ width + ' H: '+height +' P: '+ percent + ' D: '+ difference + ' S: '+transform;
+	console.log( out );
+	$('#output').html( out );
+	bilde.attr('style', 'border: 1px solid red; ' + transform);
+}
+
+
+function rotate( zoom, rotasjon ) {
+	var bilde  = $('#bilde').attr('style',''); 
+	var view   = $('#view').attr('style',''); 
+	var cnt    = $('#cnt').attr('style',''); 
+
+	var margin = [0];
+	var scale = zoom;
+	var width = bilde.prop('clientWidth'), height = bilde.prop('clientHeight');
+
+	if ( rotasjon === 0 && scale === 1 ) {
+		margin = [0];
+	} else if ( rotasjon === 0 && scale > 1 ) {
+
+		//margin = [height/3, 0, 0, width/3];
+	} else if ( rotasjon === 90 && scale === 1 ) {
+		margin = [width-height, 0, 0, 0];
+	} else if ( rotasjon === 90 && scale > 1) {
+		//margin = [(height/2)*-1, 0, 0, (width-height)*-1];
+	} else if ( rotasjon === 180 && scale === 1 ) {
+		margin = [0];
+	} else if ( rotasjon === 180 && scale > 1 ) {
+		margin = [height * -1, 0, 0, width * -1];
+	} else if ( rotasjon === 270 && scale === 1 ) {
+		margin = [0, 0, (height-width)*-1, 0 ];
+	} else if ( rotasjon === 270 && scale > 1 ) {
+		margin = [0, (width-height)*-1, (height/2)*-1, 0];
+	}
+
+	console.log('W: '+ width + ' H: '+height + ' M: '+margin.join(' '));
+	$('#output').html('W: '+ width + ' H: '+height + ' M: '+margin.join(' '));
+	view.attr('style', 'float: left; transform: scale('+scale+');');
+	cnt.attr('style', 'float: left; transform: rotate('+(rotasjon|| 0)+'deg);');
+	//bilde.attr('style', 'border: 1px solid red; float: left; width: auto; margin: ' + margin.join('px ') + 'px;');
+	//bilde.attr('style', 'border: 1px solid red; float: left; width: '+width+'px; max-width: none; margin: ' + margin.join('px ') + 'px;');
+	bilde.attr('style', 'border: 1px solid red; float: left; width: 100%; margin: ' + margin.join('px ') + 'px;');
+	//bilde.attr('style', 'border: 1px solid red; float: left; width: '+width+'px; max-width: none;');
+	//transform-origin: 10% 10%;
+}
+*/
+
+</script>
+</head>
+<body onload="javascript:startup()">
+<div id="tool">
+	<button id="zoom">Zoom</button>
+	<button id="rotate">Rotate</button>
+	<span id="output"></span>
+</div>
+<div id="wrapper">
+	<div id="view">
+		<div id="cnt">
+			<img id="bilde" src="vertical.jpg">
+			<!--
+			<img id="bilde" src="vertical.jpg">
+			<img id="bilde" src="horizontal.jpg">
+			-->
+		</div>
+	</div>
+</div>
+</script>
+</body>
+</html>
