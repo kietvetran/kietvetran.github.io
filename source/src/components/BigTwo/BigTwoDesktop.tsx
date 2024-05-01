@@ -117,6 +117,14 @@ export default function BigTwoDesktop() {
                   </a>
                 </>
               )}
+
+              { !!state.game && <a
+                href="#"
+                title="Doueble sum"
+                className={`tool-game-btn -double-sum -${state.game.double ? 'yes' : 'no'}`}
+                onClick={(e: MouseEvent) => {
+                  onClick(e, 'edit-game');
+                }}>Amount x 2</a>}
             </div>
             {state.game ? (
               <BigTwoGame game={state.game} list={dataBigTwo.data?.list ?? []} />

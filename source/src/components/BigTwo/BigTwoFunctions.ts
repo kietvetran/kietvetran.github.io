@@ -42,8 +42,10 @@ export const getGameSumAmount = (game: BigTwoGameType): number[] => {
       sum[i] = (sum[i] ?? 0) + (n - c);
     });
   });
+
   return sum.map((v: number) => {
-    return v > 0 ? 0 : v;
+    v *= (game.double ? 2 : 1);
+    return v > 0 ? 0 : (v < -500 ? -500 : v);
   });
 };
 

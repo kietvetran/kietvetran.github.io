@@ -3,6 +3,7 @@ export type BigTwoGameType = {
   player?: string[];
   data?: string[][];
   mode?: string;
+  double?: boolean;
 };
 
 export type BigTwoPlayerDetail = {

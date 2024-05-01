@@ -274,6 +274,7 @@
 
   .sub-title {
     padding-bottom: var(--space-smallest);
+
     .date {
        display: inline-block;
        font-weight: normal;
@@ -295,6 +296,26 @@
     &.-back {
       margin-left: 0;
       margin-right: var(--space-smallest-max);
+    }
+
+    &.-double-sum {
+      border: 0 none;
+      float: right;
+
+      &.-no:before {
+        background-image: none;
+      }
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        border: 1px solid var(--color-grey);
+        margin: 0 var(--space-smallest) -3px 0;
+        background: transparent url('../../../assets/icon/checked.svg') no-repeat center center / 140% auto;
+      }
     }
   }
 
