@@ -1,0 +1,68 @@
+@import "../../style/mixin";
+
+@-webkit-keyframes rotation {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(0deg); }
+    90% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(0deg); }
+    90% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+} 
+
+$spinnerSize: 34px;
+$spinnerSizeBig: 68px;
+$spinnerSizeMedium: 52px;
+
+.spinner-wrapper {
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+
+    &.-big:after {
+        width: $spinnerSizeBig;
+        height: $spinnerSizeBig;
+        border-width: 11px;        
+    }
+
+    &.-medium:after {
+        width: $spinnerSizeMedium;
+        height: $spinnerSizeMedium;
+        border-width: 8px;        
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        position: relative;
+        z-index: 2;
+        width: $spinnerSize;
+        height: $spinnerSize;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #cfc5bd #97c5ca #00383d #c2e375;
+        border-radius: 100%;
+        @include animation( rotation, 1.4s, ease-in-out, 0);
+        @include animation-repeat();    
+    }
+
+    &.-absolute-position {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255,255,255, .8);        
+        }
+    }
+
+    > span {
+        @include ariaVisible();
+    }
+}

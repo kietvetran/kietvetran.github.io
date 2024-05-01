@@ -77,7 +77,12 @@
   --color-info:      #0dcaf0;
   --color-warning:   #ffc107;
   --color-danger:    #dc3545;
-  --color-error:     #a92424;
+  --color-error:     #B83653;
+  --color-error-light: #DD5C6B;
+  --color-error-pastel: #FDDEE6;
+  --color-cotton: #FBFAFA;
+  --color-peach: #FFEEBE;
+  --color-attention: #AE5B98;
   --color-light:     #f8f9fa;
   --color-dark:      #343a40;
   --color-darkest:   #1E1E25;
@@ -88,11 +93,15 @@
     :root {
       --header-height: 60px;
       --footer-height: 60px;
-      --font-size-smallest: 12px; 
-      --font-size-small: 16px;  
-      --font-size-regular: 20px;
+      
+      /*
+      --font-size-smallest: 10px; 
+      --font-size-smaller: 12px; 
+      --font-size-small: 14px;  
+      --font-size-regular: 16px;
       --font-size-medium: 26px;
       --font-size-large: 30px;
-      --font-size-largest: 36px;      
+      --font-size-largest: 36px; 
+      */     
     }
 }

@@ -75,12 +75,38 @@
 
 /******************************************************************************
 ******************************************************************************/
-.game-row-l {
+.big-tow-game-wrapper {
+  margin-top: var(--space-smallest);
+  overflow: hidden;
+  border: 1px solid var(--color-grey);
+  border-radius: var(--card-round);
+
+  .game-row {
+    margin: 0 0 -1px -1px;
+    &.-player .cell:first-child {
+      margin-bottom: 1px;
+      border-bottom-width: 1px;
+    }
+  }
+
+  .data-holder {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+.game-row {
   position: relative;
+  text-align: center;
 
   &.-player {
-    input {
+    input.textfield {
       font-weight: 700;
+      text-align: center;
+    }
+
+    .cell {
+      border-bottom-width: 2px;
     }
   }
 
@@ -103,6 +129,16 @@
     border-right: 0 none;
     border: 0 none;
     padding: var(--space-smallest-max);
+    text-align: center;
+
+    &:hover, &:focus, &:active {
+      outline: none;
+      background-color: #eee;
+    }
+
+    &.-invalid {
+      background-color: var(--color-error-pastel);
+    }
   }
 
   input[type="submit"].button.-primary {
@@ -119,16 +155,100 @@
   }
 
   .input-wrapper {
-    width: 25%;
-    padding: 0 var(--space-smallest) var(--space-smallest) var(--space-smallest);
     padding: 0;
-    border: 1px solid #999;
-    margin-bottom: -1px;
+    margin: 0;
+  }
 
+  .cell {
+    width: 25%;
+    padding: 0;
+    border-style: solid;
+    border-width: 0 0 1px 1px;
+    border-color: var(--color-grey);
+
+    &:first-child {
+      padding: 2px 2px 2px 4px;
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    /*
     &:last-child {
       width: auto;
       display: none;
     }
+    */
   }
 }
 
+.game-card-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid var(--color-grey);
+  margin: var(--space-smallest) 0;
+  padding: var(--space-smallest) var(--space-small);
+  text-decoration: none;
+  border-radius: var(--card-round);
+
+  &.-delete-game:after {
+    background-image: url('../../../assets/icon/cross.svg');    
+  }
+
+  .counter {
+    min-width: 30px;
+    font-size: var(--font-size-small);
+    padding-top: 3px;
+  }
+
+  &:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -15px 0 0 0;
+    background: transparent none no-repeat center center / 60% auto;
+    background-image: url('../../../assets/icon/arrow-right.svg');
+    opacity: .6;
+  }
+}
+
+
+.big-tow-desktop-wrapper {
+  &.-on-edit {
+    .tool-game-btn.-add {
+      visibility: hidden;
+    }
+  }
+  .sub-title {
+    padding-bottom: var(--space-smallest);
+  }
+
+  .tool-game-btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid var(--color-primary-light);
+    margin-left: var(--space-smallest-max);
+    padding: 2px var( --space-smallest-max );
+    border-radius: var(--card-round);
+    font-size: var(--font-size-smaller);
+    font-weight: 600;
+
+    &.-back {
+      margin-left: 0;
+      margin-right: var(--space-smallest-max);
+    }
+  }
+
+  .game-list {
+    display: flex;
+    flex-direction: column-reverse;    
+  }
+}

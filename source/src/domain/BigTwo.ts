@@ -1,10 +1,16 @@
 export type BigTwoGameType = {
-    player?: string[];
-    data?: string[][];
-    done?: boolean;
-    date?: Date;
+  id: string;
+  player?: string[];
+  data?: string[][];
+  mode?: string;
+};
+
+export type BigTwoPlayerDetail = {
+  name: string;
+  amount: number;
 };
 
 export type BigTwoOverview = {
-    list: BigTwoGameType[];
+  list: BigTwoGameType[];
+  playerDetail: BigTwoPlayerDetail[];
 };

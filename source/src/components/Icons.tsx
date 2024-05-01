@@ -7,11 +7,11 @@ import typescript from '@assets/icons/typescript.png';
 import webpack from '@assets/icons/webpack.png';
 
 export const icons = {
-    chrome,
-    react,
-    typescript,
-    erwt,
-    nodejs,
-    webpack,
-    license,
+  chrome,
+  react,
+  typescript,
+  erwt,
+  nodejs,
+  webpack,
+  license,
 };

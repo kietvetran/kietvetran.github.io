@@ -10,3 +10,22 @@ body, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, i
 body, p, div, span, em, li, td, a, button, legend, textarea, label, input, select, option  {
 	font-weight: normal;
 }
+
+h1, .h1 {
+	font-size: var(--font-size-large);
+	font-weight: 600;
+}
+
+h2, .h2 {
+	font-size: var(--font-size-medium);
+	font-weight: 600;
+}
+
+h3, .h3 {
+	font-size: var(--font-size-regular);
+}
+
+.sub-title {
+	font-weight: 700;
+	font-size: var(--font-size-small);
+}
