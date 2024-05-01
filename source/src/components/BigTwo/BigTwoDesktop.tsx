@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useState, MouseEvent } from 'react';
 
 import BigTwoGame from './BigTwoGame';
-import { BigTwoGameType } from '../../domain/BigTwo';
+import { BigTwoGameType, BigTwoPlayerDetail } from '../../domain/BigTwo';
 import { useFetchBigTwoGame, usePostBigTwoGame } from '../../hook/useBigTwoGame';
 import Spinner from '../Spinner/Spinner';
 
@@ -80,63 +80,81 @@ export default function BigTwoDesktop() {
       {dataBigTwo.isLoading && <Spinner />}
       {!dataBigTwo.isLoading && !dataBigTwo.isError && dataBigTwo.data && (
         <div className="content relative">
-          <div className="sub-title">
-            {!!state.game && (
-              <a
-                href="#"
-                title="Edit game"
-                className="tool-game-btn -back"
-                onClick={(e: MouseEvent) => {
-                  onClick(e, 'back');
-                }}>
-                back
-              </a>
-            )}
-            <span>Game</span>
-            {!state.game && (
-              <>
+          <section aria-labelledby="game-label">
+            <div className="sub-title">
+              {!!state.game && (
                 <a
                   href="#"
                   title="Edit game"
-                  className="tool-game-btn -edit"
+                  className="tool-game-btn -back"
                   onClick={(e: MouseEvent) => {
-                    onClick(e, 'edit-game');
+                    onClick(e, 'back');
                   }}>
-                  {state.onEdit ? 'Done' : 'Edit'}
+                  back
                 </a>
-                <a
-                  href="#"
-                  title="New game"
-                  className="tool-game-btn -add"
-                  onClick={(e: MouseEvent) => {
-                    onClick(e, 'new-game');
-                  }}>
-                  Add
-                </a>
-              </>
-            )}
-          </div>
-          {state.game ? (
-            <BigTwoGame game={state.game} list={dataBigTwo.data?.list ?? []} />
-          ) : (
-            <div className="game-list">
-              {dataBigTwo.data.list.map((game: BigTwoGameType, i: number) => {
-                const action = state.onEdit ? 'delete-game' : 'open-game';
-                return (
+              )}
+              <span id="game-label">Game</span>
+              {!!state.game && <span className="date">{state.game.id.substring(0, 10)}</span>}
+              {!state.game && (
+                <>
                   <a
-                    key={`game-${i}`}
                     href="#"
-                    className={`game-card-row -mode-${game.mode ?? 'none'} -${action}`}
+                    title="Edit game"
+                    className="tool-game-btn -edit"
                     onClick={(e: MouseEvent) => {
-                      onClick(e, action, game);
+                      onClick(e, 'edit-game');
                     }}>
-                    <div className="counter">{i + 1}.</div>
-                    <div className="text">{(game.player ?? []).join(', ') || '-'}</div>
+                    {state.onEdit ? 'Done' : 'Edit'}
                   </a>
-                );
-              })}
+                  <a
+                    href="#"
+                    title="New game"
+                    className="tool-game-btn -add"
+                    onClick={(e: MouseEvent) => {
+                      onClick(e, 'new-game');
+                    }}>
+                    Add
+                  </a>
+                </>
+              )}
             </div>
+            {state.game ? (
+              <BigTwoGame game={state.game} list={dataBigTwo.data?.list ?? []} />
+            ) : (
+              <div className="game-list">
+                {dataBigTwo.data.list.map((game: BigTwoGameType, i: number) => {
+                  const action = state.onEdit ? 'delete-game' : 'open-game';
+                  return (
+                    <a
+                      key={`game-${i}`}
+                      href="#"
+                      className={`game-card-row -mode-${game.mode ?? 'none'} -${action}`}
+                      onClick={(e: MouseEvent) => {
+                        onClick(e, action, game);
+                      }}>
+                      <div className="counter">{i + 1}.</div>
+                      <div className="date">{game.id.substring(0, 10)}</div>
+                      <div className="text">{(game.player ?? []).join(', ') || '-'}</div>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </section>
+
+          {!state.game && (
+            <section aria-labelledby="amount-label">
+              <div className="sub-title" id="amount-label">
+                <span>Amount</span>
+              </div>
+              <div className="amount-description">
+                {dataBigTwo.data.playerDetail.map((detail: BigTwoPlayerDetail, i: number) => {
+                  return <span key={`player-amount-${i}`} className="player-detail">{`${detail.name}: ${detail.amount}`}</span>;
+                })}
+              </div>
+            </section>
           )}
+
           {state.loading && <Spinner absolute />}
         </div>
       )}

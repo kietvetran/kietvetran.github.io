@@ -13,5 +13,5 @@ export default function BigTwo() {
     setAccess(true);
   };
 
-  return <div className="big-tow-wrapper">{access ? <BigTwoDesktop /> : <BigTwoLogin success={successLogin} />}</div>;
+  return <div className="big-two-wrapper">{access ? <BigTwoDesktop /> : <BigTwoLogin success={successLogin} />}</div>;
 }

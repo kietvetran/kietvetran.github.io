@@ -1,17 +1,22 @@
 import { BigTwoGameType, BigTwoOverview } from '../../domain/BigTwo';
-// import { MultipleObject } from '../../domain/Types';
 
-export const getAmount = (count = 0): number => {
-  if (count === 13) {
-    return count * 4;
+export const getTiming = (value?: string | number): number => {
+  const count = parseInt(`${value ?? 0}`, 10);
+  if (count >= 13) {
+    return 4;
   }
   if (count >= 10) {
-    return count * 3;
+    return 3;
   }
   if (count >= 8) {
-    return count * 2;
+    return 2;
   }
-  return count ? count : 0;
+  return 1;
+};
+
+export const getCount = (count = 0): number => {
+  const timing = getTiming(count);
+  return count * timing;
 };
 
 export const getGameResult = (game: BigTwoGameType): number[] => {
@@ -19,10 +24,27 @@ export const getGameResult = (game: BigTwoGameType): number[] => {
   (game.data ?? []).forEach((info: string[]) => {
     info.forEach((text: string, i: number) => {
       const count = parseInt(text || '0', 10);
-      result[i] = (result[i] ?? 0) + getAmount(count);
+      result[i] = (result[i] ?? 0) + getCount(count);
     });
   });
   return result;
+};
+
+// export const getGameSumAmount = (result=[287, 432, 396, 268]): number[] => {
+export const getGameSumAmount = (game: BigTwoGameType): number[] => {
+  const result = getGameResult(game);
+  const sum: number[] = [];
+  result.forEach((c: number, i: number) => {
+    result.forEach((n: number, j: number) => {
+      if (i === j) {
+        return;
+      }
+      sum[i] = (sum[i] ?? 0) + (n - c);
+    });
+  });
+  return sum.map((v: number) => {
+    return v > 0 ? 0 : v;
+  });
 };
 
 export const getBigTwoOverview = (list: BigTwoGameType[]): BigTwoOverview => {
@@ -40,8 +62,8 @@ export const getBigTwoOverview = (list: BigTwoGameType[]): BigTwoOverview => {
       }
     });
 
-    const result = getGameResult(game);
-    result.forEach((amount: number, i: number) => {
+    const sum = getGameSumAmount(game);
+    sum.forEach((amount: number, i: number) => {
       const name = (game.player ?? [])[i] ?? '';
       if (pin[name] === undefined) {
         return;

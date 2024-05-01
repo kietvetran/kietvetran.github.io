@@ -26,6 +26,8 @@ h3, .h3 {
 }
 
 .sub-title {
-	font-weight: 700;
-	font-size: var(--font-size-small);
+	&, > span {
+		font-weight: 700;
+		font-size: var(--font-size-small);
+	}
 }

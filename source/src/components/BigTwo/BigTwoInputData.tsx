@@ -1,8 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
+import { getTiming } from './BigTwoFunctions';
 import { StringObject, MultipleObject } from '../../domain/Types';
 import InputField from '../Form/InputField';
 
@@ -12,6 +13,7 @@ type Props = {
   pin?: string;
   data?: string[];
   result?: number[];
+  amount?: number[];
 };
 
 export default function BigTwoInputData(props: Props) {
@@ -29,6 +31,13 @@ export default function BigTwoInputData(props: Props) {
     )
     .required();
 
+  const [currentValues, setCurrentValues] = useState<StringObject>(
+    (props.data ?? []).reduce((p: StringObject, v: string, i: number): StringObject => {
+      p[`data-${props.row}-${i}` as keyof StringObject] = v ?? '';
+      return p;
+    }, {} as StringObject),
+  );
+
   const {
     register,
     handleSubmit,
@@ -41,10 +50,7 @@ export default function BigTwoInputData(props: Props) {
   } = useForm({
     resolver: yupResolver<StringObject>(schema),
     mode: 'onBlur', // 'all', 'onTouched', 'onChange', 'onBlur',
-    defaultValues: (props.data ?? []).reduce((p: StringObject, v: string, i: number): StringObject => {
-      p[`data-${props.row}-${i}` as keyof StringObject] = v ?? '';
-      return p;
-    }, {} as StringObject),
+    defaultValues: currentValues,
   });
 
   /*
@@ -100,7 +106,7 @@ export default function BigTwoInputData(props: Props) {
     }
 
     props.callback(getValueList(values, name, value), props.row);
-
+    setCurrentValues({ ...values, [name]: value });
     /*
       console.log('== HER ==');
       console.log(name);
@@ -140,7 +146,6 @@ export default function BigTwoInputData(props: Props) {
     };
   }, [watch]);
   */
-
   return (
     <div className={`game-row -${props.row === 0 ? 'player' : 'data'}`}>
       <form
@@ -156,8 +161,19 @@ export default function BigTwoInputData(props: Props) {
           const key = `data-${props.row}-${i}`;
           const error = errors[key as keyof typeof errors]?.message;
           return (
-            <div key={key} className="cell">
-              {!!props.result && <div className="result">{props.result[i] ?? '-'}</div>}
+            <div key={key} className={`cell -timing-${getTiming(currentValues[key])}`}>
+              {!!props.result && (
+                <div className="result">
+                  {props.result[i] ? (
+                    <>
+                      {!!props.amount && <span className="amount">{props.amount[i] ?? ''}</span>}
+                      <span className="count">({props.result[i] ?? '-'})</span>
+                    </>
+                  ) : (
+                    <>-</>
+                  )}
+                </div>
+              )}
               {props.row === 0 ? ( // Row 0 is player
                 <InputField register={register} placeholder={`Player ${i + 1}`} id={key} name={key} label="Name" error={error} onChange={onChange} />
               ) : (

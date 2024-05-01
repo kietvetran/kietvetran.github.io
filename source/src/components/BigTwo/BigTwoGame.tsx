@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getGameResult } from './BigTwoFunctions';
+import { getGameResult, getGameSumAmount } from './BigTwoFunctions';
 import BigTwoInputData from './BigTwoInputData';
 import { BigTwoGameType } from '../../domain/BigTwo';
 import { usePostBigTwoGame } from '../../hook/useBigTwoGame';
@@ -14,6 +14,7 @@ type Props = {
 type State = {
   game?: BigTwoGameType;
   result?: number[];
+  amount?: number[];
 };
 
 export default function BigTwoGame(props: Props) {
@@ -59,7 +60,7 @@ export default function BigTwoGame(props: Props) {
       await actionBigTwo.mutate(props.list);
     } catch (error) {}
 
-    setState({ ...next, result: getGameResult(game) });
+    setState({ ...next, result: getGameResult(game), amount: getGameSumAmount(game) });
   };
 
   useEffect(() => {
@@ -76,17 +77,17 @@ export default function BigTwoGame(props: Props) {
       data.push([]);
     }
 
-    setState({ ...state, game, result: getGameResult(game) });
+    setState({ ...state, game, result: getGameResult(game), amount: getGameSumAmount(game) });
   }, [props.game, state, setState]);
 
   return (
     <div className="big-tow-game-wrapper">
       {state.game ? (
         <>
-          <BigTwoInputData callback={onChange} data={state.game?.player} row={0} result={state.result} />
+          <BigTwoInputData callback={onChange} data={state.game?.player} row={0} result={state.result} amount={state.amount} />
           <div className="data-holder">
             {(state.game?.data ?? []).map((data: string[], i: number) => {
-              return <BigTwoInputData key={`data-${i}`} callback={onChange} pin={`${i + 1}`} row={i + 1} data={data} />;
+              return <BigTwoInputData key={`data-${i}`} callback={onChange} pin={`${i + 1}.`} row={i + 1} data={data} />;
             })}
           </div>
         </>
