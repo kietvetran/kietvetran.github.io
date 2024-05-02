@@ -1,11 +1,22 @@
 import classNames from 'classnames';
 import React from 'react';
+// import { InputHTMLAttributes } from 'react';
+// import { FieldError } from 'react-hook-form';
+import { UseFormRegister } from 'react-hook-form';
+// useForm register type
+// https://stackoverflow.com/questions/76803987/what-type-to-use-for-register-from-the-react-hook-form-register-typescript-type
+
+// type props = {
+//   register: UseFormRegister<MultipleObject>;
+//  children?: JSX.Element;    
+// } & InputHTMLAttributes<HTMLInputElement>;
+// 
 
 type Props = {
   id: string;
   name: string;
   label: string | JSX.Element;
-  register: any;
+  register: UseFormRegister<any>;
   error?: string;
   children?: JSX.Element;
 } & React.PropsWithRef<JSX.IntrinsicElements['input']>;

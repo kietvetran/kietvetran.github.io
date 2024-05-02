@@ -1,10 +1,36 @@
 /******************************************************************************
  == FOMR METHODS ==
- https://yup-docs.vercel.app/docs/Api/yup
- 
+type register:
+https://stackoverflow.com/questions/76803987/what-type-to-use-for-register-from-the-react-hook-form-register-typescript-type
+https://legacy.react-hook-form.com/ts/
+
+export type UseFormReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+> = {
+  watch: UseFormWatch<TFieldValues>;
+  getValues: UseFormGetValues<TFieldValues>;
+  getFieldState: UseFormGetFieldState<TFieldValues>;
+  setError: UseFormSetError<TFieldValues>;
+  clearErrors: UseFormClearErrors<TFieldValues>;
+  setValue: UseFormSetValue<TFieldValues>;
+  trigger: UseFormTrigger<TFieldValues>;
+  formState: FormState<TFieldValues>;
+  resetField: UseFormResetField<TFieldValues>;
+  reset: UseFormReset<TFieldValues>;
+  handleSubmit: UseFormHandleSubmit<TFieldValues>;
+  unregister: UseFormUnregister<TFieldValues>;
+  control: Control<TFieldValues, TContext>;
+  register: UseFormRegister<TFieldValues>;
+  setFocus: UseFormSetFocus<TFieldValues>;
+};
+
+---
+https://yup-docs.vercel.app/docs/Api/yup
+
 const schema : yup.Schema<UserForm>
 -----
-interface Sample {
+type Sample = {
   allowed: 'foo' | 'bar';
 };
 const shape = yup.object().shape<Sample>({
@@ -24,9 +50,12 @@ import * as yup from 'yup';
 import { validatePersonalId } from '../../util/Validations';
 import InputField from '../Form/InputField';
 
-type Values = {
+type FormValues = {
   name: string;
   age: string;
+  pin: string;
+  email?: string;
+  fnr?: string;
 };
 
 const schema = yup
@@ -66,7 +95,9 @@ const schema = yup
         return schema;
       })
       .email('Invalid email addresse'),
-    fnr: yup.string().test('person-id', 'Invalid fnr', (value) => validatePersonalId(value)),
+    fnr: yup.string().test('person-id', 'Invalid fnr', (value) => {
+      return value ? validatePersonalId(value) : true;
+    }),
   })
   .required();
 
@@ -76,11 +107,11 @@ export default function Profile() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver<FormValues>(schema),
     mode: 'onBlur', // 'all', 'onTouched', 'onChange'
   });
 
-  const onSubmit = (values: Values) => {
+  const onSubmit = (values: FormValues) => {
     console.log(values);
   };
 
@@ -89,7 +120,7 @@ export default function Profile() {
       <form
         noValidate
         className="form-wrapper"
-        onSubmit={handleSubmit((values: Values) => {
+        onSubmit={handleSubmit((values: FormValues) => {
           onSubmit(values);
         })}>
         <InputField register={register} id="name" name="name" label="Name" type="text" error={errors.name?.message} />
