@@ -44,8 +44,8 @@ export const getGameSumAmount = (game: BigTwoGameType): number[] => {
   });
 
   return sum.map((v: number) => {
-    v *= (game.double ? 2 : 1);
-    return v > 0 ? 0 : (v < -500 ? -500 : v);
+    v *= game.double ? 2 : 1;
+    return v > 0 ? 0 : v < -500 ? -500 : v;
   });
 };
 

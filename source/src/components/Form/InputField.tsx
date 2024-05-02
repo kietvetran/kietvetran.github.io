@@ -8,9 +8,9 @@ import { UseFormRegister } from 'react-hook-form';
 
 // type props = {
 //   register: UseFormRegister<MultipleObject>;
-//  children?: JSX.Element;    
+//  children?: JSX.Element;
 // } & InputHTMLAttributes<HTMLInputElement>;
-// 
+//
 
 type Props = {
   id: string;

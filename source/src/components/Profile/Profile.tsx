@@ -117,6 +117,7 @@ export default function Profile() {
 
   return (
     <div className="profile-wrapper">
+      <h2>Profile</h2>
       <form
         noValidate
         className="form-wrapper"

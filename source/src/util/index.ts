@@ -21,31 +21,60 @@ export const capitalize = (text = ''): string => {
 
 /** ****************************************************************************
  ***************************************************************************** */
-/* eslint-disable */
-export const createRegexp = (text='', g=0, i=0, b=0, f=0, ignorReplacing=false ): any => {
-    if (text === '*') { return /.*/; }
-    const v = ignorReplacing ? text : `${text}`
+export const createRegexp = (text = '', g = 0, i = 0, b = 0, f = 0, ignorReplacing = false): RegExp => {
+  if (text === '*') {
+    return /.*/;
+  }
+  const v = ignorReplacing
+    ? text
+    : `${text}`
         .replace(/\*/, '.*')
         .replace(/\+/g, '\\+')
         .replace(/\(/g, '\\(')
         .replace(/\)/g, '\\)')
         .replace(/\?/g, '\\?')
-        .replace(/\-/g, '\\-')
+        .replace(/-/g, '\\-')
         .replace(/\[/g, '\\[')
         .replace(/\]/g, '\\]')
         .replace(/\$/g, '\\$');
 
-    const m = g && i ? 'gi' : g || i ? (g ? 'g' : 'i') : '';
-    const s = b ? (b === 2 ? '^' : b === 3 ? '(^|/|\\s+|,|\\()' : '(^|/|\\s+)') : '';
-    const e = f ? (f === 2 ? '$' : f === 3 ? '($|/|\\s+|,|\\))' : '($|/|\\s+)') : '';
-    return new RegExp(`${s}(${v})${e}`, m);
+  const m = g && i ? 'gi' : g || i ? (g ? 'g' : 'i') : '';
+  const s = b ? (b === 2 ? '^' : b === 3 ? '(^|/|\\s+|,|\\()' : '(^|/|\\s+)') : '';
+  const e = f ? (f === 2 ? '$' : f === 3 ? '($|/|\\s+|,|\\))' : '($|/|\\s+)') : '';
+  return new RegExp(`${s}(${v})${e}`, m);
 };
-/* eslint-enable */
 
 export const getMonthText = (shortname = false): string[] => {
   return shortname
     ? ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des']
     : ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'];
+};
+
+/** ****************************************************************************
+ ***************************************************************************** */
+export const getURLquery = (url = window.location.href): { [k: string]: string } => {
+  const matched = url
+    .replace(/#(\/)?$/, '')
+    .replace(/\?+/g, '?')
+    .match(/^([\w.\-\s_#%/:]+)\?(.*)/);
+  if (!matched?.[2]) {
+    return {};
+  }
+
+  const splited = (decodeURIComponent(matched[2]) || '').replace(/#\?/g, '&').split('&');
+  return splited.reduce((query: any, text: any) => {
+    const data = (text || '').match(/(\w+)=(.*)/);
+    if (!data?.[1] || !data[2]) {
+      return query;
+    }
+
+    if (query[data[1]]) {
+      query[data[1]] = (query[data[1]] instanceof Array ? query[data[1]] : [query[data[1]]]).concat(data[2]);
+    } else {
+      query[data[1]] = data[2];
+    }
+    return query;
+  }, {});
 };
 
 /** ****************************************************************************

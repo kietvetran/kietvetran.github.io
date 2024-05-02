@@ -22,13 +22,16 @@ export default function Application() {
         </header>
         <main className="app-body">
           <div className="app-cnt layout-wrapper">
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/test" element={<Test />} />
-                <Route path="/*" element={<PageNotFound />} />
-              </Routes>
-            </BrowserRouter>
+            <Home />
+            {false && (
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/test" element={<Test />} />
+                  <Route path="/*" element={<PageNotFound />} />
+                </Routes>
+              </BrowserRouter>
+            )}
           </div>
         </main>
       </div>
