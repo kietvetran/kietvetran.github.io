@@ -32,14 +32,6 @@ const getRecognition = (): any => {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  /*
-  recognition.onresult    = this._resultRecognition;
-  recognition.onspeechend = this._endRecognition;
-  recognition.onnomatch   = this._nomatchRecognition;
-  recognition.onerror     = this._errorRecognition;
-  */
-
-  // if ( start ) { recognition.start(); }
   return recognition;
 }
 
@@ -48,9 +40,6 @@ export default function Recognition() {
     recognition: undefined,
     textList: [],
   });
-
-  console.log('== HER ==');
-  console.log( state.textList );
 
   const onResult = (e: any) => {
     const last = e.results.length - 1;

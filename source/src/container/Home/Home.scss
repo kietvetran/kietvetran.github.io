@@ -6,19 +6,43 @@
     flex: 1;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    margin: 0 -1.6%;
+    width: 102.3%;
+    margin-left: -2.3%;
   }  
 
   .home-widget {
-    width: 30%;
+    width: 31%;
     height: 500px;
-    margin: 1.6%;
+    margin: .65% 0 .65% 2.3%;
     padding: var(--space-medium);
     border-radius: var(--card-round);
     border: 1px solid #666;
     overflow: hidden;
     overflow-y: auto;
     background-color: var(--color-white);
+  }
+
+  @media screen and (max-width: 980px) {
+    .home-content {
+      width: 102%;
+      margin-left: -2%;
+    }
+
+    .home-widget {
+      width: 48%;
+      margin: 1% 0 1% 2%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .home-content {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .home-widget {
+      width: 100%;
+      margin: 0 0 2% 0;
+    }
   }
 }

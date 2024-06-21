@@ -36,6 +36,11 @@ export default function Home() {
         <div className="home-widget">
           <Recognition />
         </div>
+
+        <div className="home-widget">
+          <Recognition />
+        </div>
+
       </div>}
     </div>
   );
