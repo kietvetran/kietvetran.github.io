@@ -37,9 +37,10 @@ export default function Speech() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver<FormValues>(schema),
-    defaultValues: { language: 'zh-hk' },
+    // defaultValues: { language: 'zh-HK', text: '' },
     mode: 'onBlur', // 'all', 'onTouched', 'onChange'
   });
 
@@ -70,7 +71,8 @@ export default function Speech() {
       }), ({} as Record<string, string>) );
 
       const languageList = Object.entries(pin).map( ([value, label]) => ({value, label}));
-      setStorage({ voiceList, languageList})
+      setStorage({ voiceList, languageList});
+      reset({language: 'zh-HK'});
     };    
   }, [setStorage]);
 
