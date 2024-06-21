@@ -8,7 +8,8 @@ body, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, i
 	font-size: var(--font-size-regular);
 }
 
-body, p, div, span, em, li, td, a, button, legend, textarea, label, input, select, option  {
+/* body, p, div, span, em, li, td, a, button, legend, textarea, label, input, select, option  { */
+body {
 	font-weight: normal;
 }
 

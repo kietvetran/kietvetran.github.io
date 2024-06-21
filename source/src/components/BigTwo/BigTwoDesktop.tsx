@@ -54,6 +54,25 @@ export default function BigTwoDesktop() {
     setState({ ...state, loading: false });
   };
 
+  const toogleGameDouble = () => {
+    if ( !state.game ) { return; }
+
+    const game = {...state.game, double: !state.game.double};
+    const bigTwoGame = (dataBigTwo.data?.list ?? []).find((g: BigTwoGameType) => g.id === game.id);
+    if ( bigTwoGame ) {
+      bigTwoGame.double = game.double;
+      try {
+        actionBigTwo.mutate((dataBigTwo.data?.list ?? []));
+      } catch (error) {
+        // do nothing
+      } 
+    }
+
+
+    setState({...state, game});
+  };
+
+
   const onClick = (e: MouseEvent, key = '', game?: BigTwoGameType): void => {
     if (e.preventDefault) {
       e.preventDefault();
@@ -68,6 +87,8 @@ export default function BigTwoDesktop() {
       deleteGame(game);
     } else if (key === 'back') {
       setState({ ...state, game: undefined });
+    } else if (key === 'toggle-game-double') {
+      toogleGameDouble();
     }
   };
 
@@ -122,9 +143,9 @@ export default function BigTwoDesktop() {
                 <a
                   href="#"
                   title="Doueble sum"
-                  className={`tool-game-btn -double-sum -${state.game.double ? 'yes' : 'no'}`}
+                  className={`tool-game-btn -double-sum -${state.game.double ? 'yes' : 'no'} hide`}
                   onClick={(e: MouseEvent) => {
-                    onClick(e, 'edit-game');
+                    onClick(e, 'toggle-game-double');
                   }}>
                   Amount x 2
                 </a>
@@ -161,7 +182,7 @@ export default function BigTwoDesktop() {
               </div>
               <div className="amount-description">
                 {dataBigTwo.data.playerDetail.map((detail: BigTwoPlayerDetail, i: number) => {
-                  return <span key={`player-amount-${i}`} className="player-detail">{`${detail.name}: ${detail.amount}`}</span>;
+                  return <div key={`player-amount-${i}`} className="player-detail">{`${detail.name}: ${detail.amount}`}</div>;
                 })}
               </div>
             </section>

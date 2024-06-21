@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { getGameResult, getGameSumAmount } from './BigTwoFunctions';
 import BigTwoInputData from './BigTwoInputData';
@@ -19,7 +19,25 @@ type State = {
 
 export default function BigTwoGame(props: Props) {
   const actionBigTwo = usePostBigTwoGame();
+  const timer = useRef<NodeJS.Timeout | undefined>(undefined);
   const [state, setState] = useState<State>({});
+
+  const submitBigTwoList = (list=props.list, delay=(60*1000)): void => {
+    if ( !list ) { return; }
+
+    const submit = () => {
+      try {
+        actionBigTwo.mutate(list);
+      } catch (error) {}      
+    };
+
+    if ( delay ) {
+      if ( timer.current ) { clearTimeout(timer.current); }
+      timer.current = setTimeout( submit, delay );
+    } else {
+      submit();
+    }
+  };
 
   const getEmptyGame = (): BigTwoGameType => {
     return { id: new Date().toISOString(), player: [], data: [[]] };
@@ -56,10 +74,7 @@ export default function BigTwoGame(props: Props) {
     game.player = next.game.player;
     game.data = next.game.data;
 
-    try {
-      await actionBigTwo.mutate(props.list);
-    } catch (error) {}
-
+    submitBigTwoList(props.list);
     setState({ ...next, result: getGameResult(game), amount: getGameSumAmount(game) });
   };
 
@@ -79,6 +94,13 @@ export default function BigTwoGame(props: Props) {
 
     setState({ ...state, game, result: getGameResult(game), amount: getGameSumAmount(game) });
   }, [props.game, state, setState]);
+
+  useEffect( () => {
+    return () => {
+      submitBigTwoList(undefined, 0);
+    };
+  }, []);
+
 
   return (
     <div className="big-tow-game-wrapper">

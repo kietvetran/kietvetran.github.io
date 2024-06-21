@@ -14,7 +14,7 @@ export default function Home() {
       { query.view === 'bigtwo' && <BigTwo />}
       { query.view === 'profile' && <Profile />}
 
-      { !!query.view && <div className="home-content">
+      { !query.view && <div className="home-content">
         {false && (
           <div className="home-widget">
             <Profile />
