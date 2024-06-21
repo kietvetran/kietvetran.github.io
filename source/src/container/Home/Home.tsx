@@ -2,6 +2,7 @@ import React from 'react';
 
 import BigTwo from '../../components/BigTwo/BigTwo';
 import Profile from '../../components/Profile/Profile';
+import Speech from '../../components/Speech/Speech';
 import { getURLquery } from '../../util/';
 import './Home.scss';
 
@@ -15,7 +16,7 @@ export default function Home() {
       { query.view === 'profile' && <Profile />}
 
       { !query.view && <div className="home-content">
-        {false && (
+        {true && (
           <div className="home-widget">
             <Profile />
           </div>
@@ -26,6 +27,10 @@ export default function Home() {
             <BigTwo />
           </div>
         )}
+        <div className="home-widget">
+          <Speech />
+        </div>
+
       </div>}
     </div>
   );

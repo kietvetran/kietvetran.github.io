@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { queryClient } from '../../query/queryClient';
 import Home from '../Home/Home';
 import PageNotFound from '../PageNotFound/PageNotFound';
+import BigTwo from '../../components/BigTwo/BigTwo';
 import Test from '../Test/Test';
 import './Application.scss';
 
@@ -27,6 +28,7 @@ export default function Application() {
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Home />} />
+                  <Route path="/bigtwo" element={<BigTwo />} />
                   <Route path="/test" element={<Test />} />
                   <Route path="/*" element={<PageNotFound />} />
                 </Routes>
