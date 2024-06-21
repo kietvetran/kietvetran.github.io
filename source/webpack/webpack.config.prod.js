@@ -5,8 +5,10 @@ module.exports = {
     rules: require('./webpack.rules'),
   },
   output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    // filename: '[name].[chunkhash].js',
+    // chunkFilename: '[name].[chunkhash].chunk.js',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     clean: true,
   },
   plugins: [...require('./webpack.plugins')],

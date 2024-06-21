@@ -15,7 +15,9 @@ module.exports = [
     inject: true,
   }),
   new MiniCssExtractPlugin({
-    filename: '[name].[chunkhash].css',
-    chunkFilename: '[name].[chunkhash].chunk.css',
+    // filename: '[name].[chunkhash].css',
+    // chunkFilename: '[name].[chunkhash].chunk.css',
+    filename: '[name].css',
+    chunkFilename: '[name].chunk.css',
   }),
 ].filter(Boolean);
