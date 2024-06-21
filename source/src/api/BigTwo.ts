@@ -1,6 +1,8 @@
 import { HEADER } from './index';
 import { BigTwoGameType } from '../domain/BigTwo';
 
+// overview: https://app.jsonstorage.net/apikeys
+// swagger: https://api.jsonstorage.net/index.html
 const apiKey = '814e1ed3-82ed-4a1a-893a-4268bb05c459';
 /******************************************************************************
  ******************************************************************************/
