@@ -124,6 +124,7 @@
     padding-top: 2px;
     font-size: var(--font-size-smallest);
     white-space: nowrap;
+    background-color: var(--color-white);
     .count {
       padding-left: 4px;
     }
@@ -231,6 +232,7 @@
   padding: var(--space-smallest) var(--space-small);
   text-decoration: none;
   border-radius: var(--card-round);
+  background-color: var(--color-white);
 
   &.-delete-game:after {
     background-image: url('../../../assets/icon/cross.svg');    
@@ -294,6 +296,7 @@
     border-radius: var(--card-round);
     font-size: var(--font-size-smaller);
     font-weight: 600;
+    background-color: var(--color-white);
 
     &.-back {
       margin-left: 0;
@@ -327,7 +330,7 @@
   }
 
   .amount-description {
-    background-color: #eee;
+    background-color: var(--color-white);
     padding: var(--space-small);
     border-radius: var(--card-round);
 

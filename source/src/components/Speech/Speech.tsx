@@ -14,14 +14,15 @@ type Storage = {
 };
 
 type FormValues = {
-  text: string;
+  text?: string;
   language: string;
 };
 
 const schema = yup
   .object()
   .shape({
-    text: yup.string().required('Text is required'),
+    // text: yup.string().required('Text is required'),
+    text: yup.string(),
     language: yup.string().required('Language is required'),
   })
   .required();

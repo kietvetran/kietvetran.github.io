@@ -5,29 +5,30 @@
 }
 
 header {
-    border-bottom: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
 
-    .app-cnt {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+  .app-cnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-white);
+  }
+  
+  h1 {    
+    font-size: var(--font-size-medium);
+    padding: 0;
+    margin: 0;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-bottom: -6px;
+      margin-right: var(--space-smallest-min);
+      background: transparent none no-repeat left center / auto 100%;
+      background-image: url('../../../assets/logo/mynorjourney.svg');
     }
-    
-    h1 {    
-        font-size: var(--font-size-medium);
-        padding: 0;
-        margin: 0;
-        &:before {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            margin-bottom: -6px;
-            margin-right: var(--space-smallest-min);
-            background: transparent none no-repeat left center / auto 100%;
-            background-image: url('../../../assets/logo/mynorjourney.svg');
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
