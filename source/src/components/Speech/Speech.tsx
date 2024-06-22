@@ -78,23 +78,22 @@ export default function Speech() {
 
   return <div className="speech-wrapper">
     <h2>Speech</h2>
-      <form
-        noValidate
-        className="form-wrapper"
-        onSubmit={handleSubmit((values: FormValues) => {
-          onSubmit(values);
-        })}>
-        <Textarea register={register} id="text" name="text" label="Text" error={errors.text?.message} />
-        <SelectBox 
-          register={register} 
-          id="language" 
-          name="language" 
-          label="Language" 
-          error={errors.language?.message} 
-          optionList={storage.languageList}
-        />
-        <input type="submit" className="button -primary" />
-      </form>
-
+    <form
+      noValidate
+      className="form-wrapper"
+      onSubmit={handleSubmit((values: FormValues) => {
+        onSubmit(values);
+      })}>
+      <Textarea register={register} id="text" name="text" label="Text" error={errors.text?.message} />
+      <SelectBox 
+        register={register} 
+        id="language" 
+        name="language" 
+        label="Language" 
+        error={errors.language?.message} 
+        optionList={storage.languageList}
+      />
+      <input type="submit" className="button -primary" />
+    </form>
   </div>;
 }

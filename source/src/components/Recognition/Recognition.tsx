@@ -44,19 +44,22 @@ export default function Recognition() {
   const onResult = (e: any) => {
     const last = e.results.length - 1;
     const text = e.results[last][0].transcript;
-    setState({...state, textList: [text].concat(state.textList)});
+    setState({...state, textList: [text]});
   };
 
   const onSpeechEnd = () => {
-    setState({...state, recognition: undefined});
+    setState( (s: State) => ({...s, recognition: undefined}));
+    // setState({...state, recognition: undefined});
   };
 
   const onNoMatch = () => {
-    setState({...state, recognition: undefined});
+    setState( (s: State) => ({...s, recognition: undefined}));
+    // setState({...state, recognition: undefined});
   };
 
   const onError = () => {
-    setState({...state, recognition: undefined});
+    setState( (s: State) => ({...s, recognition: undefined}));
+    // setState({...state, recognition: undefined});
   };
 
   const onAction = () => {
