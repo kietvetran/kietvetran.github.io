@@ -15,8 +15,8 @@
     height: 500px;
     margin: .65% 0 .65% 2.3%;
     padding: var(--space-medium);
-    border-radius: var(--card-round);
-    border: 1px solid #666;
+    border-radius: var(--border-round);
+    border: 1px solid var(--border-color);
     overflow: hidden;
     overflow-y: auto;
     background-color: var(--color-white);

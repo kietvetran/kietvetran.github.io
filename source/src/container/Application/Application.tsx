@@ -7,6 +7,7 @@ import Home from '../Home/Home';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import BigTwo from '../../components/BigTwo/BigTwo';
 import Test from '../Test/Test';
+import Guideline from '../Guideline/Guideline';
 import './Application.scss';
 
 export default function Application() {
@@ -15,7 +16,7 @@ export default function Application() {
       <div className="application-wrapper">
         <header className="app-header">
           <div className="app-cnt layout-wrapper">
-            <a href={window.location.href} className="link -no-underline">
+            <a href={window.location.origin} className="link -no-underline">
               <h1>kietvetran</h1>
             </a>
             <nav id="main-nav" className="navigation" aria-label="hovedmenu" role="navigation" />
@@ -23,17 +24,15 @@ export default function Application() {
         </header>
         <main className="app-body">
           <div className="app-cnt layout-wrapper">
-            <Home />
-            {false && (
-              <BrowserRouter>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/bigtwo" element={<BigTwo />} />
-                  <Route path="/test" element={<Test />} />
-                  <Route path="/*" element={<PageNotFound />} />
-                </Routes>
-              </BrowserRouter>
-            )}
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/bigtwo" element={<BigTwo />} />
+                <Route path="/test" element={<Test />} />
+                <Route path="/guideline" element={<Guideline />} />
+                <Route path="/*" element={<PageNotFound />} />
+              </Routes>
+            </BrowserRouter>
           </div>
         </main>
       </div>

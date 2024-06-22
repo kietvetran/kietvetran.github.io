@@ -17,6 +17,9 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   devServer: {
     open: true,
+    port: 3000,
+    // NB! for single page application
+    historyApiFallback: { index: "/", disableDotRule: true },
   },
   optimization: {
     splitChunks: {
