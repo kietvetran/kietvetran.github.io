@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, MouseEvent, useRef, useEffect } from 'react';
 
 import BigTwoGame from './BigTwoGame';
 import { BigTwoGameType, BigTwoPlayerDetail } from '../../domain/BigTwo';
@@ -15,11 +15,29 @@ type State = {
 export default function BigTwoDesktop() {
   const dataBigTwo = useFetchBigTwoGame();
   const actionBigTwo = usePostBigTwoGame();
+  const timer = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const [state, setState] = useState<State>({
     onEdit: false,
     loading: false,
   });
+
+  const submitBigTwoList = (list?: BigTwoGameType[] , delay=(60*1000)): void => {
+    if ( !list ) { list = dataBigTwo.data?.list ?? []; }
+
+    const submit = () => {
+      try {
+        actionBigTwo.mutate(list);
+      } catch (error) {}      
+    };
+
+    if ( delay ) {
+      if ( timer.current ) { clearTimeout(timer.current); }
+      timer.current = setTimeout( submit, delay );
+    } else {
+      submit();
+    }
+  };
 
   const addNewGame = async (): Promise<void> => {
     const data = dataBigTwo.data?.list ?? [];
@@ -67,11 +85,8 @@ export default function BigTwoDesktop() {
         // do nothing
       } 
     }
-
-
     setState({...state, game});
   };
-
 
   const onClick = (e: MouseEvent, key = '', game?: BigTwoGameType): void => {
     if (e.preventDefault) {
@@ -86,11 +101,16 @@ export default function BigTwoDesktop() {
     } else if (key === 'delete-game') {
       deleteGame(game);
     } else if (key === 'back') {
+      submitBigTwoList( undefined, 0 );
       setState({ ...state, game: undefined });
     } else if (key === 'toggle-game-double') {
       toogleGameDouble();
     }
   };
+
+  useEffect( () => ( () => {
+    submitBigTwoList( undefined, 0 );
+  }), []);
 
   return (
     <div
@@ -152,7 +172,7 @@ export default function BigTwoDesktop() {
               )}
             </div>
             {state.game ? (
-              <BigTwoGame game={state.game} list={dataBigTwo.data?.list ?? []} />
+              <BigTwoGame game={state.game} list={dataBigTwo.data?.list ?? []} submit={submitBigTwoList} />
             ) : (
               <div className="game-list">
                 {dataBigTwo.data.list.map((game: BigTwoGameType, i: number) => {
@@ -188,7 +208,7 @@ export default function BigTwoDesktop() {
             </section>
           )}
 
-          {state.loading && <Spinner absolute />}
+          {(state.loading || actionBigTwo.isPending) && <Spinner absolute />}
         </div>
       )}
     </div>

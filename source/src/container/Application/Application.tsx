@@ -6,6 +6,7 @@ import { queryClient } from '../../query/queryClient';
 import Home from '../Home/Home';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import BigTwo from '../../components/BigTwo/BigTwo';
+import SkyEarth from '../../components/SkyEarth/SkyEarth';
 import Test from '../Test/Test';
 import Guideline from '../Guideline/Guideline';
 import './Application.scss';
@@ -23,6 +24,7 @@ export default function Application() {
           </div>
         </header>
         <main className="app-body">
+          <SkyEarth />
           <div className="app-cnt layout-wrapper">
             <BrowserRouter>
               <Routes>

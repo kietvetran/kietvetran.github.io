@@ -177,7 +177,7 @@ export default function BigTwoInputData(props: Props) {
               {props.row === 0 ? ( // Row 0 is player
                 <InputField register={register} placeholder={`Player ${i + 1}`} id={key} name={key} label="Name" error={error} onChange={onChange} />
               ) : (
-                <InputField register={register} id={key} name={key} label="Card" error={error} onChange={onChange} />
+                <InputField register={register} id={key} name={key} type="tel" label="Card" error={error} onChange={onChange} />
               )}
             </div>
           );
