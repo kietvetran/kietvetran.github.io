@@ -20,7 +20,11 @@ export default function Application() {
             <a href={window.location.origin} className="link -no-underline">
               <h1>kietvetran</h1>
             </a>
-            <nav id="main-nav" className="navigation" aria-label="hovedmenu" role="navigation" />
+            <nav id="main-nav" className="navigation" aria-label="hovedmenu" role="navigation">
+              <a href={`${window.location.origin}`}>Home</a>
+              <a href={`${window.location.origin}?view=bigtwo`}>Big2</a>
+              <a href={`${window.location.origin}?view=store`}>Store</a>
+            </nav>
           </div>
         </header>
         <main className="app-body">

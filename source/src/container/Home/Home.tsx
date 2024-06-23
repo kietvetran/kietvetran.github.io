@@ -10,9 +10,12 @@ import './Home.scss';
 export default function Home() {
   const query = getURLquery();
 
+  const now = (new Date()).getTime();
+  const bigDate = new Date('2027-06-01T00:00:00Z');
+  const weekLeft = Math.ceil((bigDate.getTime() - now) / ((24*60*60*1000) *7));
+
   return (
     <div className="home-wrapper">
-
       { query.view === 'bigtwo' && <BigTwo />}
       { query.view === 'profile' && <Profile />}
 
@@ -33,10 +36,12 @@ export default function Home() {
           <Speech />
         </div>
 
-        <div className="home-widget">
+        <div className="home-widget -recognition">
           <Recognition />
         </div>
       </div>}
+
+      <div className="big-date">{`${weekLeft} weeks left`}</div>
     </div>
   );
 }

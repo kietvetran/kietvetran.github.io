@@ -22,6 +22,14 @@
     background-color: var(--color-white);
   }
 
+  .big-date {
+    position: fixed;
+    font-size: var(--font-size-smallest);
+    inset: auto 0 0 0;
+    text-align: right;
+    padding: 0 var(--space-smallest) 0 0;
+  }
+
   @media screen and (max-width: 980px) {
     .home-content {
       width: 102%;
@@ -36,12 +44,14 @@
 
   @media screen and (max-width: 768px) {
     .home-content {
-      width: 100%;
-      margin-left: 0;
+      margin: 0;
+      width: auto;
+      display: block;
     }
 
     .home-widget {
-      width: 100%;
+      width: auto;
+      height: auto;
       margin: 0 0 2% 0;
     }
   }
