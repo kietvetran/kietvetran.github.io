@@ -1,0 +1,122 @@
+@import "../../style/mixin";
+
+@-webkit-keyframes cloud-moving {
+    0% {left: 44%;}
+    50% {left: 48%;}
+    100% {left: 44%;}  
+}
+
+@keyframes cluod-moving {
+    0% {left: 44%;}
+    50% {left: 48%;}
+    100% {left: 44%;} 
+}
+
+$basic-font-size: 100px;
+$cloud-color: #fff;
+
+.logo-banner-wrapper {
+    position: relative;
+
+    &.-digit-1 {
+        .text-info.-index-0 {
+            margin-right: -40px;
+        }
+        .text-info.-index-2 {
+            margin-left: -50px;
+        }
+    }
+
+    &.-digit-2 {
+        .text-info.-index-0 {
+            margin-right: -80px;
+        }
+        .text-info.-index-2 {
+            margin-left: -100px;
+        }
+    }
+
+    .logo-banner-content {
+        font-weight: 500;
+        font-size: $basic-font-size;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        position: relative;
+        padding: 100px 0;
+    }
+
+    .text-info {
+        line-height: 100%;
+        position: relative;
+        z-index: 1;
+
+        &.-index-0 {            
+            padding-top: $basic-font-size * 1.5;
+            margin-right: -110px;
+            font-size: $basic-font-size * 1;
+        } 
+
+        &.-index-1 {         
+            padding-top: 0;   
+            font-weight: 700;
+            font-size: $basic-font-size * 1.8;
+        } 
+
+        &.-index-2 {            
+            padding-top: $basic-font-size * 1.7;
+            font-weight: 600;
+            font-size: $basic-font-size * 1.2;
+            margin-left: -120px;
+        } 
+    }    
+
+    .cloud { 
+        width: 100px;
+        height: 30px;
+        top: 64%;
+        left: 46%;
+        opacity: 1; 
+        position: absolute;
+        transform: scale(7.5);
+
+        @include animation( cloud-moving, 20s, linear, 0);
+        @include animation-repeat();
+
+        &, &:before, &:after {
+            border-radius: 200px;
+            background: $cloud-color none no-repeat 0 0;
+            background: $cloud-color none no-repeat 0 0;
+        }
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+        }
+
+        &:before {
+            width: 50px;
+            height: 50px;
+            top: -30px;
+            right: 15px;
+        }
+
+        &:after {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 10px;  
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        margin: ($basic-font-size * -1.7)  0;
+        transform: scale(.5);
+
+        .cloud {
+            &:before {
+                top: -22px;
+            }
+        }
+    }
+}
