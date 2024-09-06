@@ -5,6 +5,8 @@ import Profile from '../../components/Profile/Profile';
 import Speech from '../../components/Speech/Speech';
 import Recognition from '../../components/Recognition/Recognition';
 import LogoBanner from '../../components/LogoBanner/LogoBanner';
+import Guideline from '../Guideline/Guideline';
+
 import { getURLquery } from '../../util/';
 import './Home.scss';
 
@@ -15,6 +17,7 @@ export default function Home() {
     <div className="home-wrapper">
       { query.view === 'bigtwo' && <BigTwo />}
       { query.view === 'profile' && <Profile />}
+      { query.view === 'guideline' && <Guideline />}
 
       { !query.view && <div className="home-content">
         {false && (
