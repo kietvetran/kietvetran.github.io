@@ -19,13 +19,13 @@ const getRecognition = (): any => {
     // @ts-ignore
     const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
 
-    const colors: Array<string> = []; //['black', 'white'];
+    const numbers: Array<string> = ['zero', 'one', 'six', 'nine', 'ten', 'eleven', 'twelve', 'thirteen']; //['black', 'white'];
     const recognition = new SpeechRecognition();
-    if (SpeechGrammarList && colors.length) {
+    if (SpeechGrammarList && numbers.length) {
         // SpeechGrammarList is not currently available in Safari, and does not have any effect in any other browser.
         // This code is provided as a demonstration of possible capability. You may choose not to use it.
         const speechRecognitionList = new SpeechGrammarList();
-        const grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+        const grammar = '#JSGF V1.0; grammar numbers; public <number> = ' + numbers.join(' | ') + ' ;'
         speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
     }
@@ -81,7 +81,7 @@ export default function Recognition() {
 
     return <div className="recognition-wrapper">
         <h2>Recognition</h2> 
-        <div className="paragraph">
+        <div className="paragraph debug">
             { doesRecognitionSupported() ?
                 <button className={`button -${state.recognition ? 'secondary' : 'primary'}`} onClick={onAction}>
                     {state.recognition ? 'Stop' : 'Start'}
