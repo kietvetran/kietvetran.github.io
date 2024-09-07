@@ -8,7 +8,9 @@ type State = {
 
 const doesRecognitionSupported = (): boolean => {
     // only allow chrome.
-    return navigator.userAgent.includes('Chrome') && navigator.vendor.includes('Google Inc');
+    // return navigator.userAgent.includes('Chrome') && navigator.vendor.includes('Google Inc');
+    alert( navigator.userAgent );
+    return true;
 }
 
 const getRecognition = (): any => {
