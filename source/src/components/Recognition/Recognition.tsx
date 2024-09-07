@@ -7,6 +7,7 @@ type State = {
 }
 
 const doesRecognitionSupported = (): boolean => {
+    return true;
     const isChrome = navigator.userAgent.includes('Chrome') && navigator.vendor.includes('Google Inc');
     return isChrome || navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('Android');    
 }
@@ -81,7 +82,7 @@ export default function Recognition() {
 
     return <div className="recognition-wrapper">
         <h2>Recognition</h2> 
-        <div className="paragraph debug">
+        <div className="paragraph">
             { doesRecognitionSupported() ?
                 <button className={`button -${state.recognition ? 'secondary' : 'primary'}`} onClick={onAction}>
                     {state.recognition ? 'Stop' : 'Start'}
