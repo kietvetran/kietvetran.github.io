@@ -24,6 +24,7 @@
 
   .pin-board {
     position: relative;
+    border: 2px solid red;
 
     input {
       position: absolute;
@@ -38,6 +39,7 @@
         box-shadow: none;
         outline: none;
         color: transparent;
+        caret-color: transparent;        
       }
     }
   }
