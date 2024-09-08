@@ -146,6 +146,7 @@ export default function BigTwoInputData(props: Props) {
     };
   }, [watch]);
   */
+
   return (
     <div className={`game-row -${props.row === 0 ? 'player' : 'data'}`}>
       <form
@@ -164,7 +165,7 @@ export default function BigTwoInputData(props: Props) {
             <div key={key} className={`cell -timing-${getTiming(currentValues[key])}`}>
               {!!props.result && (
                 <div className="result">
-                  {props.result[i] ? (
+                  {props.result[i] !== undefined ? (
                     <>
                       {!!props.amount && <span className="amount">{props.amount[i] ?? ''}</span>}
                       <span className="count">({props.result[i] ?? '-'})</span>

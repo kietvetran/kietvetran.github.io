@@ -4,13 +4,16 @@ import React, { useState, MouseEvent, useRef, useEffect } from 'react';
 import BigTwoGame from './BigTwoGame';
 import { BigTwoGameType, BigTwoPlayerDetail } from '../../domain/BigTwo';
 import { useFetchBigTwoGame, usePostBigTwoGame } from '../../hook/useBigTwoGame';
+import { getRecognition } from '../../util';
 import Spinner from '../Spinner/Spinner';
 
 type State = {
     onEdit: boolean;
     loading: boolean;
     game?: BigTwoGameType;
+    recognition?: any;
 };
+
 
 export default function BigTwoDesktop() {
     const dataBigTwo = useFetchBigTwoGame();
@@ -25,8 +28,9 @@ export default function BigTwoDesktop() {
     const submitBigTwoList = (list?: BigTwoGameType[] , delay=(60*1000)): void => {
         if ( !list ) { list = dataBigTwo.data?.list ?? []; }
 
-        const submit = () => {
+        const submit = (force=false) => {
             try {
+                if ( list.length === 0 && !force ) { return; }
                 actionBigTwo.mutate(list);
             } catch (error) {}            
         };
@@ -88,6 +92,12 @@ export default function BigTwoDesktop() {
         setState({...state, game});
     };
 
+    const addNoteByText = ( text: string): void => {
+        console.log('== HER ==');
+        console.log(text);
+        console.log( state );
+    };
+
     const onClick = (e: MouseEvent, key = '', game?: BigTwoGameType): void => {
         if (e.preventDefault) {
             e.preventDefault();
@@ -105,6 +115,28 @@ export default function BigTwoDesktop() {
             setState({ ...state, game: undefined });
         } else if (key === 'toggle-game-double') {
             toogleGameDouble();
+        } else if (key === 'toggle-recognition') {
+            if ( state.recognition ) {
+                state.recognition.stop();
+                setState({...state, recognition: undefined });
+            } else {
+                const recognition = getRecognition();
+                const stop = (): void => {
+                    setState( (s: State) => ({...s, recognition: undefined}));
+                };
+                
+                recognition.onresult = (e: any): void => {
+                    const last = e.results.length - 1;
+                    addNoteByText( e.results[last][0].transcript ?? '' );
+                };
+
+                recognition.onspeechend = stop;
+                recognition.onnomatch   = stop;
+                recognition.onerror     = stop;
+
+                recognition.start();
+                setState({...state, recognition});
+            }            
         }
     };
 
@@ -131,7 +163,7 @@ export default function BigTwoDesktop() {
                                     onClick={(e: MouseEvent) => {
                                         onClick(e, 'back');
                                     }}>
-                                    back
+                                    Save and back
                                 </a>
                             )}
                             <span id="game-label">Game</span>
@@ -160,15 +192,26 @@ export default function BigTwoDesktop() {
                             )}
 
                             {!!state.game && (
-                                <a
-                                    href="#"
-                                    title="Doueble sum"
-                                    className={`tool-game-btn -double-sum -${state.game.double ? 'yes' : 'no'} hide`}
-                                    onClick={(e: MouseEvent) => {
-                                        onClick(e, 'toggle-game-double');
-                                    }}>
-                                    Amount x 2
-                                </a>
+                                <>
+                                    <a
+                                        href="#"
+                                        title="Doueble sum"
+                                        className="tool-game-btn -recognition hide"
+                                        onClick={(e: MouseEvent) => {
+                                            onClick(e, 'toggle-recognition');
+                                        }}>
+                                        {state.recognition ? 'Recognition stop' : 'Recognition start'}
+                                    </a>
+                                    <a
+                                        href="#"
+                                        title="Doueble sum"
+                                        className={`tool-game-btn -double-sum -${state.game.double ? 'yes' : 'no'}`}
+                                        onClick={(e: MouseEvent) => {
+                                            onClick(e, 'toggle-game-double');
+                                        }}>
+                                        Amount x 2
+                                    </a>
+                                </>
                             )}
                         </div>
                         {state.game ? (
@@ -201,9 +244,9 @@ export default function BigTwoDesktop() {
                                 <span>Amount</span>
                             </div>
                             <div className="amount-description">
-                                {dataBigTwo.data.playerDetail.map((detail: BigTwoPlayerDetail, i: number) => {
-                                    return <div key={`player-amount-${i}`} className="player-detail">{`${detail.name}: ${detail.amount}`}</div>;
-                                })}
+                                {dataBigTwo.data.playerDetail.map((detail: BigTwoPlayerDetail, i: number) => (
+                                    <div key={`player-amount-${i}`} className="player-detail">{`${detail.name}: ${detail.amount}`}</div>
+                                ))}
                             </div>
                         </section>
                     )}

@@ -59,8 +59,8 @@ export default function BigTwoGame(props: Props) {
         setState({ ...next, result: getGameResult(game), amount: getGameSumAmount(game) });
     };
 
-    useEffect(() => {
-        if (state.game) {
+    useEffect(() => {        
+        if (state.game && state.game.double === props.game?.double) {
             return;
         }
         const game: BigTwoGameType = { ...getEmptyGame(), ...props.game };

@@ -310,6 +310,7 @@
             border: 0 none;
             float: right;
 
+
             &.-no:before {
                 background-image: none;
             }
@@ -322,7 +323,7 @@
                 border-radius: 2px;
                 border: 1px solid var(--color-grey);
                 margin: 0 var(--space-smallest) -3px 0;
-                background: transparent url('../../../assets/icon/checked.svg') no-repeat center center / 140% auto;
+                background: var(--color-white) url('../../../assets/icon/checked.svg') no-repeat center center / 140% auto;
             }
         }
     }

@@ -1,4 +1,5 @@
 import React, { useState, MouseEvent } from 'react';
+import { getRecognition } from '../../util';
 import './Recognition.scss';
 
 type State = {
@@ -7,34 +8,8 @@ type State = {
 }
 
 const doesRecognitionSupported = (): boolean => {
-    return true;
     const isChrome = navigator.userAgent.includes('Chrome') && navigator.vendor.includes('Google Inc');
     return isChrome || navigator.userAgent.includes('iPhone') || navigator.userAgent.includes('Android');    
-}
-
-const getRecognition = (): any => {
-    // @ts-ignore
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    // @ts-ignore
-    const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
-    // @ts-ignore
-    const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
-
-    const names: Array<string> = ['John', 'Eric', 'CCH', 'Jacky', 'Kit']; //['black', 'white'];
-    const recognition = new SpeechRecognition();
-    if (SpeechGrammarList && names.length) {
-        // SpeechGrammarList is not currently available in Safari, and does not have any effect in any other browser.
-        // This code is provided as a demonstration of possible capability. You may choose not to use it.
-        const speechRecognitionList = new SpeechGrammarList();
-        const grammar = '#JSGF V1.0; grammar names; public <name> = ' + names.join(' | ') + ' ;'
-        speechRecognitionList.addFromString(grammar, 1);
-        recognition.grammars = speechRecognitionList;
-    }
-    recognition.continuous = false;
-    recognition.lang = 'en-US';
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
-    return recognition;
 }
 
 export default function Recognition() {
@@ -51,17 +26,14 @@ export default function Recognition() {
 
     const onSpeechEnd = () => {
         setState( (s: State) => ({...s, recognition: undefined}));
-        // setState({...state, recognition: undefined});
     };
 
     const onNoMatch = () => {
         setState( (s: State) => ({...s, recognition: undefined}));
-        // setState({...state, recognition: undefined});
     };
 
     const onError = () => {
         setState( (s: State) => ({...s, recognition: undefined}));
-        // setState({...state, recognition: undefined});
     };
 
     const onAction = () => {

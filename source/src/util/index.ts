@@ -172,11 +172,38 @@ export const formatDateToText = (date = new Date(), format = 'dd.mm.yyyy'): stri
 };
 
 export const getDelay = (aimed: Date, expected: Date): string => {
-  const aimedTime = aimed ? aimed.getTime() : 0;
-  const expectedTime = expected ? expected.getTime() : 0;
-  const diffSecond = parseInt(`${(expectedTime - aimedTime) / 1000}`, 10);
-  if (diffSecond < 20) {
-    return '';
-  }
-  return `${diffSecond} seconds`;
+    const aimedTime = aimed ? aimed.getTime() : 0;
+    const expectedTime = expected ? expected.getTime() : 0;
+    const diffSecond = parseInt(`${(expectedTime - aimedTime) / 1000}`, 10);
+    if (diffSecond < 20) {
+        return '';
+    }
+    return `${diffSecond} seconds`;
 };
+
+/** ****************************************************************************
+ ***************************************************************************** */
+export const getRecognition = (): any => {
+    // @ts-ignore
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    // @ts-ignore
+    const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+    // @ts-ignore
+    const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+
+    const names: Array<string> = ['John', 'Eric', 'CCH', 'Jacky', 'Kit']; //['black', 'white'];
+    const recognition = new SpeechRecognition();
+    if (SpeechGrammarList && names.length) {
+        // SpeechGrammarList is not currently available in Safari, and does not have any effect in any other browser.
+        // This code is provided as a demonstration of possible capability. You may choose not to use it.
+        const speechRecognitionList = new SpeechGrammarList();
+        const grammar = '#JSGF V1.0; grammar names; public <name> = ' + names.join(' | ') + ' ;'
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+    }
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    return recognition;
+}

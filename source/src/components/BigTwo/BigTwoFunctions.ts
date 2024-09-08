@@ -31,7 +31,7 @@ export const getGameResult = (game: BigTwoGameType): number[] => {
 };
 
 // export const getGameSumAmount = (result=[287, 432, 396, 268]): number[] => {
-export const getGameSumAmount = (game: BigTwoGameType): number[] => {
+export const getGameSumAmount = (game: BigTwoGameType, ignoreGreatThanzero=false): number[] => {
     const result = getGameResult(game);
     const sum: number[] = [];
     result.forEach((c: number, i: number) => {
@@ -43,10 +43,14 @@ export const getGameSumAmount = (game: BigTwoGameType): number[] => {
         });
     });
 
-    return sum.map((v: number) => {
+    const output = sum.map((v: number) => {
         v *= game.double ? 2 : 1;
-        return v > 0 ? 0 : v < -500 ? -500 : v;
+        if ( ignoreGreatThanzero ) {
+            return v > 0 ? 0 : v < -500 ? -500 : v;
+        }
+        return v < -500 ? -500 : v;        
     });
+    return output;
 };
 
 export const getBigTwoOverview = (list: BigTwoGameType[]): BigTwoOverview => {
@@ -64,7 +68,7 @@ export const getBigTwoOverview = (list: BigTwoGameType[]): BigTwoOverview => {
             }
         });
 
-        const sum = getGameSumAmount(game);
+        const sum = getGameSumAmount(game, true);
         sum.forEach((amount: number, i: number) => {
             const name = (game.player ?? [])[i] ?? '';
             if (pin[name] === undefined) {
