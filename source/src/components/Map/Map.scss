@@ -1,0 +1,8 @@
+@import "../../style/mixin";
+
+.map-wrapper {
+    position: 'revert';
+    border: 2px solid red;
+    min-height: 28rem;
+    min-width: 38rem;
+}

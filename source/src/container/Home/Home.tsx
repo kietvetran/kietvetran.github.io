@@ -5,6 +5,7 @@ import Profile from '../../components/Profile/Profile';
 import Speech from '../../components/Speech/Speech';
 import Recognition from '../../components/Recognition/Recognition';
 import LogoBanner from '../../components/LogoBanner/LogoBanner';
+import Map from '../../components/Map/Map';
 import Guideline from '../Guideline/Guideline';
 
 import { getURLquery } from '../../util/';
@@ -18,6 +19,7 @@ export default function Home() {
       { query.view === 'bigtwo' && <BigTwo />}
       { query.view === 'profile' && <Profile />}
       { query.view === 'guideline' && <Guideline />}
+      { query.view === 'map' && <Map />}
 
       { !query.view && <div className="home-content">
         {false && (
