@@ -1,0 +1,22 @@
+
+.application-wrapper {
+}
+
+.app-body .app-cnt {
+  position: relative;
+  z-index: 4;
+  padding-bottom: 100px;
+}
+
+nav {
+  display: flex;
+  a { 
+    margin-left: var(--space-small);
+    align-self: center;
+  }
+}
+
+header {
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--color-white);
+}
