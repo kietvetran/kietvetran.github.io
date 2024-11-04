@@ -7,12 +7,8 @@ export default function Application() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="application-wrapper">
-        <header className="app-header">
-          Header
-        </header>
-        <main className="app-body">
-          Main
-        </main>
+        <header className="app-header">Header</header>
+        <main className="app-body">Main</main>
       </div>
     </QueryClientProvider>
   );

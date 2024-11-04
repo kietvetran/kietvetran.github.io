@@ -1,9 +1,10 @@
-const webpack = require('webpack');
-const { inDev } = require('./webpack.helpers');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpack = require('webpack');
+
+const { inDev } = require('./webpack.helpers');
 
 module.exports = [
   new ForkTsCheckerWebpackPlugin(),

@@ -19,7 +19,7 @@ module.exports = {
     open: true,
     port: 3000,
     // NB! for single page application
-    historyApiFallback: { index: "/", disableDotRule: true },
+    historyApiFallback: { index: '/', disableDotRule: true },
   },
   optimization: {
     splitChunks: {
