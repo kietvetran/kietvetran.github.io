@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['universe/native', 'universe/shared/typescript-analysis', 'plugin:@tanstack/eslint-plugin-query/recommended'],
+  extends: ['universe/native', 'plugin:@tanstack/eslint-plugin-query/recommended'],
   rules: {
     'no-continue': 'off'
   },
