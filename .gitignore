@@ -21,3 +21,9 @@ npm-debug.log
 # .npmrc
 /deploy/dist
 *.orig
+
+# kvt-ventures
+kvt-ventures/**/Library
+kvt-ventures/**/Packages
+kvt-ventures/**/ProjectSettings
+kvt-ventures/**/Logs
