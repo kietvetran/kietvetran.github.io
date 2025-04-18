@@ -14,6 +14,6 @@ public class GameGridSquare : MonoBehaviour {
 
   public void SetImage( bool toSetFirstImage ) {
     int index = toSetFirstImage ? 1 : 0;
-   normalImage.GetComponent<Image>().sprite = normalImages[index];
+    normalImage.GetComponent<Image>().sprite = normalImages[index];
   } 
 }

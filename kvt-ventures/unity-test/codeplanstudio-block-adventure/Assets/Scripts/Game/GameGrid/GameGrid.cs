@@ -41,6 +41,7 @@ public class GameGrid : MonoBehaviour {
           squareScale, squareScale, squareScale
         );
         _gridSquares[_gridSquares.Count -1].GetComponent<GameGridSquare>().SetImage(index % 2 == 0);
+        index++;
       }
     }
   }
