@@ -20,6 +20,14 @@ public class GameGrid : MonoBehaviour {
     CreateGrid();   
   }
 
+  private void OnDisable() {
+    GameEvents.CheckIfShapeCanBeReplaced -= CheckIfShapeCanBeReplaced;
+  }
+
+  private void OnEnable() {
+   GameEvents.CheckIfShapeCanBeReplaced += CheckIfShapeCanBeReplaced;
+  }
+
   private void CreateGrid() {
     SpawnGridSquares();        
     SetGridSquaresPositions();
@@ -93,4 +101,14 @@ public class GameGrid : MonoBehaviour {
       columnNumber++;
     }
   }
+
+  private void CheckIfShapeCanBeReplaced() {
+    foreach( var square in _gridSquares ) {
+      var gridSquare = square.GetComponent<GameGridSquare>();
+      if ( gripSquare.CanWeUseThisSquare() ) {
+        // gripSquare.ActivateSquare();    
+      }
+    }
+  }
+
 }
