@@ -19,6 +19,18 @@ public class GameGridSquare : MonoBehaviour {
     SquareOccupied = false;
   }
 
+  // temperary function
+  public bool CanWeUseThisSquare() {
+    return hoverImage.gameObject.activeSelf;
+  }
+
+  public void ActivateSquare() {
+    hoverImage.gameObject.SetActive(true);
+    activeImage.gameObject.SetActive(true);
+    Selected = true;
+    SquareOccupied = true;
+  }
+
   public void SetImage( bool toSetFirstImage ) {
     int index = toSetFirstImage ? 1 : 0;
     normalImage.GetComponent<Image>().sprite = normalImages[index];
