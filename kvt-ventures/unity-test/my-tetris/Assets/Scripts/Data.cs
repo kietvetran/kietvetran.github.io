@@ -17,6 +17,7 @@ public static class Data
     { Tetromino.Z, new Vector2Int[] { new Vector2Int(-1, 1), new Vector2Int( 0, 1), new Vector2Int( 0, 0), new Vector2Int( 1, 0) } },
   };
 
+  // By rotating close to the left- or right wall / border - it has to push the tetromino out for getting enought space for rotation.
   private static readonly Vector2Int[,] WallKicksI = new Vector2Int[,] {
     { new Vector2Int(0, 0), new Vector2Int(-2, 0), new Vector2Int( 1, 0), new Vector2Int(-2,-1), new Vector2Int( 1, 2) },
     { new Vector2Int(0, 0), new Vector2Int( 2, 0), new Vector2Int(-1, 0), new Vector2Int( 2, 1), new Vector2Int(-1,-2) },
