@@ -8,6 +8,11 @@ public class Board : MonoBehaviour {
   public Vector3Int spawnPosition;
   public Vector2Int boardSize = new Vector2Int(10, 20);
 
+  // Challenging
+  private int score = 0;
+  private int level = 0;
+  public TMPController textController;
+
   public RectInt Bounds {
     get {
       Vector2Int position = new Vector2Int(-this.boardSize.x / 2, -this.boardSize.y/2 );
@@ -20,6 +25,7 @@ public class Board : MonoBehaviour {
   private void Awake() {
     this.tilemap = GetComponentInChildren<Tilemap>();
     this.activePiece = GetComponentInChildren<Piece>();
+    this.textController = GetComponentInChildren<TMPController>();
 
     for ( int i=0; i<this.tetrominoes.Length; i++ ) {
       this.tetrominoes[i].Initialize();
@@ -27,6 +33,7 @@ public class Board : MonoBehaviour {
   }
 
   private void Start() {
+    Reset();
     SpawnPiece();
   }
 
@@ -83,10 +90,14 @@ public class Board : MonoBehaviour {
     while ( row < bounds.yMax ) {
       if ( IsLineFull(row) ) {
         LineClear(row);
+
+        this.score += 1;
+        StepUpLevel();
       } else {
         row++;
       }
     }
+    UpdateScoreText();
   }
 
   private bool IsLineFull( int row ) {
@@ -119,6 +130,32 @@ public class Board : MonoBehaviour {
   }
 
   private void GameOver() {
+    Reset();
+  }
+
+  private void StepUpLevel() {
+    int level = Mathf.RoundToInt( this.score / 10 );
+    if ( level > this.level ) {
+      this.level = level;
+      Time.timeScale = 1 + level / 4;
+      UpdateLevelText();
+    }
+  }
+
+  private void Reset() {
     this.tilemap.ClearAllTiles();
-  }  
+    this.score = 0;
+    this.level = 0;
+    Time.timeScale = 1;
+    UpdateScoreText();
+    UpdateLevelText();
+  }
+
+  private void UpdateScoreText() {
+    this.textController.UpdateScoreText( "Score: " + this.score );
+  }
+
+  private void UpdateLevelText() {
+    this.textController.UpdateLevelText( "Level: " + this.level );
+  }
 }
