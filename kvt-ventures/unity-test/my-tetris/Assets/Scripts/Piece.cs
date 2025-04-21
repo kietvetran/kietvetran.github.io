@@ -8,13 +8,22 @@ public class Piece : MonoBehaviour {
   public TetrominoData data { get; private set; }
   public Vector3Int position { get; private set; }
   public Vector3Int[] cells { get; private set; }
-  public int rotationIndex { get; private set; } 
+  public int rotationIndex { get; private set; }
+
+  public float stepDelay = 1f;
+  public float lockDelay = .5f;
+
+  private float stepTime;
+  private float lockTime;
 
   public void Initialize(Board board, Vector3Int position, TetrominoData data) {
     this.board = board;
     this.position = position;
     this.data = data;
     this.rotationIndex = 0;
+
+    this.stepTime = Time.time + this.stepDelay;
+    this.lockTime = 0f;
 
     if ( this.cells == null ) {
       this.cells = new Vector3Int[data.cells.Length];
@@ -29,7 +38,9 @@ public class Piece : MonoBehaviour {
   private void Update() {
     this.board.Clear( this );
 
-    if ( Input.GetKeyDown(KeyCode.Q) ) {
+    this.lockTime += Time.deltaTime;
+
+    if ( Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.UpArrow) ) {
       Rotate(-1);
     } else if ( Input.GetKeyDown(KeyCode.E) ) {
       Rotate(1);
@@ -52,13 +63,37 @@ public class Piece : MonoBehaviour {
     if ( Input.GetKeyDown(KeyCode.Space) ) {
       HardDrop();
     }
+
+
+    if ( Time.time >= this.stepTime ) {
+      Step();
+    }
+
     this.board.Set( this ); 
+  }
+
+
+  private void Step() {
+    this.stepTime = Time.time + this.stepDelay;
+    Move( Vector2Int.down );
+
+    if ( this.lockTime >= this.lockDelay ) {
+      Lock();
+    }
+  }
+
+  private void Lock() {
+    this.board.Set(this);
+    this.board.ClearLine();
+    this.board.SpawnPiece();
   }
 
   private void HardDrop() {
     while( Move(Vector2Int.down) ) {
       continue;
     }
+
+    Lock();
   }
 
   private bool Move( Vector2Int translation ) {
@@ -68,7 +103,8 @@ public class Piece : MonoBehaviour {
 
     bool valid = this.board.IsValidPosition(this, newPosition);
     if ( valid ) {
-      this.position = newPosition;      
+      this.position = newPosition;
+      this.lockTime = 0;
     }
     return valid;
   }
