@@ -1,0 +1,25 @@
+
+.relative { position: relative; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-bold { font-weight: 700; }
+.text-normal { font-weight: 500; }
+.block { display: block; }
+.top-appending {
+    position: relative;
+    opacity: 0;
+    animation-name: top-appending;
+    animation-duration: .4s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.hide {
+    display: none !important;
+}
+
+
+.debug {
+    border: 2px solid red;
+}

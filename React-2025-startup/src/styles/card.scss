@@ -1,0 +1,10 @@
+.card-wrapper {
+  padding: var(--space-medium);
+  border-radius: var(--border-round);
+  border: 1px solid var(--border-color);
+  background-color: var(--color-white);
+
+  .-info {
+    background-color: var(--color-blue-light);
+  }
+}

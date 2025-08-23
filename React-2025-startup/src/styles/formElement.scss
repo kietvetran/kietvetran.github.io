@@ -1,0 +1,147 @@
+/******************************************************************************
+  input-wrapper
+******************************************************************************/
+.input-wrapper {
+    position: relative;
+    padding: 0 0 var(--space-medium) 0;
+}
+
+label.input-label, legend.input-label {
+    display: block;
+    padding: 0 0 var(--space-smallest) 0;
+}
+
+.input-error {
+    padding: var(--space-smallest) 0 0 0;
+    color: var(--color-error);
+}
+
+/******************************************************************************
+  button
+******************************************************************************/
+.button {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding: var(--space-extra-small-min) var(--space-medium);  
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+    color: var(--border-color);
+    border-radius: var(--border-round);
+    border-radius: var(--space-medium);
+
+    text-decoration: none;
+    font-weight: 500;
+    min-width: 64px;
+    white-space: nowrap;
+    background: #eee none no-repeat left center / auto 100%;
+
+    &.-primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    &.-small {
+        padding: 4px var(--space-small);
+        font-size: var(--font-size-small);
+    }
+}
+
+/******************************************************************************
+  textfield & textarea 
+******************************************************************************/
+.icon-btn {
+    display: inline-block;
+    width: var(--icon-btn-size);
+    height: var(--icon-btn-size);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-round);
+    background: transparent none no-repeat center center / auto 90%;
+
+    &.-small {
+        width: var(--icon-btn-size-small);
+        height: var(--icon-btn-size-small);
+    }
+
+    &.-no-border {
+        border: 0 none;
+    }
+}
+
+/*
+.icon-btn.-twitter {
+    background-image: url('../image/icon/twitter/twitter.svg');
+}
+.icon-btn.-twitter.-icon-white {
+    background-image: url('../image/icon/twitter/twitter-white.svg');
+}
+
+.icon-btn.-facebook {
+    background-image: url('../image/icon/facebook/facebook.svg');
+    background-size: auto 75%;
+}
+.icon-btn.-facebook.-icon-white {
+    background-image: url('../image/icon/facebook/facebook-white.svg');
+}
+
+.icon-btn.-instagram {
+    background-image: url('../image/icon/instagram/instagram.svg');
+}
+.icon-btn.-instagram.-icon-white {
+    background-image: url('../image/icon/instagram/instagram-white.svg');
+}
+
+.icon-btn.-email {
+    background-image: url('../image/icon/email/email.svg');
+}
+.icon-btn.-email.-icon-white {
+    background-image: url('../image/icon/email/email-white.svg');
+}
+
+.icon-btn.-pinterest {
+    background-image: url('../image/icon/pinterest/pinterest.svg');
+}
+.icon-btn.-pinterest.-icon-white {
+    background-image: url('../image/icon/pinterest/pinterest-white.svg');
+}
+
+.icon-btn.-cross {
+    background-image: url('../image/icon/cross/cross.svg');
+    background-size: auto 40%;
+}
+*/
+
+/******************************************************************************
+  textfield & textarea 
+******************************************************************************/
+.textarea, .textfield {
+    border-radius: var(--border-round);
+    background: var(--color-white) none repeat 0 0;
+    display: block;
+    border: 2px solid var(--border-color);
+    width: 100%;
+    padding: var(--space-extra-small-min) var(--space-extra-small);
+
+    &:hover, &:focus, &:active {
+        outline: var(--border-color) dotted 1px;
+        outline-offset: 2px;    
+    }
+
+    &.-invalid {
+        border-color: var(--color-error);
+    }
+}
+
+/******************************************************************************
+  textarea 
+******************************************************************************/
+.textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.textarea-remain-character {
+    font-size: 85%;
+    font-style: italic;
+    text-align: right;
+}

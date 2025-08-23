@@ -1,0 +1,138 @@
+@use "../../styles/mixin";
+
+@-webkit-keyframes sky-move {
+  0% {left: 0;}
+  49% {left: 100%; opacity: 1;}
+  50% {left: 100%; opacity: 0;}
+  51% {left: -100%; opacity: 0;} 
+  52% {left: -100%; opacity: 1;} 
+  100% {left: 0;} 
+}
+
+@keyframes sky-move {
+  0% {left: 0;}
+  49% {left: 100%; opacity: 1;}
+  50% {left: 100%; opacity: 0;}
+  51% {left: -100%; opacity: 0;} 
+  52% {left: -100%; opacity: 1;} 
+  100% {left: 0;} 
+}
+
+@-webkit-keyframes sky-backup {
+  0% {left: -100%;}
+  100% {left: 100%;}  
+}
+
+@keyframes sky-backup {
+  0% {left: -100%;}
+  100% {left: 100%;} 
+}
+
+.sky-earth-wrapper {
+  position: fixed;
+  inset: auto 0 0 0;
+  overflow: hidden;
+  height: 400px;
+
+  .cloud-first-wrapper {
+    top: 150px;
+    position: relative;
+    z-index: 1;
+    @include mixin.animation( sky-move, 180s, linear, 0);
+    @include mixin.animation-repeat();
+  }
+
+  .cloud-second-wrapper {
+    top: 0;
+    position: relative;
+    z-index: 2;
+    @include mixin.animation( sky-backup, 240s, linear, 0);
+    @include mixin.animation-repeat();
+  }
+
+  .cloud1, .cloud2, .cloud3 { 
+    opacity: 1; 
+    position: absolute;
+    &, &:before, &:after {
+      border-radius: 200px;
+      background: #e0e0e0 none no-repeat 0 0;
+    }
+    &:before, &:after {
+      content: '';
+      position: absolute;
+    }
+  }
+
+  .cloud1 {
+    width: 200px;
+    height: 60px;
+    top: 80px;
+
+    &:before {
+      width: 100px;
+      height: 100px;
+      top: -60px;
+      right: 30px;
+    }
+  }
+
+  .cloud2 {
+    width: 100px;
+    height: 30px;
+    top: 200px;
+    left: 400px;
+
+    &:before {
+      width: 50px;
+      height: 50px;
+      top: -30px;
+      right: 15px;
+    }
+
+    &:after {
+      width: 40px;
+      height: 40px;
+      top: -20px;
+      left: 10px;  
+    }
+  }  
+
+  .cloud3 {
+    width: 200px;
+    height: 60px;
+    top: 100px;
+    left: 740px;
+
+    &:before {
+      width: 100px;
+      height: 100px;
+      top: -60px;
+      right: 30px;
+    }
+
+    &:after {
+      width: 80px;
+      height: 80px;
+      top: -40px;
+      left: 20px;
+    }
+  }  
+
+  .sky {
+    opacity: 1;
+    margin: 0;
+    @include mixin.transition( all, 2.4s, linear, 1s); 
+  }
+
+  .earth {
+    position: absolute;    
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 400px;
+    margin: 0;
+    border-top: 3px solid #734d26;
+    background: #99e699 none no-repeat 0 0;
+    @include mixin.transition( all, 2s, linear, 1s); 
+  }
+}

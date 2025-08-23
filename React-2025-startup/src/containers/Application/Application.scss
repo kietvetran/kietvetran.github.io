@@ -1,0 +1,50 @@
+.application-wrapper {
+
+}
+
+.app-body .app-cnt {
+  position: relative;
+  z-index: 4;
+  padding-bottom: 100px;
+}
+
+nav {
+  display: flex;
+  a { 
+    margin-left: var(--space-small);
+    align-self: center;
+  }
+}
+
+header {
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--color-white);
+
+  .app-cnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  h1 {    
+    font-size: var(--font-size-medium);
+    padding: 0;
+    margin: 0;
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-bottom: -6px;
+      margin-right: var(--space-smallest-min);
+      background: transparent none no-repeat left center / auto 100%;
+      background-image: url('../../assets/logo/mynorjourney.svg');
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+}

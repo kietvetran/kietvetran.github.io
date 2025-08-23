@@ -1,0 +1,36 @@
+body, h1, h2, h3, h4, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, input, select, option  {
+	font-family: var(--font-family);
+	color: var(--font-color);
+	line-height: 130%;
+}
+
+/* body, p, div, span, strong, em, b, li, td, a, button, legend, textarea, label, input, select, option  { */
+body, button, legend, textarea, label, input, select, option {
+	font-size: var(--font-size-regular);
+}
+
+/* body, p, div, span, em, li, td, a, button, legend, textarea, label, input, select, option  { */
+body, button, legend, textarea, label, input, select, option {
+	font-weight: normal;
+}
+
+h1, .h1 {
+	font-size: var(--font-size-large);
+	font-weight: 600;
+}
+
+h2, .h2 {
+	font-size: var(--font-size-medium);
+	font-weight: 600;
+}
+
+h3, .h3 {
+	font-size: var(--font-size-regular);
+}
+
+.sub-title {
+	&, > span {
+		font-weight: 700;
+		font-size: var(--font-size-small);
+	}
+}
