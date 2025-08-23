@@ -3,13 +3,13 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { queryClient } from '../../query/queryClient';
-import Home from '../Home/Home';
-import PageNotFound from '../PageNotFound/PageNotFound';
-import SkyEarth from '../../components/SkyEarth/SkyEarth';
-import Test from '../Test/Test';
+import { Home } from '../Home/Home';
+import { PageNotFound } from '../PageNotFound/PageNotFound';
+import { SkyEarth } from '../../components/SkyEarth/SkyEarth';
+import { Test } from '../Test/Test';
 import './Application.scss';
 
-export default function Application() {
+export function Application() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="application-wrapper">

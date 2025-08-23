@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Application from './containers/Application/Application';
+import { Application } from './containers/Application/Application';
 import './styles/theme.scss';
 import './styles/unit.scss';
 import './styles/card.scss';

@@ -1,7 +1,7 @@
 import React from 'react';
 import './SkyEarth.scss';
 
-export default function SkyEarth() {
+export function SkyEarth() {
   return (
     <div className="sky-earth-wrapper">
       <div className="sky">
