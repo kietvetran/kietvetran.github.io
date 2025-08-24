@@ -8,7 +8,17 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    ignores: ['tsconfig.json', 'package-lock.json', 'webpack.config.js', 'jest.config.js', 'dist/**', 'public/**', 'node_modules/**'],
+    ignores: [
+      'tsconfig.json',
+      'package-lock.json',
+      'webpack.config.js',
+      'jest.config.js',
+      'dist/**',
+      'public/**',
+      'node_modules/**',
+      'playwright-report/**',
+      'test-results/**',
+    ],
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],

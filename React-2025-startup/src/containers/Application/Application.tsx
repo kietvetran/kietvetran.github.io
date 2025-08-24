@@ -18,9 +18,13 @@ export function Application() {
             <a href="/" className="link -no-underline">
               <h1>kietvetran</h1>
             </a>
-            <nav id="main-nav" className="navigation" aria-label="hovedmenu" role="navigation">
-              <a href="/">Home</a>
-              <a href="/test">Test</a>
+            <nav data-testid="main-nav" id="main-nav" className="navigation" aria-label="hovedmenu" role="navigation">
+              <a data-testid="home-nav" id="home-nav" href="/">
+                Home
+              </a>
+              <a data-testid="test-nav" id="test-nav" href="/test">
+                Test
+              </a>
             </nav>
           </div>
         </header>

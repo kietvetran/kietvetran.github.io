@@ -19,13 +19,14 @@ type FormValues = yup.InferType<typeof SCHEMA>;
 export function Test() {
   const formMethods = useForm<FormValues>({
     resolver: yupResolver(SCHEMA),
+    mode: 'onChange', // 'all', 'onTouched', 'onChange', 'onBlur'
     defaultValues: {
       name: '',
       note: '',
       animal: '',
     },
   });
-  const { handleSubmit } = formMethods;
+  const { handleSubmit, reset } = formMethods;
 
   return (
     <div className="test-wrapper">
@@ -38,19 +39,32 @@ export function Test() {
             console.log('== SUBMIT ==');
             console.log(values);
           })}>
-          <HookInputField name="name" label="Name" type="text" data-test-id="test-name" />
-          <HookTextarea name="note" label="Note" data-test-id="test-note" />
+          <HookInputField name="name" label="Name" type="text" data-testid="test-name" />
+          <HookTextarea name="note" label="Note" data-testid="test-note" />
           <HookSelectbox
             name="animal"
             label="Animal"
-            data-test-id="test-animal"
+            data-testid="test-animal"
             options={[
+              { value: '', label: '' },
               { value: 'dog', label: 'Dog' },
               { value: 'cat', label: 'Cat' },
               { value: 'bird', label: 'Bird' },
             ]}
           />
-          <input type="submit" className="button -primary" />
+          <div>
+            <button
+              type="reset"
+              className="button -secondary"
+              onClick={() => {
+                reset();
+              }}>
+              Reset
+            </button>
+            <button type="submit" className="button -primary">
+              Submit
+            </button>
+          </div>
         </form>
       </FormProvider>
     </div>
