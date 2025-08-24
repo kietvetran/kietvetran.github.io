@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -19,38 +19,51 @@ type FormValues = yup.InferType<typeof SCHEMA>;
 export function Test() {
   const formMethods = useForm<FormValues>({
     resolver: yupResolver(SCHEMA),
+    mode: 'onChange', // 'all', 'onTouched', 'onChange', 'onBlur'
     defaultValues: {
       name: '',
       note: '',
       animal: '',
     },
   });
-  const { handleSubmit } = formMethods;
+  const { handleSubmit, reset } = formMethods;
+
+  const submit = useCallback((values: FormValues) => {
+    console.log('== ON SUBMIT ==');
+    console.log(values);
+  }, []);
 
   return (
     <div className="test-wrapper">
       <h2>Test - From</h2>
       <FormProvider {...formMethods}>
-        <form
-          noValidate
-          className="form-wrapper"
-          onSubmit={handleSubmit((values: FormValues) => {
-            console.log('== SUBMIT ==');
-            console.log(values);
-          })}>
-          <HookInputField name="name" label="Name" type="text" data-test-id="test-name" />
-          <HookTextarea name="note" label="Note" data-test-id="test-note" />
+        <form noValidate className="form-wrapper" onSubmit={handleSubmit(submit)}>
+          <HookInputField name="name" label="Name" type="text" data-testid="test-name" />
+          <HookTextarea name="note" label="Note" data-testid="test-note" />
           <HookSelectbox
             name="animal"
             label="Animal"
-            data-test-id="test-animal"
+            data-testid="test-animal"
             options={[
+              { value: '', label: '' },
               { value: 'dog', label: 'Dog' },
               { value: 'cat', label: 'Cat' },
               { value: 'bird', label: 'Bird' },
             ]}
           />
-          <input type="submit" className="button -primary" />
+          <div>
+            <button
+              type="reset"
+              className="button -secondary"
+              onClick={() => {
+                reset();
+              }}>
+              Reset
+            </button>
+            <button type="submit" className="button -primary">
+              Submit
+            </button>
+          </div>
         </form>
       </FormProvider>
     </div>

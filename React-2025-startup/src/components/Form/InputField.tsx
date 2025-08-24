@@ -7,7 +7,7 @@ import { InputWrapper } from './InputWrapper';
 type InputProps = {
   label: string | ReactElement;
   description?: string | ReactElement;
-  'data-test-id'?: string;
+  'data-testid'?: string;
   error?: string;
 };
 
