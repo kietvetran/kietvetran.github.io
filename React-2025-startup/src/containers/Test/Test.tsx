@@ -8,20 +8,32 @@ import { HookInputField, HookTextarea, HookSelectbox } from '../../components/Fo
 
 import './Test.scss';
 
-const SCHEMA = yup.object({
-  name: yup.string().required('Name is required'),
+const BASIC = yup.object({
+  name: yup.string().nullable().required('Name is required'),
   note: yup.string().required('Note is required'),
   animal: yup.string().required('Animal is required'),
 });
 
+type BasicValues = yup.InferType<typeof BASIC>;
+const SCHEMA = BASIC.clone() as yup.ObjectSchema<Omit<BasicValues, 'name'> & { name: string | null }>;
+
+/*
+const SCHEMA = yup.object({
+  name: yup.string().nullable().required('Name is required'),
+  // note: yup.string().required('Note is required'),
+  // animal: yup.string().required('Animal is required'),
+}) as yup.ObjectSchema<{ name: string | null }>;
+*/
+
 type FormValues = yup.InferType<typeof SCHEMA>;
+// type FormValues = { name: string | null;};
 
 export function Test() {
   const formMethods = useForm<FormValues>({
     resolver: yupResolver(SCHEMA),
     mode: 'onChange', // 'all', 'onTouched', 'onChange', 'onBlur'
     defaultValues: {
-      name: '',
+      name: null,
       note: '',
       animal: '',
     },
@@ -29,7 +41,7 @@ export function Test() {
   const { handleSubmit, reset } = formMethods;
 
   const submit = useCallback((values: FormValues) => {
-    console.log('== ON SUBMIT ==');
+    console.log('== SUBMIT ==');
     console.log(values);
   }, []);
 
